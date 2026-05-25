@@ -95,14 +95,20 @@ projects/
     verification-before-completion/
   homelab/
     grill-with-docs/
+    homelab-app-onboarding/
     homelab-backup-restore/
+    homelab-ceph-storage-operations/
     homelab-cloudflare-operations/
     homelab-gateway-routes/
     homelab-gitops-operations/
+    homelab-implementation-planning/
     homelab-kubernetes-operations/
     homelab-network-readiness/
+    homelab-observability-operations/
     homelab-opentofu-terraform/
     homelab-proxmox-operations/
+    homelab-review-and-debt/
+    homelab-secret-management/
     network-config-validation/
     security-review/
     systematic-debugging/
@@ -196,14 +202,20 @@ di generalizzare la versione CAP.
 | Skill | Repo sorgente | Descrizione breve |
 | --- | --- | --- |
 | `grill-with-docs` | personale locale | Sfida piani GitOps, rete, backup e architettura contro documentazione e manifest reali. |
+| `homelab-app-onboarding` | personale locale | Guida onboarding app con manifest, ArgoCD, SOPS, CNPG, HTTPRoute, Cloudflare, Homepage e backup. |
 | `homelab-backup-restore` | personale locale | Guida backup, restore, CNPG, Barman Cloud Plugin, RGW, rclone e drill di recovery. |
+| `homelab-ceph-storage-operations` | personale locale | Guida Ceph, Ceph CSI, RGW, RBD, PVC, bucket S3 e percorsi storage. |
 | `homelab-cloudflare-operations` | personale locale | Guida DNS, Access, Zero Trust, tunnel cloudflared e raggiungibilita pubblica. |
 | `homelab-gateway-routes` | personale locale | Guida HTTPRoute, Gateway API, Traefik, Cloudflare DNS/Access e tunnel ingress. |
 | `homelab-gitops-operations` | personale locale | Guida modifiche GitOps, sync ArgoCD, Kustomize, dry-run e verifiche live. |
+| `homelab-implementation-planning` | personale locale | Guida piani per migrazioni, rollout GitOps, rollback, verifiche e commit strategy. |
 | `homelab-kubernetes-operations` | personale locale | Guida K3s, risorse Kubernetes, CRD, operatori, rollout, servizi, endpoint e log. |
 | `homelab-network-readiness` | `affaan-m/everything-claude-code` | Checklist di readiness per rete homelab, DNS locale, firewall e accesso remoto. |
+| `homelab-observability-operations` | personale locale | Guida Grafana, Loki, Prometheus, Alloy, dashboard, alerting, label e metriche. |
 | `homelab-opentofu-terraform` | personale locale | Guida Terraform/OpenTofu per Cloudflare Zero Trust, DNS, Access, tunnel e state. |
 | `homelab-proxmox-operations` | personale locale | Guida Proxmox, PBS, Ceph, VM/LXC, nodi, storage e backup infrastrutturali. |
+| `homelab-review-and-debt` | personale locale | Guida review del repo per debito tecnico, rischio operativo, drift, sicurezza e nuove implementazioni. |
+| `homelab-secret-management` | personale locale | Guida SOPS, Age, Reflector, rotazione token, credenziali DB e leak check. |
 | `network-config-validation` | `affaan-m/everything-claude-code` | Review preventiva di configurazioni rete, indirizzi, subnet e rischi management-plane. |
 | `security-review` | `affaan-m/everything-claude-code` | Checklist sicurezza per segreti, configurazioni, accessi e superfici esposte. |
 | `systematic-debugging` | `obra/superpowers` | Debug strutturato per GitOps, Kubernetes, DNS, Cloudflare, monitoring e backup. |
