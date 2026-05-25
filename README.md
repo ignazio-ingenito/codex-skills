@@ -95,6 +95,9 @@ projects/
     verification-before-completion/
   homelab/
     grill-with-docs/
+    homelab-backup-restore/
+    homelab-gateway-routes/
+    homelab-gitops-operations/
     homelab-network-readiness/
     network-config-validation/
     security-review/
@@ -189,6 +192,9 @@ di generalizzare la versione CAP.
 | Skill | Repo sorgente | Descrizione breve |
 | --- | --- | --- |
 | `grill-with-docs` | personale locale | Sfida piani GitOps, rete, backup e architettura contro documentazione e manifest reali. |
+| `homelab-backup-restore` | personale locale | Guida backup, restore, CNPG, Barman Cloud Plugin, RGW, rclone e drill di recovery. |
+| `homelab-gateway-routes` | personale locale | Guida HTTPRoute, Gateway API, Traefik, Cloudflare DNS/Access e tunnel ingress. |
+| `homelab-gitops-operations` | personale locale | Guida modifiche GitOps, sync ArgoCD, Kustomize, dry-run e verifiche live. |
 | `homelab-network-readiness` | `affaan-m/everything-claude-code` | Checklist di readiness per rete homelab, DNS locale, firewall e accesso remoto. |
 | `network-config-validation` | `affaan-m/everything-claude-code` | Review preventiva di configurazioni rete, indirizzi, subnet e rischi management-plane. |
 | `security-review` | `affaan-m/everything-claude-code` | Checklist sicurezza per segreti, configurazioni, accessi e superfici esposte. |
