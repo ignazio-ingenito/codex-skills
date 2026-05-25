@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+description: Use to orchestrate a review request: gather diff SHAs, prepare reviewer context, dispatch a reviewer/subagent, and act on feedback. Do not use for the review criteria themselves; use code-review-and-quality when directly reviewing code.
 ---
 
 # Requesting Code Review
@@ -20,6 +20,14 @@ Dispatch a code reviewer subagent to catch issues before they cascade. The revie
 - When stuck (fresh perspective)
 - Before refactoring (baseline check)
 - After fixing complex bug
+
+## Boundary With `code-review-and-quality`
+
+Use `requesting-code-review` for review logistics: what changed, what range to
+review, what requirements the reviewer should apply, and how to process feedback.
+
+Use `code-review-and-quality` when you are the reviewer and need to evaluate the
+change across correctness, readability, architecture, security, and performance.
 
 ## How to Request
 

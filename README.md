@@ -40,7 +40,6 @@ Struttura attuale:
 
 ```text
 global/
-  baia-publish/
   brainstorming/
   caveman/
   code-review-and-quality/
@@ -51,10 +50,7 @@ global/
   improve-codebase-architecture/
   interview-me/
   office-hours/
-  organize-obsidian-wiki/
   playwright/
-  powerpoint-deck-production/
-  pptx-quality-review/
   prototype/
   receiving-code-review/
   requesting-code-review/
@@ -89,6 +85,27 @@ projects/
     write-tests/
     writing-plans/
     zoom-out/
+  cantieri-protetti-ai/
+    documentation-and-adrs/
+    grill-with-docs/
+    security-and-hardening/
+    source-driven-development/
+    systematic-debugging/
+    verification-before-completion/
+  homelab/
+    grill-with-docs/
+    homelab-network-readiness/
+    network-config-validation/
+    security-review/
+    systematic-debugging/
+    verification-before-completion/
+  obsidian/
+    organize-obsidian-wiki/
+    verification-before-completion/
+  powerpoint/
+    grill-with-docs/
+    powerpoint-deck-production/
+    pptx-quality-review/
 ```
 
 `grill-with-docs` esiste in entrambi i contenitori perche la versione globale e
@@ -101,7 +118,6 @@ di generalizzare la versione CAP.
 
 | Skill | Repo sorgente | Descrizione breve |
 | --- | --- | --- |
-| `baia-publish` | personale locale | Pubblica contenuti Baialupo seguendo workflow editoriale e tassonomie esistenti. |
 | `brainstorming` | `obra/superpowers` | Esplora intento, requisiti e design prima di lavori creativi o modifiche di comportamento. |
 | `caveman` | `mattpocock/skills` | Modalita di comunicazione ultra-sintetica per ridurre token e rumore. |
 | `code-review-and-quality` | `addyosmani/agent-skills` | Review multi-asse su correttezza, leggibilita, architettura, sicurezza e performance. |
@@ -112,10 +128,7 @@ di generalizzare la versione CAP.
 | `improve-codebase-architecture` | `mattpocock/skills` | Cerca opportunita di miglioramento architetturale e testabilita. |
 | `interview-me` | `addyosmani/agent-skills` | Intervista l'utente una domanda alla volta per chiarire il bisogno reale. |
 | `office-hours` | `garrytan/gstack` | Domande stile YC/CEO per valutare idee, focus e ambizione di prodotto. |
-| `organize-obsidian-wiki` | personale locale | Organizza un vault Obsidian in wiki collegata e consultabile. |
 | `playwright` | `openai/skills` | Automazione browser reale tramite Playwright CLI e workflow associati. |
-| `powerpoint-deck-production` | personale locale | Produce o modifica presentazioni PowerPoint editabili e source-grounded. |
-| `pptx-quality-review` | personale locale | Revisiona deck PowerPoint per storyline, fonti, assunzioni e qualita visiva. |
 | `prototype` | `mattpocock/skills` | Costruisce prototipi throwaway per validare design, stato o UI prima dell'implementazione. |
 | `receiving-code-review` | `obra/superpowers` | Gestisce feedback di review con rigore tecnico prima di applicare modifiche. |
 | `requesting-code-review` | `obra/superpowers` | Prepara richieste di review quando un lavoro e pronto o vicino al merge. |
@@ -157,6 +170,43 @@ di generalizzare la versione CAP.
 | Skill | Repo sorgente | Descrizione breve |
 | --- | --- | --- |
 | `baia-publish` | `baialupo` locale | Pubblica articoli, eventi e aggiornamenti Baialupo seguendo workflow editoriale, fonti, immagini, eventi e passaggio di naturalezza. |
+
+### Cantieri Protetti AI
+
+| Skill | Repo sorgente | Descrizione breve |
+| --- | --- | --- |
+| `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni, ADR e documentazione quando cambiano dominio, payload, API, OCR, LLM o persistenza. |
+| `grill-with-docs` | personale locale | Stress-test di decisioni contro `CONTEXT.md`, ADR e linguaggio di dominio. |
+| `security-and-hardening` | `addyosmani/agent-skills` | Rafforza privacy, segreti, input file, API e gestione di contenuti documentali sensibili. |
+| `source-driven-development` | `addyosmani/agent-skills` | Ancora implementazioni a fonti autorevoli e documentazione tecnica aggiornata. |
+| `systematic-debugging` | `obra/superpowers` | Diagnosi strutturata per pipeline PDF, OCR, LLM, API e CLI. |
+| `verification-before-completion` | `obra/superpowers` | Richiede evidenze di test, lint, comandi CLI e verifica payload prima di chiudere il lavoro. |
+
+### Homelab
+
+| Skill | Repo sorgente | Descrizione breve |
+| --- | --- | --- |
+| `grill-with-docs` | personale locale | Sfida piani GitOps, rete, backup e architettura contro documentazione e manifest reali. |
+| `homelab-network-readiness` | `affaan-m/everything-claude-code` | Checklist di readiness per rete homelab, DNS locale, firewall e accesso remoto. |
+| `network-config-validation` | `affaan-m/everything-claude-code` | Review preventiva di configurazioni rete, indirizzi, subnet e rischi management-plane. |
+| `security-review` | `affaan-m/everything-claude-code` | Checklist sicurezza per segreti, configurazioni, accessi e superfici esposte. |
+| `systematic-debugging` | `obra/superpowers` | Debug strutturato per GitOps, Kubernetes, DNS, Cloudflare, monitoring e backup. |
+| `verification-before-completion` | `obra/superpowers` | Verifica comandi, sync, manifest e stato cluster prima di dichiarare completata una modifica. |
+
+### Obsidian
+
+| Skill | Repo sorgente | Descrizione breve |
+| --- | --- | --- |
+| `organize-obsidian-wiki` | personale locale | Organizza note del vault in wiki personale senza modificare il vault reale senza conferma. |
+| `verification-before-completion` | `obra/superpowers` | Controlla link, duplicati, output e confini read-only prima di chiudere un riordino. |
+
+### PowerPoint
+
+| Skill | Repo sorgente | Descrizione breve |
+| --- | --- | --- |
+| `grill-with-docs` | personale locale | Verifica storyline, assunzioni e contenuti contro documenti sorgente e riferimenti. |
+| `powerpoint-deck-production` | personale locale | Produce o modifica deck PowerPoint editabili e source-grounded. |
+| `pptx-quality-review` | personale locale | Revisiona deck per storyline, grounding, assunzioni, coerenza visiva e igiene deliverable. |
 
 ## Forma Di Una Skill
 

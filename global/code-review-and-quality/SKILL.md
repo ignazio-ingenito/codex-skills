@@ -1,6 +1,6 @@
 ---
 name: code-review-and-quality
-description: Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.
+description: Conducts the actual multi-axis code review: correctness, readability, architecture, security, and performance. Use when evaluating a diff or implementation. Do not use to orchestrate or request an external/subagent review; use requesting-code-review for that workflow.
 ---
 
 # Code Review and Quality
@@ -18,6 +18,14 @@ Multi-dimensional code review with quality gates. Every change gets reviewed bef
 - When another agent or model produced code you need to evaluate
 - When refactoring existing code
 - After any bug fix (review both the fix and the regression test)
+
+## Boundary With `requesting-code-review`
+
+Use `code-review-and-quality` for the review criteria and findings themselves:
+what is correct, risky, unclear, insecure, slow, or missing tests.
+
+Use `requesting-code-review` when the task is to package context, select a diff
+range, dispatch a reviewer, or act on reviewer feedback.
 
 ## The Five-Axis Review
 

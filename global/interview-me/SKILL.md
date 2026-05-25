@@ -1,6 +1,6 @@
 ---
 name: interview-me
-description: Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified ("build me X" without "for whom" or "why now"), when the user explicitly invokes ("interview me", "grill me", "are we sure?", "stress-test my thinking"), or when you catch yourself silently filling in ambiguous requirements before any plan, spec, or code exists.
+description: Extracts what the user actually wants before solution design. Use when the ask is underspecified, conventional, or missing who/why/success/constraints; ask one question at a time with a guess. Do not use to generate options or design a feature once intent is clear; hand off to brainstorming after the intent is confirmed.
 ---
 
 # Interview Me
@@ -30,6 +30,15 @@ Apply this skill when:
 - Pure information requests ("how does X work?", "what does this code do?")
 - Mechanical operations (renames, formats, file moves)
 - You already have ≥95% confidence; re-read the stop condition below before assuming you don't
+- The intent is already clear and the user needs options, trade-offs, or a design; use `brainstorming` instead
+
+## Boundary With `brainstorming`
+
+Use `interview-me` to discover intent before solution design exists. The output is
+a confirmed statement of intent, not a feature plan.
+
+Use `brainstorming` after the core intent is known and the work needs options,
+trade-offs, design shape, or implementation direction.
 
 ## Loading Constraints
 

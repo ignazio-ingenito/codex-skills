@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description: "Use after the user's core intent is clear to explore options, requirements, trade-offs, and design before implementation. If who/why/success/constraints are still unknown, use interview-me first. Do not use this as a substitute for intent extraction."
 ---
 
 # Brainstorming Ideas Into Designs
@@ -16,6 +16,16 @@ Do NOT invoke any implementation skill, write any code, scaffold any project, or
 ## Anti-Pattern: "This Is Too Simple To Need A Design"
 
 Every project goes through this process. A todo list, a single-function utility, a config change — all of them. "Simple" projects are where unexamined assumptions cause the most wasted work. The design can be short (a few sentences for truly simple projects), but you MUST present it and get approval.
+
+## Boundary With `interview-me`
+
+Use `brainstorming` when the user already has a reasonably clear goal and needs
+ways to shape it: approaches, trade-offs, scope, design, and approval before
+implementation.
+
+If the request is still a vague convention such as "build a dashboard" and the
+real user, reason, success condition, or constraint is missing, run
+`interview-me` first. Return to `brainstorming` only after the intent is clear.
 
 ## Checklist
 

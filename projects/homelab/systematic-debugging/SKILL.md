@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Use before proposing fixes for any bug, test failure, build failure, or unexpected behavior. Its job is root-cause investigation and hypothesis testing. Do not use merely to prove finished work is complete; use verification-before-completion after the fix or task is done.
+description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
 ---
 
 # Systematic Debugging
@@ -42,14 +42,6 @@ Use for ANY technical issue:
 - Issue seems simple (simple bugs have root causes too)
 - You're in a hurry (rushing guarantees rework)
 - Manager wants it fixed NOW (systematic is faster than thrashing)
-
-## Boundary With `verification-before-completion`
-
-Use `systematic-debugging` when something is broken or unexplained and the root
-cause is not yet known. It comes before fixes.
-
-Use `verification-before-completion` after the fix or task exists, when the next
-risk is making an unsupported success claim.
 
 ## The Four Phases
 

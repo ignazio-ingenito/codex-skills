@@ -1,6 +1,6 @@
 ---
 name: verification-before-completion
-description: Use after work or a fix exists, before claiming it is complete, fixed, passing, ready to commit, or ready for PR. It requires fresh verification evidence. Do not use to diagnose an unexplained failure; use systematic-debugging first.
+description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 ---
 
 # Verification Before Completion
@@ -123,14 +123,6 @@ From 24 failure memories:
 - Committing, PR creation, task completion
 - Moving to next task
 - Delegating to agents
-
-## Boundary With `systematic-debugging`
-
-Use `verification-before-completion` when the question is "can I honestly claim
-this is done?" The answer must come from fresh command output or direct evidence.
-
-Use `systematic-debugging` when the question is "why is this broken?" or "where
-does this failure come from?"
 
 **Rule applies to:**
 - Exact phrases
