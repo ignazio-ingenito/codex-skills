@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPTX Quality Review"
+  short_description: "Review deck quality and source grounding"
+  default_prompt: "Use $pptx-quality-review to review this PowerPoint deck against the repository sources."

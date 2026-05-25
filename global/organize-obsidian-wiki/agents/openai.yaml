@@ -1,0 +1,4 @@
+interface:
+  display_name: "Organize Obsidian Wiki"
+  short_description: "Turn Obsidian notes into a usable wiki"
+  default_prompt: "Use $organize-obsidian-wiki to organize my Obsidian notes into a linked personal wiki."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerPoint Deck Production"
+  short_description: "Produce grounded executive PowerPoint decks"
+  default_prompt: "Use $powerpoint-deck-production to create a grounded executive PowerPoint deck from this repository."

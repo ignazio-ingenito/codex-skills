@@ -1,0 +1,4 @@
+interface:
+  display_name: "Baia Publish"
+  short_description: "Pubblica articoli ed eventi Baialupo"
+  default_prompt: "Pubblica una notizia o una locandina per Baialupo seguendo il workflow editoriale."
