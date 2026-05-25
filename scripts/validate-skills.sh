@@ -43,6 +43,38 @@ validate_skill_dir() {
     echo "ERROR ${skill_name}: frontmatter missing description" >&2
     status=1
   fi
+
+  if command -v python3 >/dev/null 2>&1; then
+    if ! python3 - "${skill_file}" <<'PY'
+from pathlib import Path
+import sys
+
+path = Path(sys.argv[1])
+text = path.read_text(encoding="utf-8")
+if not text.startswith("---\n"):
+    raise SystemExit(1)
+try:
+    _, frontmatter, _ = text.split("---", 2)
+except ValueError:
+    raise SystemExit(1)
+
+try:
+    import yaml  # type: ignore
+except Exception:
+    raise SystemExit(0)
+
+data = yaml.safe_load(frontmatter)
+if not isinstance(data, dict):
+    raise SystemExit(1)
+for key in ("name", "description"):
+    if not data.get(key):
+        raise SystemExit(1)
+PY
+    then
+      echo "ERROR ${skill_name}: invalid YAML frontmatter" >&2
+      status=1
+    fi
+  fi
 }
 
 while IFS= read -r -d '' skill_dir; do

@@ -1,6 +1,10 @@
 ---
 name: code-review-and-quality
-description: Conducts the actual multi-axis code review: correctness, readability, architecture, security, and performance. Use when evaluating a diff or implementation. Do not use to orchestrate or request an external/subagent review; use requesting-code-review for that workflow.
+description: >-
+  Conducts the actual multi-axis code review: correctness, readability,
+  architecture, security, and performance. Use when evaluating a diff or
+  implementation. Do not use to orchestrate or request an external/subagent
+  review; use requesting-code-review for that workflow.
 ---
 
 # Code Review and Quality

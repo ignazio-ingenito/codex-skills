@@ -1,6 +1,10 @@
 ---
 name: requesting-code-review
-description: Use to orchestrate a review request: gather diff SHAs, prepare reviewer context, dispatch a reviewer/subagent, and act on feedback. Do not use for the review criteria themselves; use code-review-and-quality when directly reviewing code.
+description: >-
+  Use to orchestrate a review request: gather diff SHAs, prepare reviewer
+  context, dispatch a reviewer/subagent, and act on feedback. Do not use for the
+  review criteria themselves; use code-review-and-quality when directly
+  reviewing code.
 ---
 
 # Requesting Code Review
