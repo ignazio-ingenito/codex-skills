@@ -54,6 +54,7 @@ global/
   prototype/
   receiving-code-review/
   requesting-code-review/
+  senior-implementation-discipline/
   systematic-debugging/
   triage/
   using-git-worktrees/
@@ -132,6 +133,7 @@ di generalizzare la versione CAP.
 | `prototype` | `mattpocock/skills` | Costruisce prototipi throwaway per validare design, stato o UI prima dell'implementazione. |
 | `receiving-code-review` | `obra/superpowers` | Gestisce feedback di review con rigore tecnico prima di applicare modifiche. |
 | `requesting-code-review` | `obra/superpowers` | Prepara richieste di review quando un lavoro e pronto o vicino al merge. |
+| `senior-implementation-discipline` | personale locale | Impone disciplina da maintainer per modifiche a codice condiviso, contratti, dominio, persistenza, sicurezza e architettura. |
 | `systematic-debugging` | `obra/superpowers` | Impone un ciclo disciplinato prima di proporre fix a bug o test rotti. |
 | `triage` | `mattpocock/skills` | Triage di issue, bug e feature request tramite stati e ruoli. |
 | `using-git-worktrees` | `obra/superpowers` | Usa workspace isolati con git worktree per feature work o piani complessi. |
