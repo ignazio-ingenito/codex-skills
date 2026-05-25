@@ -27,23 +27,24 @@ For events and raduni, treat flyers, posters, social posts, and organizer blurbs
 
 ## Publishing Workflow
 
-1. Inspect existing posts and assets with `rg`/`rg --files` to avoid duplicate slugs and image names.
-2. Verify dates, location, official source, and operational details. Browse for unstable facts or when the source is not already available locally.
-3. Choose category and filename:
+1. Check `EDITORIAL_BACKLOG.md` when scouting, planning, or looking for new candidates. If it contains open items, evaluate those before proposing unrelated content, and update or clear the item when the user approves publication.
+2. Inspect existing posts and assets with `rg`/`rg --files` to avoid duplicate slugs and image names.
+3. Verify dates, location, official source, and operational details. Browse for unstable facts or when the source is not already available locally.
+4. Choose category and filename:
    `src/content/posts/<category>/YYYY-MM-DD-slug.md`
-4. Use today's editorial publication date for `created` and `updated` on new articles unless the user explicitly asks for another metadata date. Do not use a future event date as `created` or `updated`; keep event dates in the title, body, filename when appropriate, and event card.
-5. Use frontmatter with `featured: 1` for new articles unless the user explicitly asks otherwise.
-6. Add a cover:
+5. Use today's editorial publication date for `created` and `updated` on new articles unless the user explicitly asks for another metadata date. Do not use a future event date as `created` or `updated`; keep event dates in the title, body, filename when appropriate, and event card.
+6. Use frontmatter with `featured: 1` for new articles unless the user explicitly asks otherwise.
+7. Add a cover:
    - first reuse a fitting local image from `public/img/covers/` or `public/img/stories/`;
    - if the user provides a locandina, copy it to `public/img/stories/` with a descriptive filename;
    - for raduni and events, search first for the official locandina/flyer from the organizer, aeroclub, aviosuperficie, event page, or social announcement;
    - if no suitable image exists, search for a usable official image or generate an original cover.
-7. Insert the cover in the article body immediately after the intro/practical info block:
+8. Insert the cover in the article body immediately after the intro/practical info block:
    `[![Alt text](/web/img/stories/name.jpg)](/web/img/stories/name.jpg)`
-8. Use emoji in section headings/practical blocks when helpful: `📍`, `📅`, `✈️`, `🛩️`, `📌`, `🛠`, `🧑‍✈️`, `🎟️`, `🔗`.
-9. Cite sources at the end. Do not copy long external text; summarize and link.
-10. Run the editorial naturalness pass below before validation.
-11. Run `pnpm check`; run `pnpm build` for new posts, events, image changes, or anything affecting generated pages.
+9. Use emoji in section headings/practical blocks when helpful: `📍`, `📅`, `✈️`, `🛩️`, `📌`, `🛠`, `🧑‍✈️`, `🎟️`, `🔗`.
+10. Cite sources at the end. Do not copy long external text; summarize and link.
+11. Run the editorial naturalness pass below before validation.
+12. Run `pnpm check`; run `pnpm build` for new posts, events, image changes, or anything affecting generated pages.
 
 ## Article Pattern
 
