@@ -96,9 +96,13 @@ projects/
   homelab/
     grill-with-docs/
     homelab-backup-restore/
+    homelab-cloudflare-operations/
     homelab-gateway-routes/
     homelab-gitops-operations/
+    homelab-kubernetes-operations/
     homelab-network-readiness/
+    homelab-opentofu-terraform/
+    homelab-proxmox-operations/
     network-config-validation/
     security-review/
     systematic-debugging/
@@ -193,9 +197,13 @@ di generalizzare la versione CAP.
 | --- | --- | --- |
 | `grill-with-docs` | personale locale | Sfida piani GitOps, rete, backup e architettura contro documentazione e manifest reali. |
 | `homelab-backup-restore` | personale locale | Guida backup, restore, CNPG, Barman Cloud Plugin, RGW, rclone e drill di recovery. |
+| `homelab-cloudflare-operations` | personale locale | Guida DNS, Access, Zero Trust, tunnel cloudflared e raggiungibilita pubblica. |
 | `homelab-gateway-routes` | personale locale | Guida HTTPRoute, Gateway API, Traefik, Cloudflare DNS/Access e tunnel ingress. |
 | `homelab-gitops-operations` | personale locale | Guida modifiche GitOps, sync ArgoCD, Kustomize, dry-run e verifiche live. |
+| `homelab-kubernetes-operations` | personale locale | Guida K3s, risorse Kubernetes, CRD, operatori, rollout, servizi, endpoint e log. |
 | `homelab-network-readiness` | `affaan-m/everything-claude-code` | Checklist di readiness per rete homelab, DNS locale, firewall e accesso remoto. |
+| `homelab-opentofu-terraform` | personale locale | Guida Terraform/OpenTofu per Cloudflare Zero Trust, DNS, Access, tunnel e state. |
+| `homelab-proxmox-operations` | personale locale | Guida Proxmox, PBS, Ceph, VM/LXC, nodi, storage e backup infrastrutturali. |
 | `network-config-validation` | `affaan-m/everything-claude-code` | Review preventiva di configurazioni rete, indirizzi, subnet e rischi management-plane. |
 | `security-review` | `affaan-m/everything-claude-code` | Checklist sicurezza per segreti, configurazioni, accessi e superfici esposte. |
 | `systematic-debugging` | `obra/superpowers` | Debug strutturato per GitOps, Kubernetes, DNS, Cloudflare, monitoring e backup. |
