@@ -1,0 +1,6 @@
+interface:
+  display_name: "Read VDO Hour Meter"
+  short_description: "Read VDO LCD hour meter photos"
+  default_prompt: "Use $read-vdo-hour-meter to analyze the images in this folder and create a Kong readings.yml file."
+policy:
+  allow_implicit_invocation: true

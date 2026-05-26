@@ -116,6 +116,8 @@ projects/
   obsidian/
     organize-obsidian-wiki/
     verification-before-completion/
+  kong/
+    read-vdo-hour-meter/
   powerpoint/
     grill-with-docs/
     powerpoint-deck-production/
@@ -227,6 +229,12 @@ di generalizzare la versione CAP.
 | --- | --- | --- |
 | `organize-obsidian-wiki` | personale locale | Organizza note del vault in wiki personale senza modificare il vault reale senza conferma. |
 | `verification-before-completion` | `obra/superpowers` | Controlla link, duplicati, output e confini read-only prima di chiudere un riordino. |
+
+### Kong
+
+| Skill | Repo sorgente | Descrizione breve |
+| --- | --- | --- |
+| `read-vdo-hour-meter` | `kong` locale | Guida lettura visuale delle foto orametro VDO e generazione di `readings.yml` per il flusso manuale Kong. |
 
 ### PowerPoint
 
