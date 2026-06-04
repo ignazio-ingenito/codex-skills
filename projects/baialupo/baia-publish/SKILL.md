@@ -21,7 +21,7 @@ For events and raduni, treat flyers, posters, social posts, and organizer blurbs
 
 - If the user provides a locandina/image: extract title, date, location, organizer, program, contacts, and any operational caveats from the image; use it as the article cover and, for events, as the event card image.
 - If the user asks for the next item from a shortlist: choose the most relevant candidate for VDS/AG, raduni, aviosuperfici, safety, NOTAM, or light aircraft operations; verify unstable facts online.
-- If the item is a raduno/event/fly-in: publish a `news` post and add it to `src/pages/events/events.md` unless the user explicitly says not to. For raduni, always try to recover the official locandina before drafting or publishing.
+- If the item is a raduno/event/fly-in/manifestazione: check the JP4 events calendar (`https://www.edaiperiodici.it/jp4/eventi`) during scouting and date/location verification, then publish a `news` post and add it to `src/pages/events/events.md` unless the user explicitly says not to. For raduni, always try to recover the official locandina before drafting or publishing.
 - If the item is safety, maintenance, airspace, NOTAM, ENAC/ENAV/AeCI/ANSV/ROTAX/Lycoming: usually publish under `sicurezza`.
 - If the item is reusable evergreen advice: use `guide`, unless there is a timely news hook.
 
@@ -29,7 +29,7 @@ For events and raduni, treat flyers, posters, social posts, and organizer blurbs
 
 1. Check `EDITORIAL_BACKLOG.md` when scouting, planning, or looking for new candidates. If it contains open items, evaluate those before proposing unrelated content, and update or clear the item when the user approves publication.
 2. Inspect existing posts and assets with `rg`/`rg --files` to avoid duplicate slugs and image names.
-3. Verify dates, location, official source, and operational details. Browse for unstable facts or when the source is not already available locally.
+3. Verify dates, location, official source, and operational details. For events and manifestations, check JP4 events (`https://www.edaiperiodici.it/jp4/eventi`) as a sector calendar and cross-check against the organizer/aeroclub/aviosuperficie source. Browse for unstable facts or when the source is not already available locally.
 4. Choose category and filename:
    `src/content/posts/<category>/YYYY-MM-DD-slug.md`
 5. Use today's editorial publication date for `created` and `updated` on new articles unless the user explicitly asks for another metadata date. Do not use a future event date as `created` or `updated`; keep event dates in the title, body, filename when appropriate, and event card.
@@ -64,6 +64,14 @@ Use careful language for operational information:
 - say "verificare", "conviene controllare", "non sostituisce NOTAM/briefing/istruzioni ufficiali";
 - distinguish flyer/social-post information from official operational planning data in your fact-checking and sources section, without turning the article body into a commentary about the flyer;
 - include PPR/PNR, frequency, circuit, parking, NOTAM, weather, airspace, and organizer contact checks when relevant.
+
+## Event Source Priority
+
+For raduni, fly-in, airshow, expo, open days, and other aviation manifestations:
+
+1. Use `https://www.edaiperiodici.it/jp4/eventi` as a recurring scouting and cross-check source for event name, date, place, website, and whether PAN participation is listed.
+2. Treat JP4 as a sector calendar, not as the final operational source. Confirm program, locandina, PPR/PNR, access, contacts, restrictions, weather postponement rules, and arrival instructions with the organizer, aeroclub, aviosuperficie, official event page, or supplied locandina.
+3. Cite JP4 in the sources when it contributed to discovery or date/location confirmation, especially if the organizer page is sparse or published later.
 
 ## Editorial Naturalness Pass
 
