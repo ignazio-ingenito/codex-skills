@@ -64,6 +64,12 @@ If versions are missing or ambiguous, **ask the user**. Don't guess — the vers
 
 Fetch the specific documentation page for the feature you're implementing. Not the homepage, not the full docs — the relevant page.
 
+Use Context7 first when it is available in the active environment:
+
+- resolve the exact library or framework documentation through Context7;
+- fetch only the relevant topic or API reference;
+- if Context7 is unavailable or incomplete, fall back to official documentation directly and state that fallback.
+
 **Source hierarchy (in order of authority):**
 
 | Priority | Source | Example |
@@ -186,6 +192,7 @@ After implementing with source-driven development:
 
 - [ ] Framework and library versions were identified from the dependency file
 - [ ] Official documentation was fetched for framework-specific patterns
+- [ ] Context7 was used first when available, or the fallback to direct official documentation was stated
 - [ ] All sources are official documentation, not blog posts or training data
 - [ ] Code follows the patterns shown in the current version's documentation
 - [ ] Non-trivial decisions include source citations with full URLs

@@ -29,7 +29,8 @@ Before editing:
 2. Identify the owner module: route/controller, application service, domain policy, repository, adapter, UI, or test.
 3. Inspect existing patterns before inventing a new one.
 4. Check impact for shared symbols, public contracts, and high-consumer files using the project's available code-intelligence tools.
-5. State the containment strategy for high-risk edits before changing code.
+5. When correctness depends on framework, library, SDK, runtime, browser, or external API behavior, verify current official documentation with Context7 when available before coding from memory.
+6. State the containment strategy for high-risk edits before changing code.
 
 During editing:
 
@@ -60,6 +61,7 @@ Ask these questions before writing new code:
 - **Security:** Is any input, file, identity, permission, or external response untrusted?
 - **Rollback:** Can this change be reverted locally without data or contract fallout?
 - **Tests:** Which test would fail if this behavior regressed?
+- **Source freshness:** Did I check Context7 or official docs for any third-party API or pattern whose behavior may have changed?
 
 ## Red Flags
 
@@ -74,6 +76,7 @@ Stop and redesign or ask for review when you see:
 - A new abstraction with only one caller and no meaningful complexity hidden.
 - A test that only asserts the new implementation shape, not behavior.
 - A fix that requires broad unrelated cleanup to look reasonable.
+- A framework, library, SDK, runtime, browser, or external API pattern implemented from memory when Context7 or official docs are available.
 
 ## Output Discipline
 

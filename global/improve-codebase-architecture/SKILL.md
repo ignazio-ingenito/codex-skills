@@ -42,6 +42,10 @@ Use the repository exploration tools available in the current Codex runtime. If 
 - Where do tightly-coupled modules leak across their seams?
 - Which parts of the codebase are untested, or hard to test through their current interface?
 
+Use Context7 when an architectural recommendation depends on current framework,
+library, SDK, runtime, browser, or external API guidance. Keep repository
+evidence and ADRs higher authority than generic external guidance.
+
 Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
 
 ### 2. Present candidates as an HTML report

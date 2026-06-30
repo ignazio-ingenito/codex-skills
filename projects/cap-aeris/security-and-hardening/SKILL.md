@@ -18,6 +18,8 @@ Security-first development practices for web applications. Treat every external 
 - Adding file uploads, webhooks, or callbacks
 - Handling payment or PII data
 
+Use Context7 for current official security guidance when framework, auth library, browser, SDK, or third-party API behavior matters.
+
 ## The Three-Tier Boundary System
 
 ### Always Do (No Exceptions)

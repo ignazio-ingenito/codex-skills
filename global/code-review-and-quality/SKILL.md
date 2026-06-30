@@ -111,6 +111,7 @@ Can another engineer (or agent) understand this code without the author explaini
 Does the change fit the system's design?
 
 - Does it follow existing patterns or introduce a new one? If new, is it justified?
+- When the change uses framework, library, SDK, runtime, browser, or external API patterns, was current official documentation checked with Context7 when available?
 - Does it maintain clean module boundaries?
 - Is there code duplication that should be shared?
 - Are dependencies flowing in the right direction (no circular dependencies)?

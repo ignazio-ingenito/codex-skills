@@ -19,6 +19,10 @@ Always identify:
 - verification commands;
 - docs that must change if the behavior or operating model changes.
 
+Use Context7 when planning depends on current Kubernetes, Helm, Argo CD,
+operator, SDK, CLI, or service documentation. Do not use it as a substitute for
+live cluster evidence, GitOps manifests, runbooks, or repository policy.
+
 Use `grill-with-docs` for non-trivial design choices and `writing-plans` when the work needs a saved task plan.
 
 ## Plan Shape

@@ -19,6 +19,8 @@ Measure before optimizing. Performance work without measurement is guessing — 
 
 **When NOT to use:** Don't optimize before you have evidence of a problem. Premature optimization adds complexity that costs more than the performance it gains.
 
+Use Context7 when recommendations depend on current framework, browser, Web Vitals, runtime, SDK, or library performance guidance.
+
 ## Core Web Vitals Targets
 
 | Metric | Good | Needs Improvement | Poor |
