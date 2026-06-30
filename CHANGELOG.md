@@ -19,6 +19,12 @@ All notable changes to this repository are documented in this file.
 
 
 
+### Documentation
+
+- Update changelog ([8a54dd1](https://github.com/ignazio-ingenito/codex-skills/commit/8a54dd15333f63b9d05784599904cdea045b29a1))
+
+
+
 ### Features
 
 - **baia-publish:** Check editorial backlog during scouting ([5efa2f1](https://github.com/ignazio-ingenito/codex-skills/commit/5efa2f1bde0d0ab63c24c330e643fc76ec35c3a1))
@@ -38,6 +44,8 @@ All notable changes to this repository are documented in this file.
 - **baia-publish:** Add JP4 events calendar checks for scouting and verification ([8c2ca76](https://github.com/ignazio-ingenito/codex-skills/commit/8c2ca767f2f34a30b8bfa48729a1eca5691dc822))
 
 - **cap-aeris:** Add grill-with-screenshots screenshot-based UX assessment skill ([7cbce11](https://github.com/ignazio-ingenito/codex-skills/commit/7cbce11491ad1f12652d61bbcb78a3288a409c9b))
+
+- Add code debt review loop skill ([#1](https://github.com/ignazio-ingenito/codex-skills/issues/1)) ([57603dd](https://github.com/ignazio-ingenito/codex-skills/commit/57603ddcf59c457994b30f0169953103b79d127a))
 
 
 
