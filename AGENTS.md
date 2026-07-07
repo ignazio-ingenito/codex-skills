@@ -4,6 +4,14 @@
 
 This repository stores personal and project-specific Codex skills.
 
+## Shared Global Instructions
+
+- `AGENTS.global.md` contains cross-project agent behavior rules.
+- It is not a skill and should not live under `global/` or `projects/`.
+- Link it into a project as that project's `AGENTS.md` when the rules must always be active.
+- Use `bash scripts/install-global-agents.sh <project-root>` to install the link.
+- Use `--replace` only when intentionally backing up and replacing an existing project `AGENTS.md`.
+
 ## Commit Rules
 
 - Use Conventional Commits for every commit message.
