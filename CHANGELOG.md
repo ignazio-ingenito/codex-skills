@@ -33,6 +33,8 @@ All notable changes to this repository are documented in this file.
 
 - Document shared global agent instructions ([7c4a55f](https://github.com/ignazio-ingenito/codex-skills/commit/7c4a55f920e24054737deb5092d6d4b60b0a8b3c))
 
+- Update changelog ([a18d5f5](https://github.com/ignazio-ingenito/codex-skills/commit/a18d5f50cb5736c709c47465a109573836517356))
+
 
 
 ### Features
@@ -58,6 +60,8 @@ All notable changes to this repository are documented in this file.
 - Add code debt review loop skill ([#1](https://github.com/ignazio-ingenito/codex-skills/issues/1)) ([57603dd](https://github.com/ignazio-ingenito/codex-skills/commit/57603ddcf59c457994b30f0169953103b79d127a))
 
 - Add global agents installer ([7fa85c5](https://github.com/ignazio-ingenito/codex-skills/commit/7fa85c597bd4839779e3b3174f5eee2aae714fdc))
+
+- Install global agent instructions with project skills ([7f2617c](https://github.com/ignazio-ingenito/codex-skills/commit/7f2617c8c374d2d1be6e5ace53082dd3f08c8c87))
 
 
 
