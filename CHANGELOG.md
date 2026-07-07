@@ -23,6 +23,10 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([8a54dd1](https://github.com/ignazio-ingenito/codex-skills/commit/8a54dd15333f63b9d05784599904cdea045b29a1))
 
+- Update changelog ([85e733c](https://github.com/ignazio-ingenito/codex-skills/commit/85e733c3959c3cbe576afd1460788acead7de437))
+
+- Add shared global agent instructions ([4025be2](https://github.com/ignazio-ingenito/codex-skills/commit/4025be2a5d1cf01c7a5b73ff894c7d2aacbbdb52))
+
 
 
 ### Features
