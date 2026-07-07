@@ -27,6 +27,8 @@ All notable changes to this repository are documented in this file.
 
 - Add shared global agent instructions ([4025be2](https://github.com/ignazio-ingenito/codex-skills/commit/4025be2a5d1cf01c7a5b73ff894c7d2aacbbdb52))
 
+- Update changelog ([9ec5a37](https://github.com/ignazio-ingenito/codex-skills/commit/9ec5a37d890f8a8c0613f54e0eb779ad8b87c176))
+
 
 
 ### Features
@@ -50,6 +52,8 @@ All notable changes to this repository are documented in this file.
 - **cap-aeris:** Add grill-with-screenshots screenshot-based UX assessment skill ([7cbce11](https://github.com/ignazio-ingenito/codex-skills/commit/7cbce11491ad1f12652d61bbcb78a3288a409c9b))
 
 - Add code debt review loop skill ([#1](https://github.com/ignazio-ingenito/codex-skills/issues/1)) ([57603dd](https://github.com/ignazio-ingenito/codex-skills/commit/57603ddcf59c457994b30f0169953103b79d127a))
+
+- Add global agents installer ([7fa85c5](https://github.com/ignazio-ingenito/codex-skills/commit/7fa85c597bd4839779e3b3174f5eee2aae714fdc))
 
 
 
