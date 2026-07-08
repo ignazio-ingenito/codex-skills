@@ -2,7 +2,7 @@
 set -euo pipefail
 
 usage() {
-  cat <<'EOF'
+  cat <<'USAGE'
 Usage: setup-workflow-guardrails.sh [options] <project-root>
 
 Install workflow guardrail references into a target project and optionally start Codex.
@@ -29,7 +29,7 @@ What it references:
   AGENTS.md
   CONTEXT.md
   MEMORY.md
-EOF
+USAGE
 }
 
 replace=0
@@ -167,9 +167,39 @@ PY
   fi
 }
 
-agents_body='## Workflow guardrails\n\nBefore implementation, read:\n\n- `docs/codex/codex-implementation-contract.md`\n- the task-specific handoff in `docs/handoffs/` when present\n\nCodex must follow the contract, produce the operational pre-flight, disclose relevant tool/MCP/plugin/skill usage, and return control when implementation would require requirement, architecture, product, or scope decisions.'
-context_body='## Workflow guardrails context\n\nProject decision workflow lives in:\n\n- `docs/workflow/project-workflow-guardrails.md`\n- `docs/workflow/implementation-handoff-template.md`\n- `docs/workflow/project-bootstrap-template.md`\n\nCodex implementation behavior lives in:\n\n- `docs/codex/codex-implementation-contract.md`'
-memory_body='## Workflow guardrails memory\n\nDo not treat chat history as the source of truth for implementation. Use the approved handoff and the Codex Implementation Contract. Keep checkpoints compact enough to survive context compaction or handoff.'
+agents_body=$(cat <<'EOF_AGENTS'
+## Workflow guardrails
+
+Before implementation, read:
+
+- `docs/codex/codex-implementation-contract.md`
+- the task-specific handoff in `docs/handoffs/` when present
+
+Codex must follow the contract, produce the operational pre-flight, disclose relevant tool/MCP/plugin/skill usage, and return control when implementation would require requirement, architecture, product, or scope decisions.
+EOF_AGENTS
+)
+
+context_body=$(cat <<'EOF_CONTEXT'
+## Workflow guardrails context
+
+Project decision workflow lives in:
+
+- `docs/workflow/project-workflow-guardrails.md`
+- `docs/workflow/implementation-handoff-template.md`
+- `docs/workflow/project-bootstrap-template.md`
+
+Codex implementation behavior lives in:
+
+- `docs/codex/codex-implementation-contract.md`
+EOF_CONTEXT
+)
+
+memory_body=$(cat <<'EOF_MEMORY'
+## Workflow guardrails memory
+
+Do not treat chat history as the source of truth for implementation. Use the approved handoff and the Codex Implementation Contract. Keep checkpoints compact enough to survive context compaction or handoff.
+EOF_MEMORY
+)
 
 upsert_managed_block "${project_root}/AGENTS.md" "agents" "${agents_body}"
 upsert_managed_block "${project_root}/CONTEXT.md" "context" "${context_body}"
