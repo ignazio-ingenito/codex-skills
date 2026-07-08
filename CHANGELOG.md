@@ -35,6 +35,10 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([a18d5f5](https://github.com/ignazio-ingenito/codex-skills/commit/a18d5f50cb5736c709c47465a109573836517356))
 
+- Update changelog ([56e7098](https://github.com/ignazio-ingenito/codex-skills/commit/56e7098d91f8a70f278359b5b005200ac5294ba7))
+
+- **workflow:** Add workflow guardrails package ([#2](https://github.com/ignazio-ingenito/codex-skills/issues/2)) ([428b0e7](https://github.com/ignazio-ingenito/codex-skills/commit/428b0e7b767bedc1919469ede056e59e3a40ec88))
+
 
 
 ### Features
