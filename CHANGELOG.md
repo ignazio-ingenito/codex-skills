@@ -39,6 +39,8 @@ All notable changes to this repository are documented in this file.
 
 - **workflow:** Add workflow guardrails package ([#2](https://github.com/ignazio-ingenito/codex-skills/issues/2)) ([428b0e7](https://github.com/ignazio-ingenito/codex-skills/commit/428b0e7b767bedc1919469ede056e59e3a40ec88))
 
+- Update changelog ([1fa374c](https://github.com/ignazio-ingenito/codex-skills/commit/1fa374c476d5d6afe51b4c50dc5dcb91ebc3c40e))
+
 
 
 ### Features
@@ -66,6 +68,8 @@ All notable changes to this repository are documented in this file.
 - Add global agents installer ([7fa85c5](https://github.com/ignazio-ingenito/codex-skills/commit/7fa85c597bd4839779e3b3174f5eee2aae714fdc))
 
 - Install global agent instructions with project skills ([7f2617c](https://github.com/ignazio-ingenito/codex-skills/commit/7f2617c8c374d2d1be6e5ace53082dd3f08c8c87))
+
+- **renovate:** Adopt shared dependency policy ([53a8412](https://github.com/ignazio-ingenito/codex-skills/commit/53a8412724b2a14c064634c620586006fe0a97da))
 
 
 
