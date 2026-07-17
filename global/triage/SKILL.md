@@ -1,6 +1,8 @@
 ---
 name: triage
-description: Triage issue e PR esterne attraverso una macchina a stati: categorizza, verifica, chiarisce e produce brief pronti per agenti o umani.
+description: >-
+  Triage issue e PR esterne attraverso una macchina a stati: categorizza,
+  verifica, chiarisce e produce brief pronti per agenti o umani.
 disable-model-invocation: true
 ---
 
@@ -29,63 +31,96 @@ Se la configurazione manca, usa `setup-matt-pocock-skills`.
 Categorie canoniche:
 
 - `bug`
-- `enhancement`
+- `feature`
+- `question`
+- `docs`
+- `chore`
+- `security`
+- `performance`
+- `duplicate`
+- `invalid`
+- `external-pr`
+
+## Stati
 
 Stati canonici:
 
 - `needs-triage`
 - `needs-info`
-- `ready-for-agent`
-- `ready-for-human`
-- `wontfix`
+- `needs-verification`
+- `ready`
+- `blocked`
+- `out-of-scope`
+- `duplicate`
+- `invalid`
 
-Ogni elemento deve avere esattamente una categoria e uno stato. Se gli stati confliggono, fermati e chiedi al maintainer.
+## Macchina a stati
 
-Per una PR, `ready-for-agent` significa che un brief descrive il prossimo lavoro sul diff; `ready-for-human` significa che è pronta per una decisione o un merge umano.
+### `needs-triage`
 
-## Mostrare ciò che richiede attenzione
+1. Leggi il contenuto completo e i commenti.
+2. Classifica la richiesta.
+3. Verifica se esiste già lavoro equivalente.
+4. Identifica le informazioni mancanti.
+5. Applica la categoria canonica.
+6. Sposta in uno stato successivo.
 
-Presenta, dal più vecchio:
+### `needs-info`
 
-1. elementi senza stato;
-2. `needs-triage`;
-3. `needs-info` con nuova attività del reporter.
+Chiedi solo le informazioni necessarie per decidere o riprodurre il problema.
+Non proporre implementazioni.
 
-Quando le PR sono in scope, includi soltanto quelle considerate esterne dalla configurazione e distingui `[issue]` da `[PR]`.
+### `needs-verification`
 
-## Triage di un elemento
+Riproduci o verifica il comportamento dichiarato. Registra:
 
-1. **Raccogli il contesto** — leggi corpo, commenti, label, autore, date e, per una PR, il diff. Non ripetere domande già risolte.
-2. **Controlla ridondanza e precedenti** — cerca nel codice un comportamento già implementato usando il concetto di dominio, non soltanto le parole della richiesta; consulta `.out-of-scope/`.
-3. **Raccomanda** — proponi categoria e stato con motivazione e attendi indicazioni.
-4. **Verifica il claim** — riproduci il bug oppure verifica che la PR faccia ciò che dichiara, usando test o comandi pertinenti.
-5. **Chiarisci se necessario** — usa `grilling` e `domain-modeling`; usa `grill-with-docs` quando serve aggiornare le fonti del progetto.
-6. **Applica l'esito**:
-   - `ready-for-agent`: pubblica un agent brief durevole;
-   - `ready-for-human`: stesso brief, indicando perché richiede giudizio o accesso umano;
-   - `needs-info`: pubblica fatti stabiliti e domande specifiche residue;
-   - `wontfix` già implementato: indica dove vive il comportamento e chiudi senza aggiungere a `.out-of-scope/`;
-   - `wontfix` rifiutato: spiega e, per enhancement, registra il precedente secondo `OUT-OF-SCOPE.md`;
-   - `needs-triage`: applica lo stato e conserva eventuali note utili.
+- ambiente;
+- passi;
+- risultato atteso;
+- risultato osservato;
+- evidenze.
 
-## Override rapido
+### `ready`
 
-Quando il maintainer ordina direttamente un cambio di stato, conferma azioni e side effect, quindi applicalo senza riaprire il grilling. Se manca un brief per `ready-for-agent`, chiedi se va creato.
+Produci un brief eseguibile con:
 
-## Template needs-info
+- problema;
+- contesto;
+- risultato richiesto;
+- vincoli;
+- acceptance criteria;
+- evidenze;
+- rischi;
+- file o aree probabili;
+- verifiche richieste.
 
-```markdown
-## Triage Notes
+### `blocked`
 
-**What we've established so far:**
+Indica il blocco concreto, il responsabile e la condizione di sblocco.
 
-- ...
+### `out-of-scope`
 
-**What we still need from you (@reporter):**
+Usa `OUT-OF-SCOPE.md`. Spiega il confine senza inventare alternative non approvate.
 
-- ...
-```
+### `duplicate`
 
-## Upstream
+Collega l'elemento canonico e spiega perché copre la stessa richiesta.
 
-Aggiornata sulla base di `mattpocock/skills`, path `skills/engineering/triage/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`.
+### `invalid`
+
+Spiega in modo verificabile perché la richiesta non può essere trattata.
+
+## Regole
+
+- Non implementare durante il triage.
+- Non trasformare supposizioni in fatti.
+- Non chiudere elementi ambigui senza chiedere chiarimenti.
+- Non creare nuove categorie o stati senza aggiornare la configurazione canonica.
+- Non applicare label decorative.
+- Mantieni una sola categoria e uno stato operativo quando il tracker lo consente.
+- Per PR esterne, valuta anche provenienza, intenti, scope e verificabilità.
+
+## Output
+
+Ogni transizione deve lasciare il tracker in uno stato comprensibile senza contesto esterno.
+Quando l'elemento è `ready`, il brief deve essere sufficiente per un agente o un umano che non ha seguito il triage.
