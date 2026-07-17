@@ -43,6 +43,8 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([4397321](https://github.com/ignazio-ingenito/codex-skills/commit/43973216bfaa11362281be00a810daeff93052ae))
 
+- Update changelog ([7642765](https://github.com/ignazio-ingenito/codex-skills/commit/7642765f3682a58111264ca31e8321d5f2e9a1d6))
+
 
 
 ### Features
@@ -74,6 +76,8 @@ All notable changes to this repository are documented in this file.
 - **renovate:** Adopt shared dependency policy ([53a8412](https://github.com/ignazio-ingenito/codex-skills/commit/53a8412724b2a14c064634c620586006fe0a97da))
 
 - Port Matt Pocock engineering skills ([#16](https://github.com/ignazio-ingenito/codex-skills/issues/16)) ([34687f3](https://github.com/ignazio-ingenito/codex-skills/commit/34687f30630bcf39a7b25541a0a720999e114d92))
+
+- Guide installation of suggested skills ([#17](https://github.com/ignazio-ingenito/codex-skills/issues/17)) ([a8a279a](https://github.com/ignazio-ingenito/codex-skills/commit/a8a279ab5dd9df214a8ba9b2973b8b99c4156508))
 
 
 
