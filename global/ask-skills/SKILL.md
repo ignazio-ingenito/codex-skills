@@ -1,94 +1,145 @@
 ---
 name: ask-skills
-description: Suggerisce la skill o il breve flusso più adatto tra tutte le skill disponibili in codex-skills, incluse globali e specifiche di progetto, privilegiando la capacità più specifica e il percorso minimo sufficiente.
+description: Suggerisce la skill o il breve flusso più adatto tra le skill documentate in codex-skills, incluse globali e specifiche di progetto, privilegiando la capacità più specifica e il percorso minimo sufficiente.
 disable-model-invocation: true
 ---
 
 # Ask Skills
 
-Non è necessario ricordare il catalogo: descrivi la situazione e questa skill individuerà la prossima mossa tra **tutte** le skill disponibili in `codex-skills`.
+Non è necessario ricordare tutte le skill: descrivi la situazione e questa skill suggerirà la prossima mossa.
 
 `ask-skills` è un **router consultivo**. Non esegue automaticamente un workflow completo e non mostra l'intero catalogo salvo richiesta esplicita.
 
-## Principio fondamentale
-
-Non usare un catalogo hardcoded come fonte di verità. Il repository evolve: scopri le skill realmente presenti al momento dell'invocazione.
-
-## Scoperta del catalogo
+## Fonti autorevoli
 
 1. Leggi `AGENTS.md` e le istruzioni attive del repository corrente.
-2. Individua tutti i file `SKILL.md` accessibili nelle directory previste dal repository, almeno:
-   - `global/*/SKILL.md`;
-   - `projects/*/*/SKILL.md` e livelli equivalenti presenti;
-   - `.agents/skills/*/SKILL.md` nel progetto corrente, se esiste;
-   - eventuali altre directory dichiarate da `AGENTS.md` o dall'inventario autorevole.
-3. Per ogni candidata pertinente, leggi almeno il frontmatter (`name`, `description`, eventuale `disable-model-invocation`) e, quando serve per distinguere capacità simili, le sezioni operative rilevanti.
-4. Ignora template, file di supporto e directory prive di un `SKILL.md` valido.
-5. Non assumere che una skill provenga da Matt Pocock: origine e autore non influenzano la selezione.
+2. Usa l'inventario del `README.md` di `codex-skills` come catalogo autorevole delle skill globali e di progetto.
+3. Nel progetto corrente, considera le skill installate sotto `.agents/skills` per applicare eventuali varianti specifiche già documentate.
+4. Non introdurre scansioni generiche del filesystem, scoring automatici o inferenze da directory non documentate.
 
-## Precedenza
-
-Applica questo ordine:
-
-1. skill specifica del progetto corrente;
-2. skill locale installata in `.agents/skills`;
-3. skill globale specializzata;
-4. skill globale generica;
-5. nessuna skill, quando il task è piccolo e il processo aggiungerebbe solo attrito.
-
-Una skill più specifica prevale solo se copre davvero il task e i suoi prerequisiti sono disponibili. Non scegliere una variante di progetto soltanto perché il nome somiglia.
+Quando README, installazione locale e repository corrente non concordano, segnala la discrepanza invece di inventare una precedenza.
 
 ## Regole di selezione
 
-1. Classifica prima l'intento: ideazione, ricerca, pianificazione, delivery, debugging, review, documentazione, operazioni, contenuti, dati, presentazioni o altro dominio emerso dal catalogo.
-2. Scegli il percorso più corto che riduce l'incertezza o completa il task.
-3. Preferisci una sola skill principale; proponi un flusso breve solo quando le fasi hanno responsabilità realmente distinte.
-4. Non raccomandare una skill i cui prerequisiti non sono disponibili.
-5. Non inventare skill che non esistono nel catalogo corrente.
-6. Non limitarti alle skill ingegneristiche: considera tutte le skill globali e di progetto trovate, comprese quelle per documenti, slide, dati, publishing, homelab, automazione, sicurezza e domini specifici.
-7. Se due skill si sovrappongono, confronta esplicitamente scope, output e vincoli; seleziona quella più specifica.
-8. Se la richiesta implica una decisione di architettura, processo o prodotto non già risolta, segnala il punto di arresto invece di fingere che una skill possa deciderlo autonomamente.
+1. Individua l'intento principale della richiesta.
+2. Preferisci una skill specifica del progetto corrente rispetto a una globale equivalente.
+3. Scegli il percorso più corto che riduce l'incertezza o completa il task.
+4. Preferisci una sola skill principale; proponi un flusso breve solo quando le fasi hanno responsabilità distinte.
+5. Non raccomandare una skill i cui prerequisiti non sono disponibili.
+6. Considera anche skill non ingegneristiche: contenuti, documenti, presentazioni, dati, publishing, homelab e altri domini presenti nell'inventario.
+7. Se il task è piccolo, chiaro e non richiede una skill specifica, dichiaralo invece di inventare processo.
+8. Se emerge una decisione di architettura, processo o prodotto non risolta, fermati e segnala la decisione richiesta.
 
 ## Output
 
 Restituisci:
 
 1. **Situazione rilevata** — fatti disponibili e informazioni mancanti rilevanti.
-2. **Skill consigliata** — nome esatto e percorso della skill principale.
-3. **Perché** — ragione concreta e alternative vicine escluse.
+2. **Skill consigliata** — nome esatto della skill principale oppure un flusso breve.
+3. **Perché** — motivo concreto e alternative vicine escluse.
 4. **Risultato atteso** — artefatto, modifica o evidenza prodotta.
-5. **Flusso successivo** — solo i passaggi già prevedibili e necessari.
-6. **Precedenza applicata** — indica quando una variante di progetto ha sostituito una globale.
+5. **Poi** — il successivo punto di innesto, solo se già prevedibile.
+6. **Precedenza applicata** — quando una variante di progetto sostituisce una globale.
 
 Indica “non usare ancora” soltanto quando evita un errore probabile.
 
-## Pattern ricorrenti
+## Main flow: idea → delivery
 
-Questi sono orientamenti, non un catalogo esaustivo. Verifica sempre che le skill esistano davvero.
+### Idea circoscritta ma ancora ambigua
 
-- Idea ambigua → skill di brainstorming o grilling appropriata → eventuale specifica.
-- Iniziativa enorme e nebbiosa → `wayfinder` → `to-spec` → `to-tickets`.
-- Ticket implementativo → piano proporzionato → TDD quando applicabile → review → verifica finale.
-- Bug o test rotto → skill di debugging più specifica disponibile → regression test → verifica.
-- Issue o PR in ingresso → `triage`, salvo ticket già generati e pronti dal flusso di pianificazione.
-- Conflitto Git già in corso → `resolving-merge-conflicts`.
-- Domanda fattuale esterna → `research` o una skill di dominio più specifica.
-- Passaggio tra sessioni → `handoff`.
+- `brainstorming` per chiarire intento, requisiti e design prima di modificare comportamento.
+- `idea-refine` per trasformare un'idea grezza in un concetto più chiaro e azionabile.
+- `office-hours` per valutare focus, ambizione e trade-off di prodotto.
+- `grill-with-docs` quando il piano va stressato contro dominio, codice e decisioni documentate.
+- `grilling` per una decisione HITL mirata.
+- `domain-modeling` quando termini, invarianti o confini di dominio sono ambigui.
+
+### Domanda che richiede evidenza concreta
+
+- `prototype` per logica, stato o UI throwaway.
+- `research` per fatti esterni ricavati da fonti primarie.
+- `source-driven-development` quando una variante di progetto richiede sviluppo ancorato a fonti tecniche autorevoli.
+- `handoff` prima o dopo una deviazione che richiede una sessione separata.
+
+### Lavoro multi-sessione ma già definibile
+
+- `to-spec` per condensare decisioni in una specifica implementabile.
+- `to-tickets` per dividerla in ticket verticali con blocker espliciti.
+- `writing-plans` per un piano esecutivo multi-step quando proporzionato.
+
+### Iniziativa enorme o nebbiosa
+
+`wayfinder` → `to-spec` → `to-tickets` → delivery ticket per ticket.
+
+Usa `wayfinder` solo quando la strada verso la destinazione non può essere contenuta in una sessione.
+
+### Delivery di un ticket
+
+Usa soltanto i passaggi necessari:
+
+- `using-git-worktrees` quando serve isolamento;
+- `tdd` per comportamento eseguibile;
+- `senior-implementation-discipline` per contratti, dominio, persistenza, sicurezza o componenti condivisi;
+- `code-review-and-quality` per review su spec/task e standard;
+- `requesting-code-review` per preparare una review esterna;
+- `receiving-code-review` per valutare feedback ricevuto;
+- `verification-before-completion` prima di dichiarare concluso il lavoro.
+
+Non cercare una skill `implement`: in questo repository il flusso è composto dalle skill esistenti.
+
+## On-ramps operativi
+
+### Bug o test rotto
+
+- `systematic-debugging` globale;
+- oppure `diagnose` specifica del progetto, quando presente;
+- regression test e `tdd` quando applicabile;
+- `verification-before-completion`.
+
+### Issue o PR in ingresso
+
+- `triage` per richieste non create dal flusso `to-tickets`.
+- I ticket generati da `to-tickets` sono già pronti e non vanno sottoposti nuovamente a triage.
+
+### Conflitti Git
+
+- `resolving-merge-conflicts` quando merge o rebase è già in conflitto.
+
+### Codebase health
+
+- `improve-codebase-architecture` per opportunità di deepening.
+- `codebase-design` per moduli, interfacce, seam e design-it-twice.
+- `code-simplification` per semplificare codice funzionante preservando comportamento.
+- `zoom-out` per ottenere una mappa ad alto livello.
+
+## Domini non engineering
+
+Usa l'inventario del README per individuare la skill specifica, ad esempio:
+
+- `humanize-writing`, `caveman`, `interview-me` per scrittura e comunicazione;
+- `baia-publish` per il workflow editoriale Baialupo;
+- `organize-obsidian-wiki` per Obsidian;
+- `powerpoint-deck-production` e `pptx-quality-review` per presentazioni;
+- `read-vdo-hour-meter` per il flusso Kong;
+- le skill `homelab-*` per operazioni homelab specifiche;
+- le varianti CAP Aeris e di altri progetti quando il repository corrente le installa.
+
+Non mantenere qui una seconda copia completa dell'inventario: il README resta la fonte autorevole e questa sezione descrive solo le famiglie principali.
 
 ## Catalogo su richiesta
 
-Se l'utente chiede di vedere il catalogo:
+Se l'utente chiede il catalogo completo:
 
-1. raggruppa le skill per dominio e progetto;
-2. mostra nome, descrizione breve e percorso;
-3. evidenzia duplicati intenzionali e precedenze progetto/globale;
-4. non omettere skill solo perché non sono ingegneristiche o non provengono da Matt;
-5. segnala file non validi o template separatamente, senza presentarli come skill attive.
+1. leggi l'inventario del README;
+2. raggruppa le skill per globali e progetto;
+3. mostra nome, descrizione breve e ambito;
+4. evidenzia duplicati intenzionali e precedenze progetto/globale;
+5. segnala eventuali discrepanze osservate con le skill installate nel progetto corrente.
 
 ## Configurazione
 
-Quando un flusso dipende da tracker, label di triage o fonti di dominio non configurate, suggerisci la skill di setup effettivamente presente nel catalogo. Non assumere un nome storico: scopri e usa quello reale.
+Quando tracker, label di triage o fonti di dominio non sono configurati, usa `setup-matt-pocock-skills` prima dei flussi che ne dipendono.
 
 ## Provenienza
 
-Evoluzione del router consultivo upstream `mattpocock/skills` (`ask-matt`), estesa per coprire dinamicamente l'intero catalogo `codex-skills`, incluse skill globali, locali e specifiche di progetto.
+Adattata dal router consultivo `ask-matt` di `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Rinominata `ask-skills` ed estesa al catalogo documentato di `codex-skills`, senza discovery dinamica o orchestrazione automatica.
