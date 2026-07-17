@@ -1,7 +1,7 @@
 # Validazione porting Matt Pocock
 
-**Stato:** Active  
-**PR:** #16  
+**Stato:** Active
+**PR:** #16
 **Fonti autorevoli:** issue #10, RFC-0001, `mattpocock/skills@9603c1cc8118d08bc1b3bf34cf714f62178dea3b`, README e skill del repository.
 
 ## Deroga approvata
