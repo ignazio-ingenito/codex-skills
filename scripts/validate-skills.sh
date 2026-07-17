@@ -38,6 +38,7 @@ validate_skill_dir() {
   if command -v python3 >/dev/null 2>&1; then
     if ! python3 - "${skill_file}" <<'PY'
 from pathlib import Path
+import re
 import sys
 
 path = Path(sys.argv[1])
@@ -52,18 +53,61 @@ except ValueError:
 try:
     import yaml  # type: ignore
 except Exception:
+    yaml = None
+
+if yaml is not None:
+    try:
+        data = yaml.safe_load(frontmatter)
+    except yaml.YAMLError:
+        raise SystemExit(1)
+
+    if not isinstance(data, dict):
+        raise SystemExit(1)
+    for key in ("name", "description"):
+        value = data.get(key)
+        if not isinstance(value, str) or not value.strip():
+            raise SystemExit(1)
     raise SystemExit(0)
 
-try:
-    data = yaml.safe_load(frontmatter)
-except yaml.YAMLError:
-    raise SystemExit(1)
+# Minimal YAML fallback for required scalar fields when PyYAML is unavailable.
+# It supports inline scalars and folded/literal block scalars used by skill files.
+lines = frontmatter.splitlines()
+values: dict[str, str] = {}
+index = 0
+key_pattern = re.compile(r"^([A-Za-z0-9_-]+):(?:[ \t]*(.*))?$")
+block_markers = {"|", "|-", "|+", ">", ">-", ">+"}
 
-if not isinstance(data, dict):
-    raise SystemExit(1)
-for key in ("name", "description"):
-    value = data.get(key)
-    if not isinstance(value, str) or not value.strip():
+while index < len(lines):
+    line = lines[index]
+    if not line or line[0].isspace() or line.lstrip().startswith("#"):
+        index += 1
+        continue
+
+    match = key_pattern.match(line)
+    if not match:
+        raise SystemExit(1)
+
+    key, raw_value = match.group(1), (match.group(2) or "").strip()
+    if raw_value in block_markers:
+        index += 1
+        block_lines: list[str] = []
+        while index < len(lines):
+            candidate = lines[index]
+            if candidate and not candidate[0].isspace() and key_pattern.match(candidate):
+                break
+            if candidate.strip() and not candidate.lstrip().startswith("#"):
+                if not candidate[0].isspace():
+                    raise SystemExit(1)
+                block_lines.append(candidate.strip())
+            index += 1
+        values[key] = "\n".join(block_lines).strip()
+        continue
+
+    values[key] = raw_value
+    index += 1
+
+for required in ("name", "description"):
+    if not values.get(required, "").strip():
         raise SystemExit(1)
 PY
     then
@@ -71,11 +115,11 @@ PY
       status=1
     fi
   else
-    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^name:[[:space:]]*.+'; then
+    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^name:[[:space:]]*[^[:space:]].*'; then
       echo "ERROR ${skill_name}: frontmatter missing name" >&2
       status=1
     fi
-    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^description:[[:space:]]*.+'; then
+    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^description:[[:space:]]*(.+|[|>][-+]?)$'; then
       echo "ERROR ${skill_name}: frontmatter missing description" >&2
       status=1
     fi
