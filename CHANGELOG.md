@@ -47,6 +47,10 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([23df1f7](https://github.com/ignazio-ingenito/codex-skills/commit/23df1f7352f5248d459fd356edfca6739c6d2d1f))
 
+- Update changelog ([84ebc5b](https://github.com/ignazio-ingenito/codex-skills/commit/84ebc5bda5d25534f859f1cfef80ea7586c59628))
+
+- Add Context7 guidance to skills ([173345a](https://github.com/ignazio-ingenito/codex-skills/commit/173345ad0b5d679bae1ead5af95caa8afbc84704))
+
 
 
 ### Features
@@ -82,6 +86,8 @@ All notable changes to this repository are documented in this file.
 - Guide installation of suggested skills ([#17](https://github.com/ignazio-ingenito/codex-skills/issues/17)) ([a8a279a](https://github.com/ignazio-ingenito/codex-skills/commit/a8a279ab5dd9df214a8ba9b2973b8b99c4156508))
 
 - Add consistent global skill pruning ([#18](https://github.com/ignazio-ingenito/codex-skills/issues/18)) ([180764f](https://github.com/ignazio-ingenito/codex-skills/commit/180764fee8446537b3a9e174452406f143631ec0))
+
+- Add scrittura comica skill ([6ca22c0](https://github.com/ignazio-ingenito/codex-skills/commit/6ca22c0353c87cdd83794b76207f6f43c7fe1014))
 
 
 
