@@ -1,0 +1,12 @@
+# Global skill entries removed by scripts/prune-local.sh.
+# One basename per line. Empty lines and comments are ignored.
+
+grill-with-docs.backup-20260624T132204
+n8n-code-javascript
+n8n-expression-syntax
+n8n-node-configuration
+n8n-validation-expert
+n8n-workflow-patterns
+playwright
+playwright.backup-20260624T132204
+setup-matt-pocock-skills
