@@ -1,145 +1,88 @@
 ---
 name: ask-skills
-description: Suggerisce la skill o il breve flusso più adatto tra le skill documentate in codex-skills, incluse globali e specifiche di progetto, privilegiando la capacità più specifica e il percorso minimo sufficiente.
+description: Chiede quale skill o flusso si adatta alla situazione corrente. Router sulle skill documentate in questo repository.
 disable-model-invocation: true
 ---
 
 # Ask Skills
 
-Non è necessario ricordare tutte le skill: descrivi la situazione e questa skill suggerirà la prossima mossa.
+Non devi ricordare ogni skill: chiedi.
 
-`ask-skills` è un **router consultivo**. Non esegue automaticamente un workflow completo e non mostra l'intero catalogo salvo richiesta esplicita.
+Un **flusso** è un percorso attraverso le skill. La maggior parte dei percorsi segue un **flusso principale**; alcuni **on-ramp** vi confluiscono. Tutto il resto è standalone oppure un livello di vocabolario che lavora sotto le altre skill.
 
-## Fonti autorevoli
+Il catalogo autorevole è l'`Inventario Skill` del `README.md`. Le skill specifiche del progetto corrente prevalgono sulle globali equivalenti quando sono installate e documentate.
 
-1. Leggi `AGENTS.md` e le istruzioni attive del repository corrente.
-2. Usa l'inventario del `README.md` di `codex-skills` come catalogo autorevole delle skill globali e di progetto.
-3. Nel progetto corrente, considera le skill installate sotto `.agents/skills` per applicare eventuali varianti specifiche già documentate.
-4. Non introdurre scansioni generiche del filesystem, scoring automatici o inferenze da directory non documentate.
+All'avvio, se è evidente che una skill valida presente nelle directory canoniche non compare nell'inventario, non usarla implicitamente: segnala la discrepanza e proponi di aggiornare il README. Questo è un controllo di coerenza, non un meccanismo di discovery o routing alternativo.
 
-Quando README, installazione locale e repository corrente non concordano, segnala la discrepanza invece di inventare una precedenza.
+## Il flusso principale: idea → delivery
 
-## Regole di selezione
+Il percorso seguito dalla maggior parte del lavoro. Hai un'idea e vuoi realizzarla.
 
-1. Individua l'intento principale della richiesta.
-2. Preferisci una skill specifica del progetto corrente rispetto a una globale equivalente.
-3. Scegli il percorso più corto che riduce l'incertezza o completa il task.
-4. Preferisci una sola skill principale; proponi un flusso breve solo quando le fasi hanno responsabilità distinte.
-5. Non raccomandare una skill i cui prerequisiti non sono disponibili.
-6. Considera anche skill non ingegneristiche: contenuti, documenti, presentazioni, dati, publishing, homelab e altri domini presenti nell'inventario.
-7. Se il task è piccolo, chiaro e non richiede una skill specifica, dichiaralo invece di inventare processo.
-8. Se emerge una decisione di architettura, processo o prodotto non risolta, fermati e segnala la decisione richiesta.
+1. **`grill-with-docs`** — affina l'idea tramite intervista. Parti da qui quando **esiste un codebase**: conserva ciò che apprende in `CONTEXT.md` e negli ADR. Se serve soltanto un'intervista mirata usa `grilling`; se il problema sono soprattutto termini e invarianti, usa anche `domain-modeling`.
+2. **Branch — ogni domanda può essere risolta in conversazione?** Se una domanda richiede una risposta eseguibile — stato, business logic o una UI da vedere — devia attraverso un prototipo, usando **`handoff`** in entrambe le direzioni:
+   - `handoff` in uscita, poi apri una sessione nuova riferita al file;
+   - `prototype` per rispondere con codice throwaway;
+   - `handoff` di ritorno con ciò che è stato appreso, referenziandolo dal thread originale.
+3. **Branch — è un lavoro multi-sessione?**
+   - **Sì** → `to-spec`, poi `to-tickets` per dividerlo in tracer-bullet ticket con blocker espliciti. Ogni ticket viene eseguito in un contesto pulito usando le skill di delivery locali.
+   - **No** → procedi nello stesso contesto con il percorso di delivery minimo necessario.
 
-## Output
+   In entrambi i casi, la delivery usa le skill già presenti invece di una skill `implement` separata: `writing-plans` quando proporzionato, `using-git-worktrees` quando serve isolamento, `tdd` per comportamento eseguibile, `senior-implementation-discipline` quando applicabile, `code-review-and-quality` per la review e `verification-before-completion` prima della chiusura. Usa `requesting-code-review` e `receiving-code-review` quando il flusso richiede una review separata.
 
-Restituisci:
+### Igiene del contesto
 
-1. **Situazione rilevata** — fatti disponibili e informazioni mancanti rilevanti.
-2. **Skill consigliata** — nome esatto della skill principale oppure un flusso breve.
-3. **Perché** — motivo concreto e alternative vicine escluse.
-4. **Risultato atteso** — artefatto, modifica o evidenza prodotta.
-5. **Poi** — il successivo punto di innesto, solo se già prevedibile.
-6. **Precedenza applicata** — quando una variante di progetto sostituisce una globale.
+Mantieni i passaggi 1–3 nello stesso contesto finché non sono stati prodotti spec e ticket. Ogni ticket implementativo parte poi da un contesto pulito, lavorando dalla propria fonte autorevole.
 
-Indica “non usare ancora” soltanto quando evita un errore probabile.
+Se il contesto diventa troppo grande prima di `to-tickets`, usa `handoff` e continua in una sessione nuova invece di proseguire con contesto degradato.
 
-## Main flow: idea → delivery
+## On-ramp
 
-### Idea circoscritta ma ancora ambigua
+Una situazione iniziale che genera lavoro e poi confluisce nel flusso principale.
 
-- `brainstorming` per chiarire intento, requisiti e design prima di modificare comportamento.
-- `idea-refine` per trasformare un'idea grezza in un concetto più chiaro e azionabile.
-- `office-hours` per valutare focus, ambizione e trade-off di prodotto.
-- `grill-with-docs` quando il piano va stressato contro dominio, codice e decisioni documentate.
-- `grilling` per una decisione HITL mirata.
-- `domain-modeling` quando termini, invarianti o confini di dominio sono ambigui.
+- **Issue, bug report e richieste in ingresso** → `triage`. Produce issue pronte per la delivery.
 
-### Domanda che richiede evidenza concreta
+  Il triage si applica alle richieste arrivate grezze. I ticket generati da `to-tickets` sono già pronti e non vanno sottoposti nuovamente a triage.
 
-- `prototype` per logica, stato o UI throwaway.
-- `research` per fatti esterni ricavati da fonti primarie.
-- `source-driven-development` quando una variante di progetto richiede sviluppo ancorato a fonti tecniche autorevoli.
-- `handoff` prima o dopo una deviazione che richiede una sessione separata.
+- **Qualcosa è rotto** → usa la skill di debugging più specifica documentata per il progetto; in assenza di una variante usa `systematic-debugging`. Crea un feedback loop riproducibile, aggiungi un regression test e poi verifica. Se il problema reale è l'assenza di un seam testabile, passa a `improve-codebase-architecture`.
 
-### Lavoro multi-sessione ma già definibile
+- **Un'iniziativa enorme e nebbiosa** → `wayfinder`. Usa una mappa condivisa di decision ticket e risolve decisioni, non deliverable, finché il percorso diventa visibile. Riservalo ai lavori che non possono essere contenuti in una sessione.
 
-- `to-spec` per condensare decisioni in una specifica implementabile.
-- `to-tickets` per dividerla in ticket verticali con blocker espliciti.
-- `writing-plans` per un piano esecutivo multi-step quando proporzionato.
+  Quando la mappa è risolta, rientra nel flusso principale con `to-spec`, quindi `to-tickets` e delivery ticket per ticket.
 
-### Iniziativa enorme o nebbiosa
+## Salute del codebase
 
-`wayfinder` → `to-spec` → `to-tickets` → delivery ticket per ticket.
+Non è feature work: è manutenzione.
 
-Usa `wayfinder` solo quando la strada verso la destinazione non può essere contenuta in una sessione.
+- **`improve-codebase-architecture`** — individua opportunità di deepening e testabilità. La scelta di un candidato genera un'idea che può rientrare nel flusso principale tramite `grill-with-docs`. `codebase-design` fornisce il vocabolario per progettare il modulo scelto.
+- **`code-simplification`** — semplifica codice funzionante preservandone il comportamento.
+- **`zoom-out`** — fornisce una mappa ad alto livello quando il codice non è comprensibile localmente.
 
-### Delivery di un ticket
+## Vocabolario sottostante
 
-Usa soltanto i passaggi necessari:
+Riferimenti invocabili dal modello che lavorano sotto le altre skill. Usali direttamente quando il problema sono le parole o la forma del design, oppure lascia che siano le skill di processo a richiamarli.
 
-- `using-git-worktrees` quando serve isolamento;
-- `tdd` per comportamento eseguibile;
-- `senior-implementation-discipline` per contratti, dominio, persistenza, sicurezza o componenti condivisi;
-- `code-review-and-quality` per review su spec/task e standard;
-- `requesting-code-review` per preparare una review esterna;
-- `receiving-code-review` per valutare feedback ricevuto;
-- `verification-before-completion` prima di dichiarare concluso il lavoro.
+- **`domain-modeling`** — affina il linguaggio di dominio, risolve termini sovraccarichi e mantiene `CONTEXT.md` come glossario pulito.
+- **`codebase-design`** — vocabolario per moduli profondi, interfacce, seam, adapter, leverage e locality. È usato anche da `tdd` e `improve-codebase-architecture`.
 
-Non cercare una skill `implement`: in questo repository il flusso è composto dalle skill esistenti.
+## Attraversare le sessioni
 
-## On-ramps operativi
+- **`handoff`** — compatta una conversazione in un file Markdown quando il thread è pieno o deve diramarsi. La continuazione avviene in una sessione nuova che riferisce quel file.
+- **Compattazione del contesto disponibile nel runtime** — resta nella stessa conversazione e usala solo nei confini intenzionali tra fasi. Non compattare nel mezzo di una fase se questo rischia di perdere decisioni operative.
 
-### Bug o test rotto
+## Standalone
 
-- `systematic-debugging` globale;
-- oppure `diagnose` specifica del progetto, quando presente;
-- regression test e `tdd` quando applicabile;
-- `verification-before-completion`.
+Fuori dal flusso principale.
 
-### Issue o PR in ingresso
+- **`grilling`** — intervista mirata e una domanda alla volta quando non serve il comportamento documentale completo di `grill-with-docs`.
+- **`prototype`** — piccolo programma throwaway che risponde a una domanda di design su stato, logica o UI.
+- **`research`** — ricerca su fonti primarie che produce evidenza citata; alimenta il flusso principale ma non sostituisce le decisioni.
+- **`resolving-merge-conflicts`** — risolve conflitti Git già presenti preservando l'intento di entrambe le parti.
+- **Skill documentate nell'inventario README** — per documenti, contenuti, browser, dati, slide, publishing, sicurezza, homelab e domini specifici, seleziona la skill più specifica descritta nell'inventario. Non duplicare qui l'intero catalogo: il README ne resta la fonte unica.
 
-- `triage` per richieste non create dal flusso `to-tickets`.
-- I ticket generati da `to-tickets` sono già pronti e non vanno sottoposti nuovamente a triage.
+## Precondizione
 
-### Conflitti Git
-
-- `resolving-merge-conflicts` quando merge o rebase è già in conflitto.
-
-### Codebase health
-
-- `improve-codebase-architecture` per opportunità di deepening.
-- `codebase-design` per moduli, interfacce, seam e design-it-twice.
-- `code-simplification` per semplificare codice funzionante preservando comportamento.
-- `zoom-out` per ottenere una mappa ad alto livello.
-
-## Domini non engineering
-
-Usa l'inventario del README per individuare la skill specifica, ad esempio:
-
-- `humanize-writing`, `caveman`, `interview-me` per scrittura e comunicazione;
-- `baia-publish` per il workflow editoriale Baialupo;
-- `organize-obsidian-wiki` per Obsidian;
-- `powerpoint-deck-production` e `pptx-quality-review` per presentazioni;
-- `read-vdo-hour-meter` per il flusso Kong;
-- le skill `homelab-*` per operazioni homelab specifiche;
-- le varianti CAP Aeris e di altri progetti quando il repository corrente le installa.
-
-Non mantenere qui una seconda copia completa dell'inventario: il README resta la fonte autorevole e questa sezione descrive solo le famiglie principali.
-
-## Catalogo su richiesta
-
-Se l'utente chiede il catalogo completo:
-
-1. leggi l'inventario del README;
-2. raggruppa le skill per globali e progetto;
-3. mostra nome, descrizione breve e ambito;
-4. evidenzia duplicati intenzionali e precedenze progetto/globale;
-5. segnala eventuali discrepanze osservate con le skill installate nel progetto corrente.
-
-## Configurazione
-
-Quando tracker, label di triage o fonti di dominio non sono configurati, usa `setup-matt-pocock-skills` prima dei flussi che ne dipendono.
+**`setup-matt-pocock-skills`** — eseguila prima del primo flusso engineering quando tracker, label di triage o struttura documentale richiesti dalle skill non sono ancora configurati.
 
 ## Provenienza
 
-Adattata dal router consultivo `ask-matt` di `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Rinominata `ask-skills` ed estesa al catalogo documentato di `codex-skills`, senza discovery dinamica o orchestrazione automatica.
+Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills` e controllo non invasivo di coerenza dell'inventario.
