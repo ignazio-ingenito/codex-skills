@@ -14,6 +14,48 @@ Il catalogo autorevole è l'`Inventario Skill` del `README.md`. Le skill specifi
 
 All'avvio, se è evidente che una skill valida presente nelle directory canoniche non compare nell'inventario, non usarla implicitamente: segnala la discrepanza e proponi di aggiornare il README. Questo è un controllo di coerenza, non un meccanismo di discovery o routing alternativo.
 
+## Skill installate e disponibili
+
+Il catalogo del README descrive tutte le skill disponibili nel repository, non soltanto quelle attualmente installate nel runtime.
+
+Quando suggerisci una skill:
+
+1. verifica se è già disponibile nel runtime corrente;
+2. se è installata, suggeriscila normalmente;
+3. se è documentata nel repository ma non installata, dichiaralo esplicitamente come **disponibile ma non installata**;
+4. mostra il comando di installazione appropriato;
+5. ricorda che Codex deve essere riavviato dopo l'installazione.
+
+Per una skill globale usa:
+
+```bash
+cd /percorso/del/repository/codex-skills
+scripts/install-local.sh <skill-name>
+```
+
+Se il checkout corrente è già `codex-skills`, usa semplicemente:
+
+```bash
+scripts/install-local.sh <skill-name>
+```
+
+Per una skill di progetto usa:
+
+```bash
+scripts/install-project.sh <project-name> <project-root>
+```
+
+Non affermare che una skill è installata senza evidenza dal runtime. Se non puoi verificarlo, formula il risultato così:
+
+```text
+Skill consigliata: <skill-name>
+Stato: installazione non verificata
+Installazione globale: scripts/install-local.sh <skill-name>
+Dopo l'installazione: riavvia Codex
+```
+
+Non installare automaticamente una skill soltanto perché è consigliata. Proponi il comando e lascia la decisione all'utente, salvo richiesta esplicita di eseguire l'installazione.
+
 ## Il flusso principale: idea → delivery
 
 Il percorso seguito dalla maggior parte del lavoro. Hai un'idea e vuoi realizzarla.
@@ -85,4 +127,4 @@ Fuori dal flusso principale.
 
 ## Provenienza
 
-Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills` e controllo non invasivo di coerenza dell'inventario.
+Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills`, controllo non invasivo di coerenza dell'inventario e guida all'installazione delle skill disponibili ma non attive.
