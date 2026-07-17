@@ -1,3 +1,11 @@
+---
+name: grill-with-screenshots
+description: >-
+  Reviews real application screenshots to assess UX, UI, responsiveness,
+  accessibility risks, and product-task alignment without redesigning or
+  modifying code.
+---
+
 # GRILL_WITH_SCREENSHOTS
 
 ## Purpose
