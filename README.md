@@ -2,8 +2,8 @@
 
 Repository per skill Codex personali e specifiche di progetto.
 
-Questo repository e la sorgente canonica delle skill locali. Le skill sono
-organizzate per ambito: globali se riusabili in piu repository, specifiche di
+Questo repository è la sorgente canonica delle skill locali. Le skill sono
+organizzate per ambito: globali se riusabili in più repository, specifiche di
 progetto se contengono assunzioni, workflow o documentazione legati a un solo
 progetto.
 
@@ -11,7 +11,7 @@ progetto.
 
 Usa due contenitori principali:
 
-- `global/`: skill globali utili in piu repository, collegabili in
+- `global/`: skill globali utili in più repository, collegabili in
   `$CODEX_HOME/skills`.
 - `projects/<project-name>/`: skill che hanno senso solo dentro un progetto e
   vanno collegate nella directory `.agents/skills` di quel progetto.
@@ -40,11 +40,16 @@ Struttura attuale:
 
 ```text
 global/
+  ask-skills/
   brainstorming/
   caveman/
   code-review-and-quality/
   code-simplification/
+  codebase-design/
+  domain-modeling/
   grill-with-docs/
+  grilling/
+  handoff/
   humanize-writing/
   idea-refine/
   improve-codebase-architecture/
@@ -53,12 +58,20 @@ global/
   playwright/
   prototype/
   receiving-code-review/
+  research/
   requesting-code-review/
+  resolving-merge-conflicts/
   senior-implementation-discipline/
+  setup-matt-pocock-skills/
   systematic-debugging/
+  tdd/
+  teach/
+  to-spec/
+  to-tickets/
   triage/
   using-git-worktrees/
   verification-before-completion/
+  wayfinder/
   writing-plans/
   writing-skills/
   zoom-out/
@@ -124,7 +137,7 @@ projects/
     pptx-quality-review/
 ```
 
-`grill-with-docs` esiste in entrambi i contenitori perche la versione globale e
+`grill-with-docs` esiste in entrambi i contenitori perché la versione globale e
 quella CAP Aeris non sono identiche. Tienile separate, salvo decisione esplicita
 di generalizzare la versione CAP.
 
@@ -134,28 +147,41 @@ di generalizzare la versione CAP.
 
 | Skill | Repo sorgente | Descrizione breve |
 | --- | --- | --- |
+| `ask-skills` | `mattpocock/skills` | Indica quale skill o flusso usare nella situazione corrente. |
 | `brainstorming` | `obra/superpowers` | Esplora intento, requisiti e design prima di lavori creativi o modifiche di comportamento. |
-| `caveman` | `mattpocock/skills` | Modalita di comunicazione ultra-sintetica per ridurre token e rumore. |
-| `code-review-and-quality` | `addyosmani/agent-skills` | Review multi-asse su correttezza, leggibilita, architettura, sicurezza e performance. |
-| `code-simplification` | `addyosmani/agent-skills` | Semplifica codice gia funzionante preservando il comportamento. |
+| `caveman` | `mattpocock/skills` | Modalità di comunicazione ultra-sintetica per ridurre token e rumore. |
+| `code-review-and-quality` | `addyosmani/agent-skills` | Review multi-asse su correttezza, leggibilità, architettura, sicurezza e performance. |
+| `code-simplification` | `addyosmani/agent-skills` | Semplifica codice già funzionante preservando il comportamento. |
+| `codebase-design` | `mattpocock/skills` | Fornisce disciplina e vocabolario per progettare moduli profondi e seam puliti. |
+| `domain-modeling` | `mattpocock/skills` | Costruisce e affina il modello di dominio, il glossario e le decisioni correlate. |
 | `grill-with-docs` | personale locale | Stress-test di piani contro linguaggio di dominio, documentazione e decisioni. |
-| `humanize-writing` | `jpeggdev/humanize-writing` | Rende testi meno robotici e piu naturali, rimuovendo pattern tipici della scrittura AI. |
-| `idea-refine` | `addyosmani/agent-skills` | Trasforma idee grezze in concetti piu chiari e azionabili. |
-| `improve-codebase-architecture` | `mattpocock/skills` | Cerca opportunita di miglioramento architetturale e testabilita. |
+| `grilling` | `mattpocock/skills` | Intervista in profondità su piani, decisioni o idee fino a sciogliere le ambiguità. |
+| `handoff` | `mattpocock/skills` | Compatta una sessione in un documento che consente a un altro agente di continuare. |
+| `humanize-writing` | `jpeggdev/humanize-writing` | Rende testi meno robotici e più naturali, rimuovendo pattern tipici della scrittura AI. |
+| `idea-refine` | `addyosmani/agent-skills` | Trasforma idee grezze in concetti più chiari e azionabili. |
+| `improve-codebase-architecture` | `mattpocock/skills` | Cerca opportunità di miglioramento architetturale e testabilità. |
 | `interview-me` | `addyosmani/agent-skills` | Intervista l'utente una domanda alla volta per chiarire il bisogno reale. |
 | `office-hours` | `garrytan/gstack` | Domande stile YC/CEO per valutare idee, focus e ambizione di prodotto. |
 | `playwright` | `openai/skills` | Automazione browser reale tramite Playwright CLI e workflow associati. |
 | `prototype` | `mattpocock/skills` | Costruisce prototipi throwaway per validare design, stato o UI prima dell'implementazione. |
 | `receiving-code-review` | `obra/superpowers` | Gestisce feedback di review con rigore tecnico prima di applicare modifiche. |
-| `requesting-code-review` | `obra/superpowers` | Prepara richieste di review quando un lavoro e pronto o vicino al merge. |
+| `research` | `mattpocock/skills` | Indaga domande tecniche usando fonti primarie e salva risultati citati nel repository. |
+| `requesting-code-review` | `obra/superpowers` | Prepara richieste di review quando un lavoro è pronto o vicino al merge. |
+| `resolving-merge-conflicts` | `mattpocock/skills` | Risolve conflitti di merge o rebase ricostruendo l'intento delle due versioni. |
 | `senior-implementation-discipline` | personale locale | Impone disciplina da maintainer per modifiche a codice condiviso, contratti, dominio, persistenza, sicurezza e architettura. |
+| `setup-matt-pocock-skills` | `mattpocock/skills` | Configura tracker, label e layout documentale richiesti dalle skill importate. |
 | `systematic-debugging` | `obra/superpowers` | Impone un ciclo disciplinato prima di proporre fix a bug o test rotti. |
+| `tdd` | `mattpocock/skills` | Guida implementazioni e bugfix con ciclo red-green-refactor. |
+| `teach` | `mattpocock/skills` | Gestisce un percorso didattico stateful nel workspace con lezioni, fonti e learning record. |
+| `to-spec` | `mattpocock/skills` | Trasforma la conversazione corrente in una specifica pubblicabile. |
+| `to-tickets` | `mattpocock/skills` | Divide piani e specifiche in ticket tracer-bullet con dipendenze esplicite. |
 | `triage` | `mattpocock/skills` | Triage di issue, bug e feature request tramite stati e ruoli. |
 | `using-git-worktrees` | `obra/superpowers` | Usa workspace isolati con git worktree per feature work o piani complessi. |
 | `verification-before-completion` | `obra/superpowers` | Richiede evidenze di verifica prima di dichiarare un lavoro completato. |
+| `wayfinder` | `mattpocock/skills` | Pianifica lavori più grandi di una sessione tramite ticket di investigazione collegati. |
 | `writing-plans` | `obra/superpowers` | Scrive piani per task multi-step prima di toccare codice. |
 | `writing-skills` | `obra/superpowers` | Crea, modifica e verifica skill con struttura corretta. |
-| `zoom-out` | `mattpocock/skills` | Chiede una mappa ad alto livello quando una parte di codice non e chiara. |
+| `zoom-out` | `mattpocock/skills` | Chiede una mappa ad alto livello quando una parte di codice non è chiara. |
 
 ### CAP Aeris
 
@@ -167,7 +193,7 @@ di generalizzare la versione CAP.
 | `diagnose` | `cap-aeris` locale | Diagnosi disciplinata: riproduzione, ipotesi, strumentazione, fix e regressione. |
 | `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni, ADR e documentazione utile a futuri agenti e sviluppatori. |
 | `grill-with-docs` | `cap-aeris` locale | Stress-test di piani contro documenti CAP, UI, wiki e decisioni note. |
-| `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e opportunita di refactor profondo. |
+| `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e opportunità di refactor profondo. |
 | `performance-optimization` | `addyosmani/agent-skills` | Ottimizza performance quando esistono metriche, regressioni o bottleneck misurati. |
 | `planning-and-task-breakdown` | `addyosmani/agent-skills` | Spezza specifiche e requisiti in task ordinati e verificabili. |
 | `prototype` | `mattpocock/skills` | Usa prototipi throwaway per validare UI, stati o flussi prima di consolidare. |
@@ -207,7 +233,7 @@ di generalizzare la versione CAP.
 | `homelab-app-onboarding` | personale locale | Guida onboarding app con manifest, ArgoCD, SOPS, CNPG, HTTPRoute, Cloudflare, Homepage e backup. |
 | `homelab-backup-restore` | personale locale | Guida backup, restore, CNPG, Barman Cloud Plugin, RGW, rclone e drill di recovery. |
 | `homelab-ceph-storage-operations` | personale locale | Guida Ceph, Ceph CSI, RGW, RBD, PVC, bucket S3 e percorsi storage. |
-| `homelab-cloudflare-operations` | personale locale | Guida DNS, Access, Zero Trust, tunnel cloudflared e raggiungibilita pubblica. |
+| `homelab-cloudflare-operations` | personale locale | Guida DNS, Access, Zero Trust, tunnel cloudflared e raggiungibilità pubblica. |
 | `homelab-gateway-routes` | personale locale | Guida HTTPRoute, Gateway API, Traefik, Cloudflare DNS/Access e tunnel ingress. |
 | `homelab-gitops-operations` | personale locale | Guida modifiche GitOps, sync ArgoCD, Kustomize, dry-run e verifiche live. |
 | `homelab-implementation-planning` | personale locale | Guida piani per migrazioni, rollout GitOps, rollback, verifiche e commit strategy. |
@@ -285,7 +311,7 @@ scripts/list-installed.sh
 ```
 
 Lo script usa `find -L`, quindi segue i symlink creati da `install-local.sh`.
-Un semplice `find ~/.codex/skills -type d` non basta, perche molte skill sono
+Un semplice `find ~/.codex/skills -type d` non basta, perché molte skill sono
 collegate come symlink dal repository.
 
 ## Installazione Locale
@@ -303,10 +329,10 @@ Installa solo alcune skill globali:
 scripts/install-local.sh playwright grill-with-docs
 ```
 
-Le skill gia installate non vengono sovrascritte, a meno che siano gia symlink
+Le skill già installate non vengono sovrascritte, a meno che siano già symlink
 che puntano a questo repository.
 
-Per convertire directory gia installate in symlink gestiti dal repo:
+Per convertire directory già installate in symlink gestiti dal repo:
 
 ```bash
 scripts/install-local.sh --replace
@@ -319,7 +345,7 @@ Riavvia Codex dopo avere installato o modificato skill.
 
 ## Installazione Skill Di Progetto
 
-Le skill di progetto sono salvate in `projects/<project-name>/` perche spesso
+Le skill di progetto sono salvate in `projects/<project-name>/` perché spesso
 contengono assunzioni di dominio specifiche del progetto.
 
 ```bash
@@ -336,7 +362,7 @@ Lo script di installazione progetto rifiuta di sovrascrivere directory skill
 esistenti che non siano symlink. Importa o sposta le skill di progetto esistenti
 prima di collegarle.
 
-Per convertire directory skill di progetto gia esistenti in symlink gestiti dal
+Per convertire directory skill di progetto già esistenti in symlink gestiti dal
 repo:
 
 ```bash
@@ -352,7 +378,7 @@ la sorgente modificabile, mentre Codex vede le skill nei percorsi runtime attesi
 - percorso runtime progetto: `<project-root>/.agents/skills/<skill-name>`
 
 Gli script rifiutano di sovrascrivere directory esistenti che non siano symlink.
-Se una skill e gia installata come directory reale, importala o spostala prima di
+Se una skill è già installata come directory reale, importala o spostala prima di
 collegarla. Con `--replace`, le voci esistenti vengono spostate in percorsi
 `.backup-*` con timestamp e poi viene creato il symlink.
 
@@ -364,7 +390,7 @@ Copia nel repo le skill personali attualmente installate in `$CODEX_HOME/skills`
 scripts/sync-from-codex.sh
 ```
 
-Lo script salta le skill `.system` di default e non sovrascrive mai skill gia
+Lo script salta le skill `.system` di default e non sovrascrive mai skill già
 presenti nel repo, salvo uso esplicito di `--force`.
 
 ```bash
@@ -372,11 +398,11 @@ scripts/sync-from-codex.sh --force
 ```
 
 Le skill di progetto vanno importate manualmente in `projects/<project-name>/`,
-cosi il confine del progetto resta esplicito.
+così il confine del progetto resta esplicito.
 
 ## Aggiungere Una Nuova Skill
 
-1. Decidi se la skill e globale o specifica di progetto.
+1. Decidi se la skill è globale o specifica di progetto.
 2. Crea la cartella sotto `global/` oppure `projects/<project-name>/`.
 3. Aggiungi `SKILL.md` con frontmatter `name` e `description`.
 4. Metti riferimenti lunghi in `references/`, invece di appesantire `SKILL.md`.
@@ -395,7 +421,7 @@ bash -n scripts/*.sh
 git status --short
 ```
 
-Controlla con attenzione le modifiche alle skill importate, perche il testo di
+Controlla con attenzione le modifiche alle skill importate, perché il testo di
 una skill cambia il comportamento dell'agente.
 
 ## Commit E Changelog
@@ -416,5 +442,5 @@ ci: generate changelog automatically
 Quando Codex propone un messaggio di commit per questo repository, deve proporlo
 sempre in inglese e in formato Conventional Commits.
 
-Il changelog e generato automaticamente da GitHub Actions con `git-cliff` a ogni
+Il changelog è generato automaticamente da GitHub Actions con `git-cliff` a ogni
 push su `main` e quando la workflow `Changelog` viene avviata manualmente.
