@@ -1,290 +1,166 @@
 # Codex Skills
 
-Repository per skill Codex personali e specifiche di progetto.
+Repository canonico delle skill Codex locali.
 
-Questo repository è la sorgente canonica delle skill locali. Le skill sono
-organizzate per ambito: globali se riusabili in più repository, specifiche di
-progetto se contengono assunzioni, workflow o documentazione legati a un solo
-progetto.
+- `global/`: skill riusabili, installate in `$CODEX_HOME/skills`.
+- `projects/<project-name>/`: skill legate a un progetto, installate in `.agents/skills`.
 
 ## Struttura
 
-Usa due contenitori principali:
-
-- `global/`: skill globali utili in più repository, collegabili in
-  `$CODEX_HOME/skills`.
-- `projects/<project-name>/`: skill che hanno senso solo dentro un progetto e
-  vanno collegate nella directory `.agents/skills` di quel progetto.
-
 ```text
-global/                    # skill globali installate in $CODEX_HOME/skills
+global/
   skill-name/
     SKILL.md
-    agents/openai.yaml      # metadati UI opzionali
-    scripts/                # helper deterministici opzionali
-    references/             # contesto opzionale caricato su richiesta
-    assets/                 # template o asset binari opzionali
-projects/                  # skill specifiche raggruppate per progetto
+    agents/openai.yaml   # metadati UI opzionali
+    scripts/             # helper deterministici opzionali
+    references/          # contesto caricato su richiesta
+    assets/              # template o file binari opzionali
+projects/
   project-name/
     skill-name/
       SKILL.md
 scripts/
-  install-local.sh          # collega le skill globali a Codex
-  install-project.sh        # collega le skill progetto a .agents/skills
-  list-installed.sh         # elenca le skill installate seguendo i symlink
-  sync-from-codex.sh        # copia le skill locali installate nel repo
-  validate-skills.sh        # valida la forma delle skill
+  install-local.sh
+  install-project.sh
+  list-installed.sh
+  sync-from-codex.sh
+  validate-skills.sh
 ```
 
-Struttura attuale:
+`grill-with-docs` esiste sia tra le skill globali sia in CAP Aeris: le due versioni non sono identiche e restano separate finché non viene decisa una generalizzazione esplicita.
 
-```text
-global/
-  ask-skills/
-  brainstorming/
-  caveman/
-  code-review-and-quality/
-  code-simplification/
-  codebase-design/
-  domain-modeling/
-  grill-with-docs/
-  grilling/
-  handoff/
-  humanize-writing/
-  idea-refine/
-  improve-codebase-architecture/
-  interview-me/
-  office-hours/
-  playwright/
-  prototype/
-  receiving-code-review/
-  research/
-  requesting-code-review/
-  resolving-merge-conflicts/
-  senior-implementation-discipline/
-  setup-matt-pocock-skills/
-  systematic-debugging/
-  tdd/
-  teach/
-  to-spec/
-  to-tickets/
-  triage/
-  using-git-worktrees/
-  verification-before-completion/
-  wayfinder/
-  writing-plans/
-  writing-skills/
-  zoom-out/
-projects/
-  baialupo/
-    baia-publish/
-  cap-aeris/
-    api-and-interface-design/
-    browser-testing-with-devtools/
-    deprecation-and-migration/
-    diagnose/
-    documentation-and-adrs/
-    grill-with-docs/
-    improve-codebase-architecture/
-    performance-optimization/
-    planning-and-task-breakdown/
-    prototype/
-    security-and-hardening/
-    source-driven-development/
-    systematic-debugging/
-    tdd/
-    triage/
-    update-docs/
-    verification-before-completion/
-    write-tests/
-    writing-plans/
-    zoom-out/
-  cantieri-protetti-ai/
-    documentation-and-adrs/
-    grill-with-docs/
-    security-and-hardening/
-    source-driven-development/
-    systematic-debugging/
-    verification-before-completion/
-  homelab/
-    grill-with-docs/
-    homelab-app-onboarding/
-    homelab-backup-restore/
-    homelab-ceph-storage-operations/
-    homelab-cloudflare-operations/
-    homelab-gateway-routes/
-    homelab-gitops-operations/
-    homelab-implementation-planning/
-    homelab-kubernetes-operations/
-    homelab-network-readiness/
-    homelab-observability-operations/
-    homelab-opentofu-terraform/
-    homelab-proxmox-operations/
-    homelab-review-and-debt/
-    homelab-secret-management/
-    network-config-validation/
-    security-review/
-    systematic-debugging/
-    verification-before-completion/
-  obsidian/
-    organize-obsidian-wiki/
-    verification-before-completion/
-  kong/
-    read-vdo-hour-meter/
-  powerpoint/
-    grill-with-docs/
-    powerpoint-deck-production/
-    pptx-quality-review/
-```
-
-`grill-with-docs` esiste in entrambi i contenitori perché la versione globale e
-quella CAP Aeris non sono identiche. Tienile separate, salvo decisione esplicita
-di generalizzare la versione CAP.
-
-## Inventario Skill
+## Inventario
 
 ### Globali
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `ask-skills` | `mattpocock/skills` | Indica quale skill o flusso usare nella situazione corrente. |
-| `brainstorming` | `obra/superpowers` | Esplora intento, requisiti e design prima di lavori creativi o modifiche di comportamento. |
-| `caveman` | `mattpocock/skills` | Modalità di comunicazione ultra-sintetica per ridurre token e rumore. |
-| `code-review-and-quality` | `addyosmani/agent-skills` | Review multi-asse su correttezza, leggibilità, architettura, sicurezza e performance. |
-| `code-simplification` | `addyosmani/agent-skills` | Semplifica codice già funzionante preservando il comportamento. |
-| `codebase-design` | `mattpocock/skills` | Fornisce disciplina e vocabolario per progettare moduli profondi e seam puliti. |
-| `domain-modeling` | `mattpocock/skills` | Costruisce e affina il modello di dominio, il glossario e le decisioni correlate. |
-| `grill-with-docs` | personale locale | Stress-test di piani contro linguaggio di dominio, documentazione e decisioni. |
-| `grilling` | `mattpocock/skills` | Intervista in profondità su piani, decisioni o idee fino a sciogliere le ambiguità. |
-| `handoff` | `mattpocock/skills` | Compatta una sessione in un documento che consente a un altro agente di continuare. |
-| `humanize-writing` | `jpeggdev/humanize-writing` | Rende testi meno robotici e più naturali, rimuovendo pattern tipici della scrittura AI. |
-| `idea-refine` | `addyosmani/agent-skills` | Trasforma idee grezze in concetti più chiari e azionabili. |
-| `improve-codebase-architecture` | `mattpocock/skills` | Cerca opportunità di miglioramento architetturale e testabilità. |
-| `interview-me` | `addyosmani/agent-skills` | Intervista l'utente una domanda alla volta per chiarire il bisogno reale. |
-| `office-hours` | `garrytan/gstack` | Domande stile YC/CEO per valutare idee, focus e ambizione di prodotto. |
-| `playwright` | `openai/skills` | Automazione browser reale tramite Playwright CLI e workflow associati. |
-| `prototype` | `mattpocock/skills` | Costruisce prototipi throwaway per validare design, stato o UI prima dell'implementazione. |
-| `receiving-code-review` | `obra/superpowers` | Gestisce feedback di review con rigore tecnico prima di applicare modifiche. |
-| `research` | `mattpocock/skills` | Indaga domande tecniche usando fonti primarie e salva risultati citati nel repository. |
-| `requesting-code-review` | `obra/superpowers` | Prepara richieste di review quando un lavoro è pronto o vicino al merge. |
-| `resolving-merge-conflicts` | `mattpocock/skills` | Risolve conflitti di merge o rebase ricostruendo l'intento delle due versioni. |
-| `senior-implementation-discipline` | personale locale | Impone disciplina da maintainer per modifiche a codice condiviso, contratti, dominio, persistenza, sicurezza e architettura. |
-| `setup-matt-pocock-skills` | `mattpocock/skills` | Configura tracker, label e layout documentale richiesti dalle skill importate. |
-| `systematic-debugging` | `obra/superpowers` | Impone un ciclo disciplinato prima di proporre fix a bug o test rotti. |
-| `tdd` | `mattpocock/skills` | Guida implementazioni e bugfix con ciclo red-green-refactor. |
-| `teach` | `mattpocock/skills` | Gestisce un percorso didattico stateful nel workspace con lezioni, fonti e learning record. |
-| `to-spec` | `mattpocock/skills` | Trasforma la conversazione corrente in una specifica pubblicabile. |
-| `to-tickets` | `mattpocock/skills` | Divide piani e specifiche in ticket tracer-bullet con dipendenze esplicite. |
-| `triage` | `mattpocock/skills` | Triage di issue, bug e feature request tramite stati e ruoli. |
-| `using-git-worktrees` | `obra/superpowers` | Usa workspace isolati con git worktree per feature work o piani complessi. |
-| `verification-before-completion` | `obra/superpowers` | Richiede evidenze di verifica prima di dichiarare un lavoro completato. |
-| `wayfinder` | `mattpocock/skills` | Pianifica lavori più grandi di una sessione tramite ticket di investigazione collegati. |
-| `writing-plans` | `obra/superpowers` | Scrive piani per task multi-step prima di toccare codice. |
-| `writing-skills` | `obra/superpowers` | Crea, modifica e verifica skill con struttura corretta. |
-| `zoom-out` | `mattpocock/skills` | Chiede una mappa ad alto livello quando una parte di codice non è chiara. |
+| `ask-skills` | `mattpocock/skills` | Individua la skill o il flusso adatto. |
+| `brainstorming` | `obra/superpowers` | Chiarisce intento, requisiti e design prima di modificare comportamento. |
+| `caveman` | `mattpocock/skills` | Riduce al minimo parole e token. |
+| `code-review-and-quality` | `addyosmani/agent-skills` | Revisiona correttezza, leggibilità, architettura, sicurezza e performance. |
+| `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
+| `codebase-design` | `mattpocock/skills` | Progetta moduli profondi, interfacce piccole e seam puliti. |
+| `domain-modeling` | `mattpocock/skills` | Definisce termini, relazioni, invarianti e decisioni di dominio. |
+| `grill-with-docs` | locale | Stressa piani contro dominio, documentazione e decisioni. |
+| `grilling` | `mattpocock/skills` | Intervista in profondità finché le ambiguità sono risolte. |
+| `handoff` | `mattpocock/skills` | Compatta una sessione per consentire a un altro agente di continuarla. |
+| `humanize-writing` | `jpeggdev/humanize-writing` | Rende il testo più naturale e meno artificiale. |
+| `idea-refine` | `addyosmani/agent-skills` | Trasforma idee grezze in concetti chiari e azionabili. |
+| `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e opportunità di refactor. |
+| `interview-me` | `addyosmani/agent-skills` | Chiarisce il bisogno reale una domanda alla volta. |
+| `office-hours` | `garrytan/gstack` | Valuta idee, focus e ambizione di prodotto con domande stile YC. |
+| `playwright` | `openai/skills` | Automatizza browser reali con Playwright CLI. |
+| `prototype` | `mattpocock/skills` | Crea prototipi throwaway per validare design, stato o UI. |
+| `receiving-code-review` | `obra/superpowers` | Valuta feedback di review prima di applicarlo. |
+| `research` | `mattpocock/skills` | Ricerca con fonti primarie e salva risultati citati. |
+| `requesting-code-review` | `obra/superpowers` | Prepara contesto e range per una review. |
+| `resolving-merge-conflicts` | `mattpocock/skills` | Risolve conflitti ricostruendo l’intento delle versioni. |
+| `senior-implementation-discipline` | locale | Impone disciplina da maintainer su cambi condivisi e rischiosi. |
+| `setup-matt-pocock-skills` | `mattpocock/skills` | Configura tracker, label e layout richiesti dalle skill importate. |
+| `systematic-debugging` | `obra/superpowers` | Diagnostica prima di proporre fix. |
+| `tdd` | `mattpocock/skills` | Guida implementazioni e bugfix con red-green-refactor. |
+| `teach` | `mattpocock/skills` | Gestisce percorsi didattici stateful con lezioni, fonti e learning record. |
+| `to-spec` | `mattpocock/skills` | Trasforma la conversazione in una specifica pubblicabile. |
+| `to-tickets` | `mattpocock/skills` | Divide piani e specifiche in ticket con dipendenze esplicite. |
+| `triage` | `mattpocock/skills` | Classifica issue, bug e feature request. |
+| `using-git-worktrees` | `obra/superpowers` | Isola feature work e piani complessi con git worktree. |
+| `verification-before-completion` | `obra/superpowers` | Richiede evidenze prima di dichiarare un lavoro completato. |
+| `wayfinder` | `mattpocock/skills` | Pianifica lavori oltre una sessione tramite ticket di investigazione. |
+| `writing-plans` | `obra/superpowers` | Scrive piani multi-step prima dell’implementazione. |
+| `writing-skills` | `obra/superpowers` | Crea, modifica e verifica skill. |
+| `zoom-out` | `mattpocock/skills` | Ricostruisce la mappa ad alto livello di codice e chiamanti. |
 
 ### CAP Aeris
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `api-and-interface-design` | `addyosmani/agent-skills` | Guida design di API, contratti e confini frontend/backend. |
-| `browser-testing-with-devtools` | `addyosmani/agent-skills` | Verifica UI browser con DevTools, DOM, console, network e runtime reale. |
-| `deprecation-and-migration` | `addyosmani/agent-skills` | Gestisce rimozione, migrazione e sunset di API, sistemi o feature. |
-| `diagnose` | `cap-aeris` locale | Diagnosi disciplinata: riproduzione, ipotesi, strumentazione, fix e regressione. |
-| `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni, ADR e documentazione utile a futuri agenti e sviluppatori. |
-| `grill-with-docs` | `cap-aeris` locale | Stress-test di piani contro documenti CAP, UI, wiki e decisioni note. |
-| `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e opportunità di refactor profondo. |
-| `performance-optimization` | `addyosmani/agent-skills` | Ottimizza performance quando esistono metriche, regressioni o bottleneck misurati. |
-| `planning-and-task-breakdown` | `addyosmani/agent-skills` | Spezza specifiche e requisiti in task ordinati e verificabili. |
-| `prototype` | `mattpocock/skills` | Usa prototipi throwaway per validare UI, stati o flussi prima di consolidare. |
-| `security-and-hardening` | `addyosmani/agent-skills` | Rafforza codice che gestisce input, sessioni, dati e integrazioni esterne. |
-| `source-driven-development` | `addyosmani/agent-skills` | Ancora le decisioni a documentazione autorevole e fonti ufficiali. |
-| `systematic-debugging` | `obra/superpowers` | Debug strutturato prima di cambiare codice o proporre fix. |
-| `tdd` | `cap-aeris` locale | Red-green-refactor con test orientati al comportamento e alle interfacce pubbliche. |
-| `triage` | `mattpocock/skills` | Triage di issue CAP, bug e richieste feature prima che diventino lavoro eseguibile. |
-| `update-docs` | `cap-aeris` locale | Aggiorna documentazione quando cambiano comportamenti, workflow, UI o assunzioni. |
-| `verification-before-completion` | `obra/superpowers` | Impone verifiche concrete prima di dichiarare una modifica completata. |
-| `write-tests` | `cap-aeris` locale | Guida aggiunta o aggiornamento test coerenti con dominio e documentazione CAP. |
-| `writing-plans` | `obra/superpowers` | Produce piani multi-step prima dell'implementazione. |
-| `zoom-out` | `mattpocock/skills` | Fornisce contesto alto livello su moduli, chiamanti e linguaggio di dominio. |
+| `api-and-interface-design` | `addyosmani/agent-skills` | Progetta API, contratti e confini frontend/backend. |
+| `browser-testing-with-devtools` | `addyosmani/agent-skills` | Verifica UI con DOM, console, network e runtime reale. |
+| `deprecation-and-migration` | `addyosmani/agent-skills` | Gestisce rimozioni, migrazioni e sunset. |
+| `diagnose` | locale CAP | Diagnostica con riproduzione, ipotesi, strumentazione e regressione. |
+| `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni e ADR utili a sviluppatori e agenti. |
+| `grill-with-docs` | locale CAP | Stressa piani contro documenti, UI, wiki e decisioni CAP. |
+| `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e refactor profondi. |
+| `performance-optimization` | `addyosmani/agent-skills` | Ottimizza bottleneck misurati. |
+| `planning-and-task-breakdown` | `addyosmani/agent-skills` | Divide requisiti in task ordinati e verificabili. |
+| `prototype` | `mattpocock/skills` | Valida UI, stati e flussi con prototipi throwaway. |
+| `security-and-hardening` | `addyosmani/agent-skills` | Rafforza input, sessioni, dati e integrazioni. |
+| `source-driven-development` | `addyosmani/agent-skills` | Ancora le decisioni a fonti autorevoli. |
+| `systematic-debugging` | `obra/superpowers` | Diagnostica prima di cambiare codice. |
+| `tdd` | locale CAP | Applica red-green-refactor sulle interfacce pubbliche. |
+| `triage` | `mattpocock/skills` | Classifica issue CAP prima che diventino lavoro. |
+| `update-docs` | locale CAP | Aggiorna documentazione quando cambiano comportamenti o assunzioni. |
+| `verification-before-completion` | `obra/superpowers` | Richiede verifiche concrete prima della chiusura. |
+| `write-tests` | locale CAP | Aggiunge test coerenti con dominio e documentazione. |
+| `writing-plans` | `obra/superpowers` | Produce piani prima dell’implementazione. |
+| `zoom-out` | `mattpocock/skills` | Fornisce contesto su moduli, chiamanti e dominio. |
 
 ### Baialupo
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `baia-publish` | `baialupo` locale | Pubblica articoli, eventi e aggiornamenti Baialupo seguendo workflow editoriale, fonti, immagini, eventi e passaggio di naturalezza. |
+| `baia-publish` | locale | Pubblica contenuti seguendo workflow editoriale, fonti, immagini ed eventi. |
 
 ### Cantieri Protetti AI
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni, ADR e documentazione quando cambiano dominio, payload, API, OCR, LLM o persistenza. |
-| `grill-with-docs` | personale locale | Stress-test di decisioni contro `CONTEXT.md`, ADR e linguaggio di dominio. |
-| `security-and-hardening` | `addyosmani/agent-skills` | Rafforza privacy, segreti, input file, API e gestione di contenuti documentali sensibili. |
-| `source-driven-development` | `addyosmani/agent-skills` | Ancora implementazioni a fonti autorevoli e documentazione tecnica aggiornata. |
-| `systematic-debugging` | `obra/superpowers` | Diagnosi strutturata per pipeline PDF, OCR, LLM, API e CLI. |
-| `verification-before-completion` | `obra/superpowers` | Richiede evidenze di test, lint, comandi CLI e verifica payload prima di chiudere il lavoro. |
+| `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni su dominio, payload, API, OCR, LLM e persistenza. |
+| `grill-with-docs` | locale | Stressa decisioni contro `CONTEXT.md`, ADR e dominio. |
+| `security-and-hardening` | `addyosmani/agent-skills` | Protegge privacy, segreti, file, API e documenti sensibili. |
+| `source-driven-development` | `addyosmani/agent-skills` | Ancora implementazioni a fonti tecniche aggiornate. |
+| `systematic-debugging` | `obra/superpowers` | Diagnostica pipeline PDF, OCR, LLM, API e CLI. |
+| `verification-before-completion` | `obra/superpowers` | Verifica test, lint, CLI e payload prima della chiusura. |
 
 ### Homelab
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `grill-with-docs` | personale locale | Sfida piani GitOps, rete, backup e architettura contro documentazione e manifest reali. |
-| `homelab-app-onboarding` | personale locale | Guida onboarding app con manifest, ArgoCD, SOPS, CNPG, HTTPRoute, Cloudflare, Homepage e backup. |
-| `homelab-backup-restore` | personale locale | Guida backup, restore, CNPG, Barman Cloud Plugin, RGW, rclone e drill di recovery. |
-| `homelab-ceph-storage-operations` | personale locale | Guida Ceph, Ceph CSI, RGW, RBD, PVC, bucket S3 e percorsi storage. |
-| `homelab-cloudflare-operations` | personale locale | Guida DNS, Access, Zero Trust, tunnel cloudflared e raggiungibilità pubblica. |
-| `homelab-gateway-routes` | personale locale | Guida HTTPRoute, Gateway API, Traefik, Cloudflare DNS/Access e tunnel ingress. |
-| `homelab-gitops-operations` | personale locale | Guida modifiche GitOps, sync ArgoCD, Kustomize, dry-run e verifiche live. |
-| `homelab-implementation-planning` | personale locale | Guida piani per migrazioni, rollout GitOps, rollback, verifiche e commit strategy. |
-| `homelab-kubernetes-operations` | personale locale | Guida K3s, risorse Kubernetes, CRD, operatori, rollout, servizi, endpoint e log. |
-| `homelab-network-readiness` | `affaan-m/everything-claude-code` | Checklist di readiness per rete homelab, DNS locale, firewall e accesso remoto. |
-| `homelab-observability-operations` | personale locale | Guida Grafana, Loki, Prometheus, Alloy, dashboard, alerting, label e metriche. |
-| `homelab-opentofu-terraform` | personale locale | Guida Terraform/OpenTofu per Cloudflare Zero Trust, DNS, Access, tunnel e state. |
-| `homelab-proxmox-operations` | personale locale | Guida Proxmox, PBS, Ceph, VM/LXC, nodi, storage e backup infrastrutturali. |
-| `homelab-review-and-debt` | personale locale | Guida review del repo per debito tecnico, rischio operativo, drift, sicurezza e nuove implementazioni. |
-| `homelab-secret-management` | personale locale | Guida SOPS, Age, Reflector, rotazione token, credenziali DB e leak check. |
-| `network-config-validation` | `affaan-m/everything-claude-code` | Review preventiva di configurazioni rete, indirizzi, subnet e rischi management-plane. |
-| `security-review` | `affaan-m/everything-claude-code` | Checklist sicurezza per segreti, configurazioni, accessi e superfici esposte. |
-| `systematic-debugging` | `obra/superpowers` | Debug strutturato per GitOps, Kubernetes, DNS, Cloudflare, monitoring e backup. |
-| `verification-before-completion` | `obra/superpowers` | Verifica comandi, sync, manifest e stato cluster prima di dichiarare completata una modifica. |
+| `grill-with-docs` | locale | Stressa piani GitOps, rete, backup e architettura. |
+| `homelab-app-onboarding` | locale | Onboarding applicazioni con manifest, ArgoCD, SOPS, CNPG, routing e backup. |
+| `homelab-backup-restore` | locale | Backup, restore e recovery drill. |
+| `homelab-ceph-storage-operations` | locale | Ceph, CSI, RGW, RBD, PVC e bucket S3. |
+| `homelab-cloudflare-operations` | locale | DNS, Access, Zero Trust e tunnel Cloudflare. |
+| `homelab-gateway-routes` | locale | HTTPRoute, Gateway API, Traefik e ingress Cloudflare. |
+| `homelab-gitops-operations` | locale | Modifiche GitOps, sync ArgoCD, Kustomize e verifiche live. |
+| `homelab-implementation-planning` | locale | Piani di migrazione, rollout, rollback e commit strategy. |
+| `homelab-kubernetes-operations` | locale | K3s, risorse, CRD, operatori, rollout, servizi e log. |
+| `homelab-network-readiness` | `affaan-m/everything-claude-code` | Verifica rete, DNS, firewall e accesso remoto. |
+| `homelab-observability-operations` | locale | Grafana, Loki, Prometheus, Alloy, dashboard e alerting. |
+| `homelab-opentofu-terraform` | locale | Terraform/OpenTofu per Cloudflare e state. |
+| `homelab-proxmox-operations` | locale | Proxmox, PBS, Ceph, VM/LXC, nodi e storage. |
+| `homelab-review-and-debt` | locale | Review del repo per rischio, drift, sicurezza e debito tecnico. |
+| `homelab-secret-management` | locale | SOPS, Age, token, credenziali e leak check. |
+| `network-config-validation` | `affaan-m/everything-claude-code` | Valida indirizzi, subnet e rischi management-plane. |
+| `security-review` | `affaan-m/everything-claude-code` | Controlla segreti, configurazioni, accessi e superfici esposte. |
+| `systematic-debugging` | `obra/superpowers` | Diagnostica GitOps, Kubernetes, DNS, Cloudflare, monitoring e backup. |
+| `verification-before-completion` | `obra/superpowers` | Verifica comandi, manifest, sync e stato cluster. |
 
 ### Obsidian
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `organize-obsidian-wiki` | personale locale | Organizza note del vault in wiki personale senza modificare il vault reale senza conferma. |
-| `verification-before-completion` | `obra/superpowers` | Controlla link, duplicati, output e confini read-only prima di chiudere un riordino. |
+| `organize-obsidian-wiki` | locale | Organizza il vault senza modificarlo senza conferma. |
+| `verification-before-completion` | `obra/superpowers` | Controlla link, duplicati, output e confini read-only. |
 
 ### Kong
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `read-vdo-hour-meter` | `kong` locale | Guida lettura visuale delle foto orametro VDO e generazione di `readings.yml` per il flusso manuale Kong. |
+| `read-vdo-hour-meter` | locale | Legge foto di orametri VDO e genera `readings.yml`. |
 
 ### PowerPoint
 
-| Skill | Repo sorgente | Descrizione breve |
+| Skill | Sorgente | Uso |
 | --- | --- | --- |
-| `grill-with-docs` | personale locale | Verifica storyline, assunzioni e contenuti contro documenti sorgente e riferimenti. |
-| `powerpoint-deck-production` | personale locale | Produce o modifica deck PowerPoint editabili e source-grounded. |
-| `pptx-quality-review` | personale locale | Revisiona deck per storyline, grounding, assunzioni, coerenza visiva e igiene deliverable. |
+| `grill-with-docs` | locale | Verifica storyline e assunzioni contro le fonti. |
+| `powerpoint-deck-production` | locale | Produce o modifica deck editabili e source-grounded. |
+| `pptx-quality-review` | locale | Revisiona storyline, grounding, coerenza visiva e deliverable. |
 
-## Forma Di Una Skill
+## Forma di una skill
 
-Ogni skill deve essere una directory con un file `SKILL.md` e frontmatter YAML
-che includa almeno `name` e `description`.
-
-```text
-skill-name/
-  SKILL.md
-  agents/openai.yaml      # metadati UI opzionali
-  scripts/                # helper deterministici opzionali
-  references/             # contesto opzionale caricato solo quando serve
-  assets/                 # template, immagini o asset binari opzionali
-```
-
-`SKILL.md` deve iniziare con frontmatter YAML contenente:
+Ogni skill vive in una directory con `SKILL.md` e frontmatter YAML:
 
 ```yaml
 ---
@@ -293,143 +169,58 @@ description: Quando Codex deve usare questa skill.
 ---
 ```
 
-Mantieni la descrizione precisa. Codex usa `name` e `description` per decidere
-quando attivare la skill.
+`description` deve essere precisa: Codex la usa per decidere se attivare la skill. Riferimenti lunghi vanno in `references/`; helper deterministici in `scripts/`.
 
-## Validazione
+## Installazione
 
-```bash
-scripts/validate-skills.sh
-```
-
-## Lista Skill Installate
-
-Per elencare le skill realmente visibili a Codex, usa lo script dedicato:
-
-```bash
-scripts/list-installed.sh
-```
-
-Lo script usa `find -L`, quindi segue i symlink creati da `install-local.sh`.
-Un semplice `find ~/.codex/skills -type d` non basta, perché molte skill sono
-collegate come symlink dal repository.
-
-## Installazione Locale
-
-Installa ogni skill globale come symlink in `$CODEX_HOME/skills`, che di default
-corrisponde a `~/.codex/skills`:
+Skill globali:
 
 ```bash
 scripts/install-local.sh
-```
-
-Installa solo alcune skill globali:
-
-```bash
 scripts/install-local.sh playwright grill-with-docs
-```
-
-Le skill già installate non vengono sovrascritte, a meno che siano già symlink
-che puntano a questo repository.
-
-Per convertire directory già installate in symlink gestiti dal repo:
-
-```bash
 scripts/install-local.sh --replace
 ```
 
-`--replace` sposta le voci esistenti in percorsi `.backup-*` con timestamp prima
-di creare il link.
-
-Riavvia Codex dopo avere installato o modificato skill.
-
-## Installazione Skill Di Progetto
-
-Le skill di progetto sono salvate in `projects/<project-name>/` perché spesso
-contengono assunzioni di dominio specifiche del progetto.
+Skill di progetto:
 
 ```bash
 scripts/install-project.sh cap-aeris /home/iingenito/projects/personal/cap-aeris
-```
-
-Questo collega `projects/cap-aeris/*` in:
-
-```text
-/home/iingenito/projects/personal/cap-aeris/.agents/skills/
-```
-
-Lo script di installazione progetto rifiuta di sovrascrivere directory skill
-esistenti che non siano symlink. Importa o sposta le skill di progetto esistenti
-prima di collegarle.
-
-Per convertire directory skill di progetto già esistenti in symlink gestiti dal
-repo:
-
-```bash
 scripts/install-project.sh --replace cap-aeris /home/iingenito/projects/personal/cap-aeris
 ```
 
-## Modello Di Installazione
+Gli script usano symlink e non sovrascrivono directory reali. Con `--replace`, spostano prima le voci esistenti in backup con timestamp. Riavvia Codex dopo installazioni o modifiche.
 
-Gli script di installazione usano symlink. In questo modo il repository Git resta
-la sorgente modificabile, mentre Codex vede le skill nei percorsi runtime attesi:
+Percorsi runtime:
 
-- percorso runtime globale: `$CODEX_HOME/skills/<skill-name>`
-- percorso runtime progetto: `<project-root>/.agents/skills/<skill-name>`
+- globali: `$CODEX_HOME/skills/<skill-name>`
+- progetto: `<project-root>/.agents/skills/<skill-name>`
 
-Gli script rifiutano di sovrascrivere directory esistenti che non siano symlink.
-Se una skill è già installata come directory reale, importala o spostala prima di
-collegarla. Con `--replace`, le voci esistenti vengono spostate in percorsi
-`.backup-*` con timestamp e poi viene creato il symlink.
-
-## Importazione Skill Locali Esistenti
-
-Copia nel repo le skill personali attualmente installate in `$CODEX_HOME/skills`:
+## Sincronizzazione e verifica
 
 ```bash
 scripts/sync-from-codex.sh
-```
-
-Lo script salta le skill `.system` di default e non sovrascrive mai skill già
-presenti nel repo, salvo uso esplicito di `--force`.
-
-```bash
 scripts/sync-from-codex.sh --force
-```
-
-Le skill di progetto vanno importate manualmente in `projects/<project-name>/`,
-così il confine del progetto resta esplicito.
-
-## Aggiungere Una Nuova Skill
-
-1. Decidi se la skill è globale o specifica di progetto.
-2. Crea la cartella sotto `global/` oppure `projects/<project-name>/`.
-3. Aggiungi `SKILL.md` con frontmatter `name` e `description`.
-4. Metti riferimenti lunghi in `references/`, invece di appesantire `SKILL.md`.
-5. Metti helper deterministici in `scripts/`.
-6. Esegui `scripts/validate-skills.sh`.
-7. Installa con `install-local.sh` oppure `install-project.sh`.
-8. Riavvia Codex e verifica che la skill si attivi su un prompt realistico.
-
-## Controlli Del Repository
-
-Prima del commit:
-
-```bash
+scripts/list-installed.sh
 scripts/validate-skills.sh
 bash -n scripts/*.sh
 git status --short
 ```
 
-Controlla con attenzione le modifiche alle skill importate, perché il testo di
-una skill cambia il comportamento dell'agente.
+`sync-from-codex.sh` salta le skill `.system` e non sovrascrive file esistenti senza `--force`. Le skill di progetto vanno importate manualmente in `projects/<project-name>/`.
 
-## Commit E Changelog
+`list-installed.sh` usa `find -L`, quindi segue i symlink; un normale `find ~/.codex/skills -type d` non basta.
 
-Questo repository usa Conventional Commits. I messaggi di commit devono essere in
-inglese, anche quando la documentazione o la conversazione sono in italiano.
+## Aggiungere una skill
 
-Esempi:
+1. Scegli `global/` o `projects/<project-name>/`.
+2. Crea `SKILL.md` e gli eventuali file di supporto.
+3. Esegui validazione, controllo shell e `git status`.
+4. Installa la skill e riavvia Codex.
+5. Verifica l’attivazione con un prompt realistico.
+
+## Commit e changelog
+
+Usa Conventional Commits in inglese, per esempio:
 
 ```text
 feat: add a new project skill
@@ -439,8 +230,4 @@ chore: organize skills by scope
 ci: generate changelog automatically
 ```
 
-Quando Codex propone un messaggio di commit per questo repository, deve proporlo
-sempre in inglese e in formato Conventional Commits.
-
-Il changelog è generato automaticamente da GitHub Actions con `git-cliff` a ogni
-push su `main` e quando la workflow `Changelog` viene avviata manualmente.
+Il changelog è generato automaticamente con `git-cliff` a ogni push su `main` e quando la workflow `Changelog` viene avviata manualmente.
