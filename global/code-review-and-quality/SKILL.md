@@ -11,9 +11,16 @@ description: >-
 
 ## Overview
 
-Multi-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers five axes: correctness, readability, architecture, security, and performance.
+Multi-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions.
 
-**The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase and follows the project's conventions, approve it.
+Every review has two mandatory compliance gates:
+
+1. **Standards** — does the change follow the repository's active rules and conventions?
+2. **Spec** — does the change implement the requested behavior and acceptance criteria?
+
+After those gates, review the five quality axes: correctness, readability, architecture, security, and performance.
+
+**The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase, satisfies the spec, and follows the project's standards, approve it.
 
 ## When to Use
 
@@ -26,20 +33,61 @@ Multi-dimensional code review with quality gates. Every change gets reviewed bef
 ## Boundary With `requesting-code-review`
 
 Use `code-review-and-quality` for the review criteria and findings themselves:
-what is correct, risky, unclear, insecure, slow, or missing tests.
+what violates standards, misses the spec, or is incorrect, risky, unclear, insecure,
+slow, or missing tests.
 
 Use `requesting-code-review` when the task is to package context, select a diff
 range, dispatch a reviewer, or act on reviewer feedback.
 
-## The Five-Axis Review
+## Mandatory Gates: Standards + Spec
 
-Every review evaluates code across these dimensions:
+Run both gates before evaluating implementation quality. They answer different questions and must not be collapsed into a generic correctness check.
+
+### Standards
+
+Does the change comply with the repository's active rules?
+
+Check the applicable sources, such as:
+
+- repository and workspace instructions
+- `AGENTS.md`, `CONTRIBUTING.md`, style guides, ADRs, RFCs, and local conventions
+- project-specific constraints and ownership boundaries
+- required workflows, naming, file placement, commit rules, and validation commands
+
+A standards finding must identify the rule being violated and where that rule comes from. Do not invent conventions or enforce personal preferences as standards.
+
+### Spec
+
+Does the change implement the requested outcome?
+
+Check against the authoritative requirement sources, such as:
+
+- issue or ticket requirements
+- approved plan or specification
+- acceptance criteria
+- documented behavior and explicit maintainer decisions
+
+Review requirements line by line. Mark each as satisfied, missing, partially satisfied, or out of scope. Passing tests does not prove spec compliance when requirements are missing from the tests.
+
+### Gate Result
+
+Report both results explicitly:
+
+```markdown
+Standards: PASS | FAIL
+Spec: PASS | FAIL
+```
+
+A failure in either gate blocks approval unless the maintainer explicitly accepts a documented exception.
+
+## The Five Quality Axes
+
+Every review also evaluates code across these dimensions:
 
 ### 1. Correctness
 
-Does the code do what it claims to do?
+Does the code behave correctly?
 
-- Does it match the spec or task requirements?
 - Are edge cases handled (null, empty, boundary values)?
 - Are error paths handled (not just the happy path)?
 - Does it pass all tests? Are the tests actually testing the right things?
@@ -129,17 +177,36 @@ Every change needs a description that stands alone in version control history.
 
 ## Review Process
 
-### Step 1: Understand the Context
+### Step 1: Establish the Review Contract
 
-Before looking at code, understand the intent:
+Before looking at code, identify:
 
 ```
 - What is this change trying to accomplish?
-- What spec or task does it implement?
+- Which standards apply, and where are they documented?
+- Which spec, issue, plan, or acceptance criteria define success?
 - What is the expected behavior change?
 ```
 
-### Step 2: Review the Tests First
+Do not start approval-oriented review until the Standards and Spec sources are known. If either source is genuinely absent, state that limitation explicitly instead of guessing.
+
+### Step 2: Review Standards and Spec
+
+Evaluate the two mandatory gates first:
+
+```
+Standards:
+- List applicable rules
+- Check the diff against each rule
+- Record PASS or FAIL with evidence
+
+Spec:
+- List requirements and acceptance criteria
+- Check each requirement against implementation and tests
+- Record PASS or FAIL with evidence
+```
+
+### Step 3: Review the Tests
 
 Tests reveal intent and coverage:
 
@@ -149,22 +216,23 @@ Tests reveal intent and coverage:
 - Are edge cases covered?
 - Do tests have descriptive names?
 - Would the tests catch a regression if the code changed?
+- Do tests cover every spec requirement that can be automated?
 ```
 
-### Step 3: Review the Implementation
+### Step 4: Review the Implementation
 
-Walk through the code with the five axes in mind:
+Walk through the code with the five quality axes in mind:
 
 ```
 For each file changed:
-1. Correctness: Does this code do what the test says it should?
+1. Correctness: Does this code behave correctly?
 2. Readability: Can I understand this without help?
 3. Architecture: Does this fit the system?
 4. Security: Any vulnerabilities?
 5. Performance: Any bottlenecks?
 ```
 
-### Step 4: Categorize Findings
+### Step 5: Categorize Findings
 
 Label every comment with its severity so the author knows what's required vs optional:
 
@@ -178,7 +246,7 @@ Label every comment with its severity so the author knows what's required vs opt
 
 This prevents authors from treating all feedback as mandatory and wasting time on optional suggestions.
 
-### Step 5: Verify the Verification
+### Step 6: Verify the Verification
 
 Check the author's verification story:
 
@@ -188,6 +256,7 @@ Check the author's verification story:
 - Was the change tested manually?
 - Are there screenshots for UI changes?
 - Is there a before/after comparison?
+- Is there evidence for both Standards and Spec results?
 ```
 
 ## Multi-Model Review Pattern
@@ -198,7 +267,7 @@ Use different models for different review perspectives:
 Model A writes the code
     │
     ▼
-Model B reviews for correctness and architecture
+Model B reviews Standards, Spec, and quality axes
     │
     ▼
 Model A addresses the feedback
@@ -210,10 +279,14 @@ Human makes the final call
 This catches issues that a single model might miss — different models have different blind spots.
 
 **Example prompt for a review agent:**
+
 ```
-Review this code change for correctness, security, and adherence to
-our project conventions. The spec says [X]. The change should [Y].
-Flag any issues as Critical, Important, or Suggestion.
+Review this change in two mandatory gates before the quality review.
+
+Standards: check it against [RULE SOURCES].
+Spec: check it against [SPEC / ISSUE / ACCEPTANCE CRITERIA].
+Then review correctness, readability, architecture, security, and performance.
+Flag issues as Critical, Important, or Suggestion.
 ```
 
 ## Dead Code Hygiene
@@ -248,9 +321,10 @@ Slow reviews block entire teams. The cost of context-switching to review is less
 When resolving review disputes, apply this hierarchy:
 
 1. **Technical facts and data** override opinions and preferences
-2. **Style guides** are the absolute authority on style matters
-3. **Software design** must be evaluated on engineering principles, not personal preference
-4. **Codebase consistency** is acceptable if it doesn't degrade overall health
+2. **Explicit spec and acceptance criteria** govern required behavior
+3. **Style guides and documented standards** govern convention and style
+4. **Software design** must be evaluated on engineering principles, not personal preference
+5. **Codebase consistency** is acceptable if it doesn't degrade overall health
 
 **Don't accept "I'll clean it up later."** Experience shows deferred cleanup rarely happens. Require cleanup before submission unless it's a genuine emergency. If surrounding issues can't be addressed in this change, require filing a bug with self-assignment.
 
@@ -284,9 +358,22 @@ Part of code review is dependency review:
 
 ### Context
 - [ ] I understand what this change does and why
+- [ ] I identified the authoritative standards sources
+- [ ] I identified the authoritative spec sources
+
+### Standards
+- [ ] Applicable repository and project rules are listed
+- [ ] The change complies with each applicable rule
+- [ ] Exceptions are explicit and maintainer-approved
+- Result: PASS / FAIL
+
+### Spec
+- [ ] Requirements and acceptance criteria are listed
+- [ ] Each requirement is satisfied or explicitly out of scope
+- [ ] Tests cover automatable requirements
+- Result: PASS / FAIL
 
 ### Correctness
-- [ ] Change matches spec/task requirements
 - [ ] Edge cases handled
 - [ ] Error paths handled
 - [ ] Tests cover the change adequately
@@ -317,11 +404,13 @@ Part of code review is dependency review:
 - [ ] Tests pass
 - [ ] Build succeeds
 - [ ] Manual verification done (if applicable)
+- [ ] Standards and Spec results include evidence
 
 ### Verdict
-- [ ] **Approve** — Ready to merge
-- [ ] **Request changes** — Issues must be addressed
+- [ ] **Approve** — Standards PASS, Spec PASS, ready to merge
+- [ ] **Request changes** — One or more required findings remain
 ```
+
 ## See Also
 
 - For detailed security review guidance, see `references/security-checklist.md`
@@ -335,11 +424,13 @@ Part of code review is dependency review:
 | "I wrote it, so I know it's correct" | Authors are blind to their own assumptions. Every change benefits from another set of eyes. |
 | "We'll clean it up later" | Later never comes. The review is the quality gate — use it. Require cleanup before merge, not after. |
 | "AI-generated code is probably fine" | AI code needs more scrutiny, not less. It's confident and plausible, even when wrong. |
-| "The tests pass, so it's good" | Tests are necessary but not sufficient. They don't catch architecture problems, security issues, or readability concerns. |
+| "The tests pass, so it's good" | Tests are necessary but not sufficient. They don't prove Standards or Spec compliance. |
+| "Standards and Spec are both correctness" | They answer different questions: Standards checks repository rules; Spec checks requested behavior. Review both explicitly. |
 
 ## Red Flags
 
 - PRs merged without any review
+- Review that omits either Standards or Spec
 - Review that only checks if tests pass (ignoring other axes)
 - "LGTM" without evidence of actual review
 - Security-sensitive changes without security-focused review
@@ -352,6 +443,8 @@ Part of code review is dependency review:
 
 After review is complete:
 
+- [ ] Standards result is explicit and supported by evidence
+- [ ] Spec result is explicit and supported by a requirement checklist
 - [ ] All Critical issues are resolved
 - [ ] All Important issues are resolved or explicitly deferred with justification
 - [ ] Tests pass
