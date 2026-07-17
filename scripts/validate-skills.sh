@@ -26,22 +26,13 @@ validate_skill_dir() {
   if [[ ! -f "${skill_file}" ]]; then
     echo "ERROR ${skill_name}: missing SKILL.md" >&2
     status=1
-    continue
+    return
   fi
 
   if ! head -n 1 "${skill_file}" | grep -qx -- "---"; then
     echo "ERROR ${skill_name}: SKILL.md must start with YAML frontmatter" >&2
     status=1
-  fi
-
-  if ! sed -n '1,80p' "${skill_file}" | grep -Eq '^name:[[:space:]]*.+'; then
-    echo "ERROR ${skill_name}: frontmatter missing name" >&2
-    status=1
-  fi
-
-  if ! sed -n '1,80p' "${skill_file}" | grep -Eq '^description:[[:space:]]*.+'; then
-    echo "ERROR ${skill_name}: frontmatter missing description" >&2
-    status=1
+    return
   fi
 
   if command -v python3 >/dev/null 2>&1; then
@@ -63,15 +54,29 @@ try:
 except Exception:
     raise SystemExit(0)
 
-data = yaml.safe_load(frontmatter)
+try:
+    data = yaml.safe_load(frontmatter)
+except yaml.YAMLError:
+    raise SystemExit(1)
+
 if not isinstance(data, dict):
     raise SystemExit(1)
 for key in ("name", "description"):
-    if not data.get(key):
+    value = data.get(key)
+    if not isinstance(value, str) or not value.strip():
         raise SystemExit(1)
 PY
     then
-      echo "ERROR ${skill_name}: invalid YAML frontmatter" >&2
+      echo "ERROR ${skill_name}: invalid YAML frontmatter or missing name/description" >&2
+      status=1
+    fi
+  else
+    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^name:[[:space:]]*.+'; then
+      echo "ERROR ${skill_name}: frontmatter missing name" >&2
+      status=1
+    fi
+    if ! sed -n '2,/^---$/p' "${skill_file}" | grep -Eq '^description:[[:space:]]*.+'; then
+      echo "ERROR ${skill_name}: frontmatter missing description" >&2
       status=1
     fi
   fi
