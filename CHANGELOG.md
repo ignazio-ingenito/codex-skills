@@ -45,6 +45,8 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([7642765](https://github.com/ignazio-ingenito/codex-skills/commit/7642765f3682a58111264ca31e8321d5f2e9a1d6))
 
+- Update changelog ([23df1f7](https://github.com/ignazio-ingenito/codex-skills/commit/23df1f7352f5248d459fd356edfca6739c6d2d1f))
+
 
 
 ### Features
@@ -78,6 +80,8 @@ All notable changes to this repository are documented in this file.
 - Port Matt Pocock engineering skills ([#16](https://github.com/ignazio-ingenito/codex-skills/issues/16)) ([34687f3](https://github.com/ignazio-ingenito/codex-skills/commit/34687f30630bcf39a7b25541a0a720999e114d92))
 
 - Guide installation of suggested skills ([#17](https://github.com/ignazio-ingenito/codex-skills/issues/17)) ([a8a279a](https://github.com/ignazio-ingenito/codex-skills/commit/a8a279ab5dd9df214a8ba9b2973b8b99c4156508))
+
+- Add consistent global skill pruning ([#18](https://github.com/ignazio-ingenito/codex-skills/issues/18)) ([180764f](https://github.com/ignazio-ingenito/codex-skills/commit/180764fee8446537b3a9e174452406f143631ec0))
 
 
 
