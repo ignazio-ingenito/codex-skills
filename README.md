@@ -41,6 +41,8 @@ scripts/
 | `code-review-and-quality` | `addyosmani/agent-skills` | Revisiona correttezza, leggibilità, architettura, sicurezza e performance. |
 | `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
 | `codebase-design` | `mattpocock/skills` | Progetta moduli profondi, interfacce piccole e seam puliti. |
+| `challenge-me` | locale | Falsifica raccomandazioni e cerca alternative più semplici e reversibili. |
+| `critic` | locale | Attacca assunzioni, costi nascosti e complessità non necessaria. |
 | `domain-modeling` | `mattpocock/skills` | Definisce termini, relazioni, invarianti e decisioni di dominio. |
 | `grill-with-docs` | locale | Stressa piani contro dominio, documentazione e decisioni. |
 | `grilling` | `mattpocock/skills` | Intervista in profondità finché le ambiguità sono risolte. |

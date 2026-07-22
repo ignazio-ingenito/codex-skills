@@ -98,6 +98,8 @@ Non è feature work: è manutenzione.
 - **`improve-codebase-architecture`** — individua opportunità di deepening e testabilità. La scelta di un candidato genera un'idea che può rientrare nel flusso principale tramite `grill-with-docs`. `codebase-design` fornisce il vocabolario per progettare il modulo scelto.
 - **`code-simplification`** — semplifica codice funzionante preservandone il comportamento.
 - **`zoom-out`** — fornisce una mappa ad alto livello quando il codice non è comprensibile localmente.
+- **`critic`** — attacca piani, scelte e conclusioni quando possono contenere assunzioni deboli, costi nascosti o complessità non necessaria.
+- **`challenge-me`** — prova a falsificare una raccomandazione e cerca l'alternativa reversibile più semplice prima di renderla durevole.
 
 ## Vocabolario sottostante
 

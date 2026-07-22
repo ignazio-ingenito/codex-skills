@@ -1,0 +1,3 @@
+display_name: Challenge Me
+short_description: Falsifies recommendations and looks for simpler reversible alternatives.
+default_prompt: Use challenge-me to test this recommendation against falsifying evidence and simpler alternatives.

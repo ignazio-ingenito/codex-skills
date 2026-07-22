@@ -1,0 +1,3 @@
+display_name: Critic
+short_description: Adversarially checks plans and conclusions for weak assumptions, hidden costs, and unnecessary complexity.
+default_prompt: Use critic to review this plan or recommendation and return only decision-changing findings.
