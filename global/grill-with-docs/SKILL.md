@@ -5,11 +5,13 @@ description: Grilling session that challenges your plan against the existing dom
 
 <what-to-do>
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Before interviewing, run `reality-check` against the active authoritative sources and carry forward only decisions that remain genuinely open.
 
-Ask the questions one at a time, waiting for feedback on each question before continuing.
+Interview me relentlessly about every relevant unresolved aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+Ask the questions one at a time, waiting for feedback on each question before continuing. When `reality-check` identifies a finite set of open decisions, show progress as `n/N` and follow its counter rules.
+
+If a question can be answered by exploring the codebase or authoritative documentation, explore those sources instead.
 
 </what-to-do>
 
@@ -63,7 +65,7 @@ When the user uses vague or overloaded terms, propose a precise canonical term. 
 
 ### Discuss concrete scenarios
 
-When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
+When domain relationships are being discussed, stress-test them with specific scenarios. Use only scenarios needed to test a real unresolved ambiguity; do not invent extra product behaviour or expand scope.
 
 ### Cross-reference with code
 
