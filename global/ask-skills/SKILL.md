@@ -60,20 +60,21 @@ Non installare automaticamente una skill soltanto perché è consigliata. Propon
 
 Il percorso seguito dalla maggior parte del lavoro. Hai un'idea e vuoi realizzarla.
 
-1. **`grill-with-docs`** — affina l'idea tramite intervista. Parti da qui quando **esiste un codebase**: conserva ciò che apprende in `CONTEXT.md` e negli ADR. Se serve soltanto un'intervista mirata usa `grilling`; se il problema sono soprattutto termini e invarianti, usa anche `domain-modeling`.
-2. **Branch — ogni domanda può essere risolta in conversazione?** Se una domanda richiede una risposta eseguibile — stato, business logic o una UI da vedere — devia attraverso un prototipo, usando **`handoff`** in entrambe le direzioni:
+1. **Reality check quando esistono fonti autorevoli** — prima di un'intervista o di una decisione source-grounded usa `reality-check` per distinguere fatti, deduzioni e informazioni mancanti. Non porre domande già risolte e non introdurre complessità non richiesta.
+2. **`grill-with-docs`** — affina l'idea tramite intervista. Parti da qui quando **esiste un codebase**: conserva ciò che apprende in `CONTEXT.md` e negli ADR. Se serve soltanto un'intervista mirata usa `grilling`; se il problema sono soprattutto termini e invarianti, usa anche `domain-modeling`.
+3. **Branch — ogni domanda può essere risolta in conversazione?** Se una domanda richiede una risposta eseguibile — stato, business logic o una UI da vedere — devia attraverso un prototipo, usando **`handoff`** in entrambe le direzioni:
    - `handoff` in uscita, poi apri una sessione nuova riferita al file;
    - `prototype` per rispondere con codice throwaway;
    - `handoff` di ritorno con ciò che è stato appreso, referenziandolo dal thread originale.
-3. **Branch — è un lavoro multi-sessione?**
+4. **Branch — è un lavoro multi-sessione?**
    - **Sì** → `to-spec`, poi `to-tickets` per dividerlo in tracer-bullet ticket con blocker espliciti. Ogni ticket viene eseguito in un contesto pulito usando le skill di delivery locali.
    - **No** → procedi nello stesso contesto con il percorso di delivery minimo necessario.
 
-   In entrambi i casi, la delivery usa le skill già presenti invece di una skill `implement` separata: `writing-plans` quando proporzionato, `using-git-worktrees` quando serve isolamento, `tdd` per comportamento eseguibile, `senior-implementation-discipline` quando applicabile, `code-review-and-quality` per la review e `verification-before-completion` prima della chiusura. Usa `requesting-code-review` e `receiving-code-review` quando il flusso richiede una review separata.
+In entrambi i casi, la delivery usa le skill già presenti invece di una skill `implement` separata: `writing-plans` quando proporzionato, `using-git-worktrees` quando serve isolamento, `tdd` per comportamento eseguibile, `senior-implementation-discipline` quando applicabile, `code-review-and-quality` per la review e `verification-before-completion` prima della chiusura. Usa `requesting-code-review` e `receiving-code-review` quando il flusso richiede una review separata.
 
 ### Igiene del contesto
 
-Mantieni i passaggi 1–3 nello stesso contesto finché non sono stati prodotti spec e ticket. Ogni ticket implementativo parte poi da un contesto pulito, lavorando dalla propria fonte autorevole.
+Mantieni i passaggi 1–4 nello stesso contesto finché non sono stati prodotti spec e ticket. Ogni ticket implementativo parte poi da un contesto pulito, lavorando dalla propria fonte autorevole.
 
 Se il contesto diventa troppo grande prima di `to-tickets`, usa `handoff` e continua in una sessione nuova invece di proseguire con contesto degradato.
 
@@ -115,6 +116,7 @@ Riferimenti invocabili dal modello che lavorano sotto le altre skill. Usali dire
 
 Fuori dal flusso principale.
 
+- **`reality-check`** — verifica fonti autorevoli e decisioni già determinate prima di porre domande o proporre complessità.
 - **`grilling`** — intervista mirata e una domanda alla volta quando non serve il comportamento documentale completo di `grill-with-docs`.
 - **`prototype`** — piccolo programma throwaway che risponde a una domanda di design su stato, logica o UI.
 - **`research`** — ricerca su fonti primarie che produce evidenza citata; alimenta il flusso principale ma non sostituisce le decisioni.
@@ -127,4 +129,4 @@ Fuori dal flusso principale.
 
 ## Provenienza
 
-Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills`, controllo non invasivo di coerenza dell'inventario e guida all'installazione delle skill disponibili ma non attive.
+Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills`, controllo non invasivo di coerenza dell'inventario, routing source-grounded tramite `reality-check` e guida all'installazione delle skill disponibili ma non attive.
