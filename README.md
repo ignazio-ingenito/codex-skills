@@ -52,6 +52,7 @@ scripts/
 | `office-hours` | `garrytan/gstack` | Valuta idee, focus e ambizione di prodotto con domande stile YC. |
 | `playwright` | `openai/skills` | Automatizza browser reali con Playwright CLI. |
 | `prototype` | `mattpocock/skills` | Crea prototipi throwaway per validare design, stato o UI. |
+| `reality-check` | locale | Verifica fonti e decisioni già determinate prima di porre domande o introdurre complessità. |
 | `receiving-code-review` | `obra/superpowers` | Valuta feedback di review prima di applicarlo. |
 | `research` | `mattpocock/skills` | Ricerca con fonti primarie e salva risultati citati. |
 | `requesting-code-review` | `obra/superpowers` | Prepara contesto e range per una review. |
@@ -199,35 +200,5 @@ Percorsi runtime:
 
 ```bash
 scripts/sync-from-codex.sh
-scripts/sync-from-codex.sh --force
-scripts/list-installed.sh
 scripts/validate-skills.sh
-bash -n scripts/*.sh
-git status --short
 ```
-
-`sync-from-codex.sh` salta le skill `.system` e non sovrascrive file esistenti senza `--force`. Le skill di progetto vanno importate manualmente in `projects/<project-name>/`.
-
-`list-installed.sh` usa `find -L`, quindi segue i symlink; un normale `find ~/.codex/skills -type d` non basta.
-
-## Aggiungere una skill
-
-1. Scegli `global/` o `projects/<project-name>/`.
-2. Crea `SKILL.md` e gli eventuali file di supporto.
-3. Esegui validazione, controllo shell e `git status`.
-4. Installa la skill e riavvia Codex.
-5. Verifica l’attivazione con un prompt realistico.
-
-## Commit e changelog
-
-Usa Conventional Commits in inglese, per esempio:
-
-```text
-feat: add a new project skill
-fix: handle existing symlink during install
-docs: update skill usage guide
-chore: organize skills by scope
-ci: generate changelog automatically
-```
-
-Il changelog è generato automaticamente con `git-cliff` a ogni push su `main` e quando la workflow `Changelog` viene avviata manualmente.
