@@ -151,13 +151,30 @@ scripts/
 | --- | --- | --- |
 | `read-vdo-hour-meter` | locale | Legge foto di orametri VDO e genera `readings.yml`. |
 
+### iWant
+
+| Skill | Sorgente | Uso |
+| --- | --- | --- |
+| `frontend-design-review` | locale | Revisiona fedeltà visuale, struttura e comportamento dell'interfaccia. |
+
 ### PowerPoint
 
 | Skill | Sorgente | Uso |
 | --- | --- | --- |
 | `grill-with-docs` | locale | Verifica storyline e assunzioni contro le fonti. |
+| `business-case-storyline` | locale | Costruisce la storyline di un business case. |
+| `commercial-deck-quality-review` | locale | Revisiona qualità e coerenza di un deck commerciale. |
+| `deck-visual-grounding` | locale | Verifica il grounding visuale del deck rispetto alle fonti. |
+| `executive-slide-writing` | locale | Scrive contenuti sintetici per slide executive. |
 | `powerpoint-deck-production` | locale | Produce o modifica deck editabili e source-grounded. |
+| `powerpoint-manipulation` | locale | Modifica presentazioni PowerPoint mantenendo il pacchetto editabile. |
+| `pptx-package-validation` | locale | Valida struttura e integrità del pacchetto PPTX. |
 | `pptx-quality-review` | locale | Revisiona storyline, grounding, coerenza visiva e deliverable. |
+| `pptx-template-extraction` | locale | Estrae riferimenti e struttura da template PPTX. |
+| `proposal-intake` | locale | Trasforma una richiesta commerciale in un input di produzione. |
+| `repo-to-deck-brief` | locale | Converte evidenze di repository in un brief per deck. |
+| `software-delivery-estimation` | locale | Stima lavoro e vincoli di una delivery software. |
+| `wbs-generation` | locale | Genera una work breakdown structure verificabile. |
 
 ## Forma di una skill
 
