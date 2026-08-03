@@ -53,6 +53,8 @@ All notable changes to this repository are documented in this file.
 
 - Update changelog ([e178139](https://github.com/ignazio-ingenito/codex-skills/commit/e178139f6c27dc1624fa287878e1b12e3edef13c))
 
+- Update changelog ([fd6273a](https://github.com/ignazio-ingenito/codex-skills/commit/fd6273a2c6045c6ecb7b384edffb1b74b16ade71))
+
 
 
 ### Features
@@ -92,6 +94,8 @@ All notable changes to this repository are documented in this file.
 - Add scrittura comica skill ([6ca22c0](https://github.com/ignazio-ingenito/codex-skills/commit/6ca22c0353c87cdd83794b76207f6f43c7fe1014))
 
 - Add reality-check skill ([7075aa2](https://github.com/ignazio-ingenito/codex-skills/commit/7075aa21f5b1db9554b02bfa3c895b6cbb9d9723))
+
+- Centralize project skill sources ([6a4d693](https://github.com/ignazio-ingenito/codex-skills/commit/6a4d6930bfbe295a2f23164d1851628091a96d7a))
 
 
 
