@@ -4,6 +4,11 @@
 
 This repository stores personal and project-specific Codex skills.
 
+## Agent OS e lifecycle delle skill
+
+- Fonte normativa: [RFC-0001 – Principi fondanti della Software Factory](https://github.com/ignazio-ingenito/agent-os/blob/main/rfcs/RFC-0001-principles.md).
+- `global/` e `projects/` sono le sorgenti autorevoli delle skill; i progetti consumatori devono usare symlink installati dagli script, senza copie locali tracciate.
+
 ## Shared Global Instructions
 
 - `AGENTS.global.md` contains cross-project agent behavior rules.
