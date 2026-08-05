@@ -11,6 +11,12 @@ All notable changes to this repository are documented in this file.
 
 
 
+### CI
+
+- Update checkout action to v5 ([5462a63](https://github.com/ignazio-ingenito/codex-skills/commit/5462a63e276b38dd6b52697ba5cce6b49291fde7))
+
+
+
 ### Chores
 
 - Remove claude-specific files ([6d4d109](https://github.com/ignazio-ingenito/codex-skills/commit/6d4d109a18247802c0609d1030ac92d11c92a3d1))
@@ -54,6 +60,8 @@ All notable changes to this repository are documented in this file.
 - Update changelog ([e178139](https://github.com/ignazio-ingenito/codex-skills/commit/e178139f6c27dc1624fa287878e1b12e3edef13c))
 
 - Update changelog ([fd6273a](https://github.com/ignazio-ingenito/codex-skills/commit/fd6273a2c6045c6ecb7b384edffb1b74b16ade71))
+
+- Update changelog ([7009e24](https://github.com/ignazio-ingenito/codex-skills/commit/7009e2494015dd645691e1e24038c13e7c3d74b5))
 
 
 
