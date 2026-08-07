@@ -9,6 +9,8 @@ All notable changes to this repository are documented in this file.
 
 - Validate skill frontmatter yaml ([5d5da87](https://github.com/ignazio-ingenito/codex-skills/commit/5d5da879762dadcb152b5f2e86116aa935fdcc01))
 
+- **changelog:** Retain unconventional commits ([d7d83a6](https://github.com/ignazio-ingenito/codex-skills/commit/d7d83a65fd94ea080a6138b29e5331dec7603550))
+
 
 
 ### CI
@@ -78,6 +80,10 @@ All notable changes to this repository are documented in this file.
 ### Maintenance
 
 - Separate global and project skills ([fc68d5b](https://github.com/ignazio-ingenito/codex-skills/commit/fc68d5b7fed7443634f00665d3e95d9420f1220c))
+
+- Merge pull request #21 from ignazio-ingenito/agent/agent-os-rfc-0001-merge-personal-codex-skills
+
+docs: align Agent OS RFC and skill lifecycle ([f5c1f65](https://github.com/ignazio-ingenito/codex-skills/commit/f5c1f6508855b90ca8c7acbf618e3e6ed0f3f7da))
 
 
 
