@@ -1,40 +1,17 @@
 name: Changelog
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
-  contents: write
-
-concurrency:
-  group: changelog-${{ github.ref }}
-  cancel-in-progress: true
+  contents: read
 
 jobs:
   changelog:
-    name: Update changelog
-    runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]'
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Generate changelog
-        uses: orhun/git-cliff-action@v4
-        with:
-          config: cliff.toml
-          args: --verbose --output CHANGELOG.md
-        env:
-          OUTPUT: CHANGELOG.md
-
-      - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "docs: update changelog"
-          file_pattern: CHANGELOG.md
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    uses: ignazio-ingenito/developer-workspace/.github/workflows/changelog-reusable.yml@0d253bfddd47cddb3c47ccba0e7dc82c123e4431
+    with:
+      app-client-id: ${{ vars.CHANGELOG_APP_CLIENT_ID }}
+    secrets:
+      app-private-key: ${{ secrets.CHANGELOG_APP_PRIVATE_KEY }}
