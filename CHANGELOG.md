@@ -15,6 +15,8 @@ All notable changes to this repository are documented in this file.
 
 - Update checkout action to v5 ([5462a63](https://github.com/ignazio-ingenito/codex-skills/commit/5462a63e276b38dd6b52697ba5cce6b49291fde7))
 
+- **changelog:** Verify public reusable access ([7df87d2](https://github.com/ignazio-ingenito/codex-skills/commit/7df87d2be1cd857d4fb9f8ff3c48748158f1b780))
+
 
 
 ### Documentation
@@ -68,6 +70,8 @@ All notable changes to this repository are documented in this file.
 - Add reality-check skill ([7075aa2](https://github.com/ignazio-ingenito/codex-skills/commit/7075aa21f5b1db9554b02bfa3c895b6cbb9d9723))
 
 - Centralize project skill sources ([6a4d693](https://github.com/ignazio-ingenito/codex-skills/commit/6a4d6930bfbe295a2f23164d1851628091a96d7a))
+
+- **changelog:** Adopt centralized automation ([7553c28](https://github.com/ignazio-ingenito/codex-skills/commit/7553c28df2358ab33437e6e81a2ff7c73d262be7))
 
 
 
