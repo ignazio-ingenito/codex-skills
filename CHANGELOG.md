@@ -5,7 +5,7 @@ All notable changes to this repository are documented in this file.
 ## Unreleased
 
 
-### Bug Fixes
+### Bug fixes
 
 - Validate skill frontmatter yaml ([5d5da87](https://github.com/ignazio-ingenito/codex-skills/commit/5d5da879762dadcb152b5f2e86116aa935fdcc01))
 
@@ -17,51 +17,15 @@ All notable changes to this repository are documented in this file.
 
 
 
-### Chores
-
-- Remove claude-specific files ([6d4d109](https://github.com/ignazio-ingenito/codex-skills/commit/6d4d109a18247802c0609d1030ac92d11c92a3d1))
-
-- Separate global and project skills ([fc68d5b](https://github.com/ignazio-ingenito/codex-skills/commit/fc68d5b7fed7443634f00665d3e95d9420f1220c))
-
-
-
 ### Documentation
-
-- Update changelog ([8a54dd1](https://github.com/ignazio-ingenito/codex-skills/commit/8a54dd15333f63b9d05784599904cdea045b29a1))
-
-- Update changelog ([85e733c](https://github.com/ignazio-ingenito/codex-skills/commit/85e733c3959c3cbe576afd1460788acead7de437))
 
 - Add shared global agent instructions ([4025be2](https://github.com/ignazio-ingenito/codex-skills/commit/4025be2a5d1cf01c7a5b73ff894c7d2aacbbdb52))
 
-- Update changelog ([9ec5a37](https://github.com/ignazio-ingenito/codex-skills/commit/9ec5a37d890f8a8c0613f54e0eb779ad8b87c176))
-
-- Update changelog ([f5f12e6](https://github.com/ignazio-ingenito/codex-skills/commit/f5f12e61731713043e2bea02444555287065af95))
-
 - Document shared global agent instructions ([7c4a55f](https://github.com/ignazio-ingenito/codex-skills/commit/7c4a55f920e24054737deb5092d6d4b60b0a8b3c))
-
-- Update changelog ([a18d5f5](https://github.com/ignazio-ingenito/codex-skills/commit/a18d5f50cb5736c709c47465a109573836517356))
-
-- Update changelog ([56e7098](https://github.com/ignazio-ingenito/codex-skills/commit/56e7098d91f8a70f278359b5b005200ac5294ba7))
 
 - **workflow:** Add workflow guardrails package ([#2](https://github.com/ignazio-ingenito/codex-skills/issues/2)) ([428b0e7](https://github.com/ignazio-ingenito/codex-skills/commit/428b0e7b767bedc1919469ede056e59e3a40ec88))
 
-- Update changelog ([1fa374c](https://github.com/ignazio-ingenito/codex-skills/commit/1fa374c476d5d6afe51b4c50dc5dcb91ebc3c40e))
-
-- Update changelog ([4397321](https://github.com/ignazio-ingenito/codex-skills/commit/43973216bfaa11362281be00a810daeff93052ae))
-
-- Update changelog ([7642765](https://github.com/ignazio-ingenito/codex-skills/commit/7642765f3682a58111264ca31e8321d5f2e9a1d6))
-
-- Update changelog ([23df1f7](https://github.com/ignazio-ingenito/codex-skills/commit/23df1f7352f5248d459fd356edfca6739c6d2d1f))
-
-- Update changelog ([84ebc5b](https://github.com/ignazio-ingenito/codex-skills/commit/84ebc5bda5d25534f859f1cfef80ea7586c59628))
-
 - Add Context7 guidance to skills ([173345a](https://github.com/ignazio-ingenito/codex-skills/commit/173345ad0b5d679bae1ead5af95caa8afbc84704))
-
-- Update changelog ([e178139](https://github.com/ignazio-ingenito/codex-skills/commit/e178139f6c27dc1624fa287878e1b12e3edef13c))
-
-- Update changelog ([fd6273a](https://github.com/ignazio-ingenito/codex-skills/commit/fd6273a2c6045c6ecb7b384edffb1b74b16ade71))
-
-- Update changelog ([7009e24](https://github.com/ignazio-ingenito/codex-skills/commit/7009e2494015dd645691e1e24038c13e7c3d74b5))
 
 
 
@@ -104,6 +68,18 @@ All notable changes to this repository are documented in this file.
 - Add reality-check skill ([7075aa2](https://github.com/ignazio-ingenito/codex-skills/commit/7075aa21f5b1db9554b02bfa3c895b6cbb9d9723))
 
 - Centralize project skill sources ([6a4d693](https://github.com/ignazio-ingenito/codex-skills/commit/6a4d6930bfbe295a2f23164d1851628091a96d7a))
+
+
+
+### Maintenance
+
+- Separate global and project skills ([fc68d5b](https://github.com/ignazio-ingenito/codex-skills/commit/fc68d5b7fed7443634f00665d3e95d9420f1220c))
+
+
+
+### Maintenance: remove claude-specific files: remove claude-specific files
+
+- Remove claude-specific files ([6d4d109](https://github.com/ignazio-ingenito/codex-skills/commit/6d4d109a18247802c0609d1030ac92d11c92a3d1))
 
 
 

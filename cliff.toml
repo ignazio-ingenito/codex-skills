@@ -23,6 +23,7 @@ body = """
 {% endfor %}\n
 """
 trim = true
+render_always = true
 footer = """
 """
 postprocessors = [
@@ -37,17 +38,17 @@ commit_preprocessors = [
   { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/ignazio-ingenito/codex-skills/issues/${2}))" },
 ]
 commit_parsers = [
+  { message = "^docs\\(changelog\\): update$", skip = true },
+  { message = "^docs: update changelog$", skip = true },
   { message = "^feat", group = "Features" },
-  { message = "^fix", group = "Bug Fixes" },
+  { message = "^fix", group = "Bug fixes" },
   { message = "^docs", group = "Documentation" },
   { message = "^perf", group = "Performance" },
   { message = "^refactor", group = "Refactoring" },
   { message = "^test", group = "Tests" },
-  { message = "^build", group = "Build" },
   { message = "^ci", group = "CI" },
-  { message = "^chore", group = "Chores" },
-  { message = "^style", group = "Style" },
   { message = "^revert", group = "Reverts" },
+  { message = "^chore|^build|^style|.*", group = "Maintenance" },
 ]
 protect_breaking_commits = true
 filter_commits = false
