@@ -85,6 +85,12 @@ All notable changes to this repository are documented in this file.
 
 docs: align Agent OS RFC and skill lifecycle ([f5c1f65](https://github.com/ignazio-ingenito/codex-skills/commit/f5c1f6508855b90ca8c7acbf618e3e6ed0f3f7da))
 
+- Merge pull request #22 from ignazio-ingenito/agent/centralize-changelog
+
+feat(changelog): adopt centralized automation ([8613f58](https://github.com/ignazio-ingenito/codex-skills/commit/8613f58f44a46a5288e1083b990c6f60f3bff7d4))
+
+- **ci:** Update changelog reusable workflow pin ([5985f12](https://github.com/ignazio-ingenito/codex-skills/commit/5985f122c943b26d9d616941e39009d0fb01d053))
+
 
 
 ### Maintenance: remove claude-specific files: remove claude-specific files
