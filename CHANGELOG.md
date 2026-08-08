@@ -91,6 +91,8 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 
 - **ci:** Update changelog reusable workflow pin ([5985f12](https://github.com/ignazio-ingenito/codex-skills/commit/5985f122c943b26d9d616941e39009d0fb01d053))
 
+- **ci:** Follow changelog workflow main ([15ccd6a](https://github.com/ignazio-ingenito/codex-skills/commit/15ccd6a30aaf1219b9ddefc8faa37ef57d776066))
+
 
 
 ### Maintenance: remove claude-specific files: remove claude-specific files
