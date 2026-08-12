@@ -95,9 +95,23 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 
 
 
+### Maintenance(ci): follow changelog reusable workflow main
+
+- Merge pull request #23 from ignazio-ingenito/chore/update-changelog-workflow-pin
+
+chore(ci): follow changelog reusable workflow main ([aae0cf3](https://github.com/ignazio-ingenito/codex-skills/commit/aae0cf3719ef2ca36f4f4846d0196139c9f85fbe))
+
+
+
 ### Maintenance: remove claude-specific files: remove claude-specific files
 
 - Remove claude-specific files ([6d4d109](https://github.com/ignazio-ingenito/codex-skills/commit/6d4d109a18247802c0609d1030ac92d11c92a3d1))
+
+
+
+### Tests
+
+- Add ui depth preview acceptance checks ([913b58e](https://github.com/ignazio-ingenito/codex-skills/commit/913b58e02d65fccea943019b51f911490204cb4e))
 
 
 
