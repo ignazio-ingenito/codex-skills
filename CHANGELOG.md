@@ -33,6 +33,8 @@ All notable changes to this repository are documented in this file.
 
 - Add ui layering reference ([3b49d3e](https://github.com/ignazio-ingenito/codex-skills/commit/3b49d3ed74a9457bae76558dd9b66ae9610816ea))
 
+- Add preview fidelity reference ([d50c291](https://github.com/ignazio-ingenito/codex-skills/commit/d50c29149229cacda7572d80cec5b75b285c54ab))
+
 
 
 ### Features
