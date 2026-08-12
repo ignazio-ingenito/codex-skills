@@ -1,130 +1,83 @@
 # Validazione `ui-depth-preview`
 
-**Stato:** Active — verificata su PR #29  
-**Issue:** #25  
-**PR:** #29  
+**Stato:** Active  
+**Origine:** Issue #25 / PR #29  
+**Ultimo aggiornamento:** Issue #31 / PR #32  
 **Rischio:** Light
 
-## Scope verificato
+## Obiettivo
 
-La Wave aggiunge una skill globale focalizzata esclusivamente su preview di layering/depth UI. Non introduce un renderer o un prototipo applicativo. Dopo la review è stato aggiunto un workflow CI generale e senza segreti che espone come status GitHub le validazioni già presenti nel repository.
+`ui-depth-preview` genera preview visuali del layering/depth di una UI esistente senza trasformare il lavoro in un redesign o in una implementazione temporanea.
 
-## TDD documentale: RED → GREEN
+## Contratto attuale
 
-Il RED comportamentale non è l'assenza di `SKILL.md`. I failure mode reali sono quelli osservati nella sessione di design precedente alla creazione della skill:
+- Due varianti di default: **Balanced** e **Expressive**.
+- **Balanced** usa soprattutto gerarchia delle surface, separazione tonale, bordi e shadow leggere.
+- **Expressive** usa la stessa mappa semantica, ma può aggiungere material, blur, traslucenza, refraction sottile e cue lens-like.
+- Gli effetti Expressive sono ammessi solo su superfici già floating, transient o parte del chrome applicativo.
+- Niente glassmorphism diffuso, nuovi layer semantici o lens/material sulle normali content/document card e sul canvas.
+- Layout, contenuti, palette principale, tipografia e identità della UI devono restare riconoscibili.
+- La skill non implementa o prototipa l'app solo per ottenere una preview.
 
-- proposta di una modalità **Implementation accurate** con patch/render dell'app solo per ottenere la preview;
-- tre varianti fisse anche quando non producevano tre strategie distinguibili;
-- intake/intervista più ampia del necessario.
+## Verifica visiva
 
-Questi comportamenti sono stati respinti perché aumentavano effort senza un miglioramento osservabile proporzionato.
+Smoke test reale su due schermate Aeris, con 4 preview:
 
-Il replay GREEN applica `ui-depth-preview` agli stessi casi e verifica invece:
+- Dashboard — Balanced
+- Dashboard — Expressive
+- Workflow — Balanced
+- Workflow — Expressive
 
-- `Fedele` senza implementazione temporanea;
-- screenshot come fonte primaria e codice solo per ambiguità visive materiali;
-- `Balanced + Expressive` come default;
-- una sola domanda `Indicativa | Fedele` quando la fedeltà è realmente ambigua;
-- `Conservative` solo se richiesta o distinguibile.
+Esito: **PASS**.
 
-Evidenza completa: `docs/reviews/ui-depth-preview-behavioral-eval.md`.
+Osservazioni:
 
-## Guardrail deterministico
+- Balanced ed Expressive sono distinguibili a colpo d'occhio.
+- Expressive usa i cue material/lens soprattutto su sidebar, topbar e superfici floating.
+- Le card di contenuto restano sobrie.
+- Layout, contenuti e identità Aeris sono preservati.
+- Nessun redesign o imitazione macOS.
 
-`scripts/test-ui-depth-preview.sh` non è un RED comportamentale. Verifica che il contratto documentale continui a contenere routing di fedeltà, due varianti di default, terza variante condizionale, confidence e divieto di implementazione/prototipazione solo per la preview.
+Nota non bloccante: il glow Expressive può essere ridotto leggermente in alcuni casi, ma non modifica l'esito della validazione.
 
-Durante la prima esecuzione CI il log ha mostrato un falso positivo: le backtick del controllo README erano racchiuse in doppi apici e la shell tentava di eseguire `ui-depth-preview`. Il test continuava poi con una stringa vuota. La causa è stata corretta usando una stringa letterale tra apici singoli e la CI è stata rieseguita senza il warning.
+## Verifica automatica
 
-## Evidenza eseguibile fresca
+HEAD verificato prima della chiusura della Wave: `300005a9e5f808828de0ec48de21bf6c5c268729`.
 
-Workflow `Validate skills`, run **#8**, job `validate`: **success**.
+GitHub Actions `Validate skills`, run **#14**: **success**.
 
-Output osservato sull'HEAD verificato:
+Copertura rilevante:
 
-```text
-bash -n scripts/*.sh
-PASS
+- sintassi shell;
+- `scripts/validate-skills.sh` su 104 skill;
+- tutti i `scripts/test-*.sh`;
+- test dedicato `ui-depth-preview`;
+- quick validation;
+- installazione della skill;
+- guardrail che mantengono Balanced sobria e Expressive selettiva.
 
-bash scripts/validate-skills.sh
-Validated 104 skill(s)
+## Eval comportamentale
 
-scripts/test-ui-depth-preview.sh
-ui-depth-preview checks passed
+Il RED/GREEN originario resta documentato in `docs/reviews/ui-depth-preview-behavioral-eval.md`.
 
-CODEX_HOME=<temp> bash scripts/install-local.sh ui-depth-preview
-Linked global/ui-depth-preview -> <temp>/skills/ui-depth-preview
-```
+I failure mode che non devono ricomparire sono:
 
-I singoli step GitHub Actions risultano tutti `success`: checkout, shell syntax, validator, test deterministici e installazione. Il log della run corretta non contiene più `ui-depth-preview: command not found`.
+- implementazione temporanea solo per generare la preview;
+- intake più ampio del necessario;
+- tre varianti obbligatorie;
+- audit completo del codice senza beneficio visivo;
+- redesign frontend generale.
 
-## Scenari verificati
+## Catalogo e installazione
 
-| Scenario | Comportamento atteso | Esito |
-|---|---|---|
-| Screenshot, preview rapida | Usa modalità **Indicativa**, evita domande/codice non necessari, produce Balanced + Expressive. | SÌ |
-| Screenshot completo, fedeltà alta | Usa **Fedele**, preserva composizione/contenuti e modifica principalmente layering/depth. | SÌ |
-| Fedele con ambiguità sticky/overlay | Consulta solo il codice necessario a risolvere l'ambiguità visibile. | SÌ |
-| Manca screenshot e l'app richiederebbe lavoro dedicato | Chiede lo screenshot; non implementa né prototipa l'app per creare la preview. | SÌ |
-| Terza variante non richiesta e non distinta | Produce solo Balanced + Expressive. | SÌ |
-| Runtime senza generazione immagini | Dichiara il limite e restituisce il piano; non maschera una mini-implementazione come preview. | SÌ |
+`README.md` resta il catalogo autorevole e include `ui-depth-preview` tra le skill globali.
 
-## Effort → risultato
+`scripts/install-local.sh` scopre già automaticamente le directory sotto `global/`; non serve alcun registry aggiuntivo.
 
-Sono esclusi perché non producono beneficio osservabile proporzionato:
+## Fonti di design
 
-- modalità `Implementation accurate`;
-- intervista completa come dipendenza obbligatoria;
-- implementazione temporanea dell'app;
-- audit completo di component tree, `z-index` o token;
-- tre preview obbligatorie;
-- nuovo registry/config per le skill globali.
+Il modello usa principalmente Fluent 2 e normalizza principi generali di depth/layering. Atlassian Elevation e Carbon Layering restano riferimenti complementari.
 
-Il workflow di validazione è l'unica aggiunta infrastrutturale successiva alla review: riusa script esistenti, non richiede segreti e produce l'evidenza fresca che mancava alla PR.
+## Esito
 
-## Installazione e catalogo
-
-`README.md` resta il catalogo autorevole e include `ui-depth-preview` tra le skill globali. `scripts/install-local.sh` scopre già automaticamente le directory sotto `global/`, quindi non serve modificare configurazioni o registri.
-
-`config/global-skill-prune.txt` è una lista di elementi da rimuovere, non un registry: è intenzionalmente invariato.
-
-## Modello di layering
-
-Il riferimento operativo usa Fluent 2 come fonte principale e normalizza solo principi osservabili:
-
-- quattro ruoli minimi: Base, Surface, Raised, Overlay;
-- surface/tonal separation prima della shadow;
-- shadow + light per vera distanza percepita;
-- `z-index` distinto dalla depth semantica;
-- nesting contenuto;
-- materiale/blur solo quando comunica sovrapposizione o transienza.
-
-Fonti primarie:
-
-- Fluent 2 Elevation: https://fluent2.microsoft.design/elevation
-- Fluent 2 Material: https://fluent2.microsoft.design/material
-- Fluent 2 Design: https://fluent2.microsoft.design/get-started/design
-- Atlassian Elevation: https://atlassian.design/foundations/elevation/
-- Carbon Color/Layering: https://carbondesignsystem.com/elements/color/overview/
-- OpenAI Codex multimodal input: https://help.openai.com/en/articles/11096431
-- OpenAI Codex app image generation: https://openai.com/index/introducing-the-codex-app/
-
-## Diff intenzionale
-
-- `global/ui-depth-preview/`;
-- `scripts/test-ui-depth-preview.sh`;
-- `.github/workflows/validate-skills.yml`;
-- `README.md` solo per l'inventario;
-- `docs/reviews/ui-depth-preview-validation.md`;
-- `docs/reviews/ui-depth-preview-behavioral-eval.md`.
-
-`CHANGELOG.md` può comparire nel diff perché il workflow `Changelog` del repository aggiorna automaticamente il file sulle sincronizzazioni della PR; non è modificato manualmente dalla Wave.
-
-## Esito RFC-0001
-
-| Verifica | Esito | Evidenza |
-|---|---|---|
-| Requisiti soddisfatti con soluzione minima? | SÌ | Una skill, due reference, un test deterministico e un check CI che riusa gli script esistenti. |
-| Ogni passaggio produce risultato osservabile? | SÌ | Routing, preview variants, confidence, eval comportamentale e status CI sono osservabili. |
-| Complessità evitabile rimossa? | SÌ | Eliminati implementation-accurate, full interview, prototipi temporanei e terza preview obbligatoria. |
-| Duplicazione con `prototype`? | NO | `prototype` costruisce codice throwaway; `ui-depth-preview` evita esplicitamente quell'approccio. |
-| Configurazione globale coerente? | SÌ | L'installer esistente auto-discovera `global/`; README aggiornato. |
+La skill soddisfa l'obiettivo con una soluzione minima: preview visuali confrontabili, due strategie realmente distinguibili e guardrail che evitano redesign e complessità non necessaria.
