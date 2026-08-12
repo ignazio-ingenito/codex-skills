@@ -15,6 +15,10 @@ All notable changes to this repository are documented in this file.
 
 - Quote ui depth preview readme assertion ([f9d348b](https://github.com/ignazio-ingenito/codex-skills/commit/f9d348be31ba4b0e1eacf34fb83a6f372eaaf004))
 
+- **deps:** Remove package updater overlap ([c62ff0c](https://github.com/ignazio-ingenito/codex-skills/commit/c62ff0cad7fb5d9a4d6670c8ccbdbc6681d5b39c))
+
+- **deps:** Configure Dependabot ownership ([06b5866](https://github.com/ignazio-ingenito/codex-skills/commit/06b5866ddd49fc6e134af18ec5b88e3ec0ab354b))
+
 
 
 ### CI
@@ -126,6 +130,10 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 - Merge pull request #29 from ignazio-ingenito/feat/ui-depth-preview
 
 feat: add ui depth preview skill ([3e50735](https://github.com/ignazio-ingenito/codex-skills/commit/3e50735003e3bd7573fdc82205a90dfc680b2e5c))
+
+- Merge pull request #32 from ignazio-ingenito/agent/ui-depth-preview-expressive-material
+
+feat: distinguish ui-depth-preview Expressive treatment ([8b348cd](https://github.com/ignazio-ingenito/codex-skills/commit/8b348cdf2fc2c41bfd510c11accc0780f8892212))
 
 
 
