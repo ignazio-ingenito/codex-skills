@@ -21,6 +21,8 @@ All notable changes to this repository are documented in this file.
 
 - **changelog:** Verify public reusable access ([7df87d2](https://github.com/ignazio-ingenito/codex-skills/commit/7df87d2be1cd857d4fb9f8ff3c48748158f1b780))
 
+- Validate skills on pull requests ([b87f5c0](https://github.com/ignazio-ingenito/codex-skills/commit/b87f5c07cb65611ddc5d9cd009144d414b7de7c5))
+
 
 
 ### Documentation
