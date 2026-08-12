@@ -36,12 +36,14 @@ Non aggiungere un livello se non comunica una relazione percepibile: conteniment
 
 ### Expressive
 
-- Stessa mappa semantica di Balanced.
+- Usa la stessa identica mappa semantica di Balanced: non creare nuovi layer semantici per giustificare un effetto.
 - Maggiore separazione tonale tra piani.
 - Raised/Overlay con shadow più percepibile ma sempre coerente con una singola sorgente luminosa.
-- Material/blur consentito solo quando rafforza sovrapposizione o transienza.
+- Può usare material, blur, traslucenza, refraction sottile o cue lens-like solo su superfici già floating, transient o parte del chrome: topbar, sidebar/rail, toolbar/action bar, controlli floating, popover e overlay, oppure pannelli secondari realmente sospesi.
+- Non applicare questi cue a content card, document card, canvas/base o a ogni card della pagina; evita glassmorphism diffuso e imitazioni visive di Apple/macOS.
+- Deve distinguersi da Balanced a colpo d'occhio tramite un trattamento più forte, senza cambiare layout, contenuti, palette principale, tipografia o identità.
 
-Se Expressive richiede nuovi livelli semantici che Balanced non aveva, probabilmente non è più una variante: ricontrolla la mappa.
+Se Expressive richiede nuovi livelli semantici che Balanced non aveva, non è più una variante: ricontrolla la mappa. Materiale e lens/refraction devono rafforzare una relazione di profondità esistente, mai crearla decorativamente.
 
 ## Fonti primarie
 

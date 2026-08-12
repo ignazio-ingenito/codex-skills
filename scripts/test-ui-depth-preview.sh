@@ -33,6 +33,25 @@ require_text "${skill}" "references/layering-model.md"
 require_text "${skill}" "references/preview-fidelity.md"
 require_text "${readme}" '`ui-depth-preview`'
 
+# Balanced remains the restrained baseline.
+require_text "${layering_ref}" "L0/L1 leggibili soprattutto tramite surface e spacing."
+require_text "${layering_ref}" "Shadow selettiva solo su elementi davvero Raised/Overlay."
+require_text "${layering_ref}" "Contrasto tra layer sufficiente ma non teatrale."
+
+# Expressive must be visibly stronger without changing the semantic layer map.
+require_text "${skill}" "material / blur / translucency / subtle refraction / lens-like effects"
+require_text "${skill}" "floating, transient o parte del chrome applicativo"
+require_text "${layering_ref}" "stessa identica mappa semantica"
+require_text "${layering_ref}" "topbar, sidebar/rail, toolbar/action bar, controlli floating, popover e overlay"
+require_text "${layering_ref}" "content card, document card, canvas/base"
+require_text "${layering_ref}" "glassmorphism diffuso"
+require_text "${layering_ref}" "non creare nuovi layer semantici"
+
+balanced_section="$(sed -n '/^### Balanced$/,/^### Expressive$/p' "${layering_ref}")"
+if grep -Eiq -- "(refraction|lens-like|traslucen|translucen)" <<<"${balanced_section}"; then
+  fail "Balanced must not gain Expressive material/lens cues"
+fi
+
 if grep -Fq -- "Implementation accurate" "${skill}"; then
   fail "must not introduce an Implementation accurate mode"
 fi

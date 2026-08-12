@@ -39,11 +39,15 @@ Modello: `references/layering-model.md`.
 Per default genera due preview:
 
 - **Balanced** — depth chiara e controllata; proposta raccomandata.
-- **Expressive** — stessa struttura, separazione tra piani più marcata e cue più ricchi dove giustificati.
+- **Expressive** — stessa mappa semantica, separazione tra piani più marcata e cue più ricchi dove giustificati. Può usare selettivamente `material / blur / translucency / subtle refraction / lens-like effects` su superfici già floating, transient o parte del chrome applicativo.
+
+> Expressive may use selective material, blur, translucency or lens/refraction effects only on surfaces that are already semantically floating, transient or part of the application chrome. These effects must strengthen an existing depth relationship, never create one decoratively.
+>
+> Balanced and Expressive must remain based on the same semantic layer map. Expressive differs through stronger visual treatment, not through additional structural layers.
 
 La terza variante esiste solo se richiesta o realmente distinguibile; usa **Conservative** per la modifica minima efficace.
 
-Le varianti cambiano il layering, non layout, palette o stile generale.
+Le varianti cambiano il trattamento del layering, non layout, contenuti, palette principale, tipografia o identità. Expressive deve restare riconoscibile a colpo d'occhio come la stessa UI: niente imitazione di Apple/macOS, glassmorphism generico o materiale diffuso su normali content/document card e canvas.
 
 ## Guardrail effort → risultato
 
