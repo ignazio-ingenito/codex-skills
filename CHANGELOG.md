@@ -117,6 +117,12 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 
 - **ci:** Follow changelog workflow main ([15ccd6a](https://github.com/ignazio-ingenito/codex-skills/commit/15ccd6a30aaf1219b9ddefc8faa37ef57d776066))
 
+- Merge pull request #29 from ignazio-ingenito/feat/ui-depth-preview
+
+feat: add ui depth preview skill ([3e50735](https://github.com/ignazio-ingenito/codex-skills/commit/3e50735003e3bd7573fdc82205a90dfc680b2e5c))
+
+- **deps:** Update actions/checkout action to v7 ([9115fb4](https://github.com/ignazio-ingenito/codex-skills/commit/9115fb4b57bd8a10f2ca3433065c505c0912c2fc))
+
 
 
 ### Maintenance(ci): follow changelog reusable workflow main
