@@ -1,6 +1,6 @@
 ---
 name: ui-depth-preview
-description: Use when serve mostrare come cambierebbe una UI esistente applicando modifiche di layering o depth, soprattutto da screenshot o immagini di riferimento.
+description: Use when a user needs to preview how an existing UI would change after layering or depth adjustments, especially from screenshots or reference images.
 ---
 
 # UI Depth Preview
