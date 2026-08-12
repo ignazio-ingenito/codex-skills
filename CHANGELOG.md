@@ -11,6 +11,10 @@ All notable changes to this repository are documented in this file.
 
 - **changelog:** Retain unconventional commits ([d7d83a6](https://github.com/ignazio-ingenito/codex-skills/commit/d7d83a65fd94ea080a6138b29e5331dec7603550))
 
+- Improve ui depth preview discovery ([a0cef51](https://github.com/ignazio-ingenito/codex-skills/commit/a0cef518a61c0d1a736db5ea263e22ed0cb414a1))
+
+- Quote ui depth preview readme assertion ([f9d348b](https://github.com/ignazio-ingenito/codex-skills/commit/f9d348be31ba4b0e1eacf34fb83a6f372eaaf004))
+
 
 
 ### CI
@@ -18,6 +22,8 @@ All notable changes to this repository are documented in this file.
 - Update checkout action to v5 ([5462a63](https://github.com/ignazio-ingenito/codex-skills/commit/5462a63e276b38dd6b52697ba5cce6b49291fde7))
 
 - **changelog:** Verify public reusable access ([7df87d2](https://github.com/ignazio-ingenito/codex-skills/commit/7df87d2be1cd857d4fb9f8ff3c48748158f1b780))
+
+- Validate skills on pull requests ([b87f5c0](https://github.com/ignazio-ingenito/codex-skills/commit/b87f5c07cb65611ddc5d9cd009144d414b7de7c5))
 
 
 
@@ -30,6 +36,22 @@ All notable changes to this repository are documented in this file.
 - **workflow:** Add workflow guardrails package ([#2](https://github.com/ignazio-ingenito/codex-skills/issues/2)) ([428b0e7](https://github.com/ignazio-ingenito/codex-skills/commit/428b0e7b767bedc1919469ede056e59e3a40ec88))
 
 - Add Context7 guidance to skills ([173345a](https://github.com/ignazio-ingenito/codex-skills/commit/173345ad0b5d679bae1ead5af95caa8afbc84704))
+
+- Add ui layering reference ([3b49d3e](https://github.com/ignazio-ingenito/codex-skills/commit/3b49d3ed74a9457bae76558dd9b66ae9610816ea))
+
+- Add preview fidelity reference ([d50c291](https://github.com/ignazio-ingenito/codex-skills/commit/d50c29149229cacda7572d80cec5b75b285c54ab))
+
+- Add ui depth preview to global inventory ([94b070c](https://github.com/ignazio-ingenito/codex-skills/commit/94b070c885e0b723113cf49ca0a86a405186f991))
+
+- Ground preview generation in Codex capabilities ([78b9d03](https://github.com/ignazio-ingenito/codex-skills/commit/78b9d03d99b9cc34d4c275c0bd5ac2fc953cc919))
+
+- Document ui depth preview validation ([5580996](https://github.com/ignazio-ingenito/codex-skills/commit/55809965a0c87e24f7f4a8fe5e84759a00fd0d9e))
+
+- Restore install example ([cf2d527](https://github.com/ignazio-ingenito/codex-skills/commit/cf2d52710a88dfdc2437a7ae994193360c4d2297))
+
+- Correct ui depth preview verification evidence ([fa82845](https://github.com/ignazio-ingenito/codex-skills/commit/fa82845427278096f2dcd2db46c344de6518979a))
+
+- Record fresh ui depth preview verification ([69a3544](https://github.com/ignazio-ingenito/codex-skills/commit/69a3544d428fb8432331adaa1afc3660821bbcad))
 
 
 
@@ -75,6 +97,8 @@ All notable changes to this repository are documented in this file.
 
 - **changelog:** Adopt centralized automation ([7553c28](https://github.com/ignazio-ingenito/codex-skills/commit/7553c28df2358ab33437e6e81a2ff7c73d262be7))
 
+- Add ui depth preview skill ([643567b](https://github.com/ignazio-ingenito/codex-skills/commit/643567b1007fce13dfe4fcb481c7316adade7661))
+
 
 
 ### Maintenance
@@ -95,9 +119,31 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 
 
 
+### Maintenance(ci): follow changelog reusable workflow main
+
+- Merge pull request #23 from ignazio-ingenito/chore/update-changelog-workflow-pin
+
+chore(ci): follow changelog reusable workflow main ([aae0cf3](https://github.com/ignazio-ingenito/codex-skills/commit/aae0cf3719ef2ca36f4f4846d0196139c9f85fbe))
+
+
+
 ### Maintenance: remove claude-specific files: remove claude-specific files
 
 - Remove claude-specific files ([6d4d109](https://github.com/ignazio-ingenito/codex-skills/commit/6d4d109a18247802c0609d1030ac92d11c92a3d1))
+
+
+
+### Refactoring
+
+- Tighten ui depth preview guidance ([1e5761c](https://github.com/ignazio-ingenito/codex-skills/commit/1e5761c7b0d14aff52244c67e64c22ccb0f098d3))
+
+
+
+### Tests
+
+- Add ui depth preview acceptance checks ([913b58e](https://github.com/ignazio-ingenito/codex-skills/commit/913b58e02d65fccea943019b51f911490204cb4e))
+
+- Document ui depth preview behavioral eval ([3805f1e](https://github.com/ignazio-ingenito/codex-skills/commit/3805f1ebfabf9692568bdbf0fd5ca0c304327004))
 
 
 

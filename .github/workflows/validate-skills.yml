@@ -1,0 +1,43 @@
+name: Validate skills
+
+on:
+  pull_request:
+    paths:
+      - "global/**"
+      - "projects/**"
+      - "scripts/**"
+      - "README.md"
+      - ".github/workflows/validate-skills.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check shell syntax
+        run: bash -n scripts/*.sh
+
+      - name: Validate skill structure
+        run: bash scripts/validate-skills.sh
+
+      - name: Run deterministic skill tests
+        shell: bash
+        run: |
+          shopt -s nullglob
+          tests=(scripts/test-*.sh)
+          for test_script in "${tests[@]}"; do
+            bash "$test_script"
+          done
+
+      - name: Verify ui-depth-preview installation
+        shell: bash
+        run: |
+          tmp_codex_home="$(mktemp -d)"
+          CODEX_HOME="$tmp_codex_home" bash scripts/install-local.sh ui-depth-preview
+          test -L "$tmp_codex_home/skills/ui-depth-preview"
+          test "$(readlink "$tmp_codex_home/skills/ui-depth-preview")" = "$GITHUB_WORKSPACE/global/ui-depth-preview"
