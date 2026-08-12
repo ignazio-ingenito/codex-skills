@@ -65,6 +65,7 @@ scripts/
 | `to-spec` | `mattpocock/skills` | Trasforma la conversazione in una specifica pubblicabile. |
 | `to-tickets` | `mattpocock/skills` | Divide piani e specifiche in ticket con dipendenze esplicite. |
 | `triage` | `mattpocock/skills` | Classifica issue, bug e feature request. |
+| `ui-depth-preview` | locale | Genera preview controllate del layering/depth di una UI esistente. |
 | `using-git-worktrees` | `obra/superpowers` | Isola feature work e piani complessi con git worktree. |
 | `verification-before-completion` | `obra/superpowers` | Richiede evidenze prima di dichiarare un lavoro completato. |
 | `wayfinder` | `mattpocock/skills` | Pianifica lavori oltre una sessione tramite ticket di investigazione. |
@@ -195,7 +196,7 @@ Skill globali:
 
 ```bash
 scripts/install-local.sh
-scripts/install-local.sh playwright grill-with-docs
+scripts/install-local.sh ui-depth-preview
 scripts/install-local.sh --replace
 ```
 
