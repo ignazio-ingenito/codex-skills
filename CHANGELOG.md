@@ -137,5 +137,7 @@ chore(ci): follow changelog reusable workflow main ([aae0cf3](https://github.com
 
 - Add ui depth preview acceptance checks ([913b58e](https://github.com/ignazio-ingenito/codex-skills/commit/913b58e02d65fccea943019b51f911490204cb4e))
 
+- Document ui depth preview behavioral eval ([3805f1e](https://github.com/ignazio-ingenito/codex-skills/commit/3805f1ebfabf9692568bdbf0fd5ca0c304327004))
+
 
 
