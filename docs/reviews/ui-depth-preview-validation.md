@@ -42,9 +42,7 @@ Nota non bloccante: il glow Expressive può essere ridotto leggermente in alcuni
 
 ## Verifica automatica
 
-HEAD verificato prima della chiusura della Wave: `300005a9e5f808828de0ec48de21bf6c5c268729`.
-
-GitHub Actions `Validate skills`, run **#14**: **success**.
+La PR #32 mantiene `Validate skills` verde anche dopo l'aggiornamento della documentazione. Il dettaglio puntuale di HEAD e run resta nella PR, così questo documento non diventa obsoleto a ogni commit automatico del changelog.
 
 Copertura rilevante:
 
