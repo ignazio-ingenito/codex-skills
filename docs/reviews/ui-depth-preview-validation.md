@@ -1,34 +1,50 @@
 # Validazione `ui-depth-preview`
 
-**Stato:** Active  
+**Stato:** Active — attesa evidenza CI fresca  
 **Issue:** #25  
 **PR:** #29  
 **Rischio:** Light
 
 ## Scope verificato
 
-La Wave aggiunge una skill globale focalizzata esclusivamente su preview di layering/depth UI. Non introduce un renderer, un prototipo applicativo, un nuovo registry o un nuovo framework di test.
+La Wave aggiunge una skill globale focalizzata esclusivamente su preview di layering/depth UI. Non introduce un renderer o un prototipo applicativo. Dopo la review è stato aggiunto un workflow CI generale e senza segreti che espone come status GitHub le validazioni già presenti nel repository.
 
-## RED → GREEN
+## TDD documentale: RED → GREEN
 
-Il test `scripts/test-ui-depth-preview.sh` è stato creato prima della skill.
+Il RED comportamentale non è l'assenza di `SKILL.md`. I failure mode reali sono quelli osservati nella sessione di design precedente alla creazione della skill:
 
-**RED osservato:**
+- proposta di una modalità **Implementation accurate** con patch/render dell'app solo per ottenere la preview;
+- tre varianti fisse anche quando non producevano tre strategie distinguibili;
+- intake/intervista più ampia del necessario.
+
+Questi comportamenti sono stati respinti perché aumentavano effort senza un miglioramento osservabile proporzionato.
+
+Il replay GREEN applica `ui-depth-preview` agli stessi casi e verifica invece:
+
+- `Fedele` senza implementazione temporanea;
+- screenshot come fonte primaria e codice solo per ambiguità visive materiali;
+- `Balanced + Expressive` come default;
+- una sola domanda `Indicativa | Fedele` quando la fedeltà è realmente ambigua;
+- `Conservative` solo se richiesta o distinguibile.
+
+Evidenza completa: `docs/reviews/ui-depth-preview-behavioral-eval.md`.
+
+## Guardrail deterministico
+
+`scripts/test-ui-depth-preview.sh` non viene più presentato come RED comportamentale. Verifica soltanto che il contratto documentale continui a contenere i guardrail richiesti: routing di fedeltà, due varianti di default, terza variante condizionale, confidence e divieto di implementazione/prototipazione solo per la preview.
+
+## Evidenza eseguibile
+
+`.github/workflows/validate-skills.yml` esegue sulle PR interessate:
 
 ```text
-ERROR ui-depth-preview: missing global/ui-depth-preview/SKILL.md
+bash -n scripts/*.sh
+bash scripts/validate-skills.sh
+bash scripts/test-*.sh
+CODEX_HOME=<temp> bash scripts/install-local.sh ui-depth-preview
 ```
 
-Dopo l'implementazione e il refactor finale del `SKILL.md`:
-
-```text
-ui-depth-preview checks passed
-Validated 1 skill(s)
-```
-
-`bash -n scripts/test-ui-depth-preview.sh` termina con exit code 0. Il `SKILL.md` finale è di 441 parole, sotto il target di ~500 parole per una skill non pesante.
-
-Il replay del validator usa la stessa logica di `scripts/validate-skills.sh` sulla nuova directory. Le skill preesistenti non sono modificate dalla Wave; la loro precedente validazione resta riusabile. Un'esecuzione completa del repository non aggiungerebbe evidenza causale sulla nuova skill e non viene simulata o dichiarata.
+L'ultimo step verifica anche che il symlink installato punti alla directory `global/ui-depth-preview` del checkout. La Wave non deve essere dichiarata completata finché il check sull'HEAD corrente non termina con successo.
 
 ## Scenari verificati
 
@@ -43,26 +59,20 @@ Il replay del validator usa la stessa logica di `scripts/validate-skills.sh` sul
 
 ## Effort → risultato
 
-Sono stati esclusi perché non producono beneficio osservabile proporzionato:
+Sono esclusi perché non producono beneficio osservabile proporzionato:
 
 - modalità `Implementation accurate`;
 - intervista completa come dipendenza obbligatoria;
 - implementazione temporanea dell'app;
 - audit completo di component tree, `z-index` o token;
 - tre preview obbligatorie;
-- nuovo registry/config per le skill globali;
-- nuovo workflow CI dedicato.
+- nuovo registry/config per le skill globali.
+
+Il workflow di validazione è l'unica aggiunta infrastrutturale successiva alla review: riusa script esistenti, non richiede segreti e produce l'evidenza fresca che mancava alla PR.
 
 ## Installazione e catalogo
 
 `README.md` resta il catalogo autorevole e include `ui-depth-preview` tra le skill globali. `scripts/install-local.sh` scopre già automaticamente le directory sotto `global/`, quindi non serve modificare configurazioni o registri.
-
-Verifica con `CODEX_HOME` temporaneo:
-
-```text
-Linked global/ui-depth-preview -> <temp>/skills/ui-depth-preview
-Restart Codex to pick up new or changed skills.
-```
 
 `config/global-skill-prune.txt` è una lista di elementi da rimuovere, non un registry: è intenzionalmente invariato.
 
@@ -87,23 +97,23 @@ Fonti primarie:
 - OpenAI Codex multimodal input: https://help.openai.com/en/articles/11096431
 - OpenAI Codex app image generation: https://openai.com/index/introducing-the-codex-app/
 
-## Diff e collateral
-
-Il diff intenzionale è limitato a:
+## Diff intenzionale
 
 - `global/ui-depth-preview/`;
 - `scripts/test-ui-depth-preview.sh`;
-- `README.md`;
-- questo documento di validazione.
+- `.github/workflows/validate-skills.yml`;
+- `README.md` solo per l'inventario;
+- `docs/reviews/ui-depth-preview-validation.md`;
+- `docs/reviews/ui-depth-preview-behavioral-eval.md`.
 
-`CHANGELOG.md` può comparire nel diff perché il workflow `Changelog` del repository aggiorna automaticamente il file sulle sincronizzazioni della PR; non è stato modificato manualmente dalla Wave.
+`CHANGELOG.md` può comparire nel diff perché il workflow `Changelog` del repository aggiorna automaticamente il file sulle sincronizzazioni della PR; non è modificato manualmente dalla Wave.
 
 ## Esito RFC-0001
 
 | Verifica | Esito | Evidenza |
 |---|---|---|
-| Requisiti soddisfatti con soluzione minima? | SÌ | Una skill, due reference, un test deterministico; nessun runtime aggiuntivo. |
-| Ogni passaggio produce risultato osservabile? | SÌ | Routing, preview variants, confidence, layering rules e installabilità sono verificabili. |
+| Requisiti soddisfatti con soluzione minima? | SÌ | Una skill, due reference, un test deterministico e un check CI che riusa gli script esistenti. |
+| Ogni passaggio produce risultato osservabile? | SÌ | Routing, preview variants, confidence, eval comportamentale e status CI sono osservabili. |
 | Complessità evitabile rimossa? | SÌ | Eliminati implementation-accurate, full interview, prototipi temporanei e terza preview obbligatoria. |
 | Duplicazione con `prototype`? | NO | `prototype` costruisce codice throwaway; `ui-depth-preview` evita esplicitamente quell'approccio. |
 | Configurazione globale coerente? | SÌ | L'installer esistente auto-discovera `global/`; README aggiornato. |
