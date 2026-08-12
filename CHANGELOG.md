@@ -37,6 +37,8 @@ All notable changes to this repository are documented in this file.
 
 - Add ui depth preview to global inventory ([94b070c](https://github.com/ignazio-ingenito/codex-skills/commit/94b070c885e0b723113cf49ca0a86a405186f991))
 
+- Ground preview generation in Codex capabilities ([78b9d03](https://github.com/ignazio-ingenito/codex-skills/commit/78b9d03d99b9cc34d4c275c0bd5ac2fc953cc919))
+
 
 
 ### Features
