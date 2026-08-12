@@ -35,6 +35,8 @@ All notable changes to this repository are documented in this file.
 
 - Add preview fidelity reference ([d50c291](https://github.com/ignazio-ingenito/codex-skills/commit/d50c29149229cacda7572d80cec5b75b285c54ab))
 
+- Add ui depth preview to global inventory ([94b070c](https://github.com/ignazio-ingenito/codex-skills/commit/94b070c885e0b723113cf49ca0a86a405186f991))
+
 
 
 ### Features
