@@ -11,6 +11,8 @@ All notable changes to this repository are documented in this file.
 
 - **changelog:** Retain unconventional commits ([d7d83a6](https://github.com/ignazio-ingenito/codex-skills/commit/d7d83a65fd94ea080a6138b29e5331dec7603550))
 
+- Improve ui depth preview discovery ([a0cef51](https://github.com/ignazio-ingenito/codex-skills/commit/a0cef518a61c0d1a736db5ea263e22ed0cb414a1))
+
 
 
 ### CI
