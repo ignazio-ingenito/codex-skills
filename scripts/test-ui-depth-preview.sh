@@ -31,7 +31,7 @@ require_text "${skill}" "materialmente"
 require_text "${skill}" "confidence"
 require_text "${skill}" "references/layering-model.md"
 require_text "${skill}" "references/preview-fidelity.md"
-require_text "${readme}" "`ui-depth-preview`"
+require_text "${readme}" '`ui-depth-preview`'
 
 if grep -Fq -- "Implementation accurate" "${skill}"; then
   fail "must not introduce an Implementation accurate mode"
