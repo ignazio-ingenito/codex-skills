@@ -31,6 +31,8 @@ All notable changes to this repository are documented in this file.
 
 - Add Context7 guidance to skills ([173345a](https://github.com/ignazio-ingenito/codex-skills/commit/173345ad0b5d679bae1ead5af95caa8afbc84704))
 
+- Add ui layering reference ([3b49d3e](https://github.com/ignazio-ingenito/codex-skills/commit/3b49d3ed74a9457bae76558dd9b66ae9610816ea))
+
 
 
 ### Features
