@@ -13,6 +13,8 @@ All notable changes to this repository are documented in this file.
 
 - Improve ui depth preview discovery ([a0cef51](https://github.com/ignazio-ingenito/codex-skills/commit/a0cef518a61c0d1a736db5ea263e22ed0cb414a1))
 
+- Quote ui depth preview readme assertion ([f9d348b](https://github.com/ignazio-ingenito/codex-skills/commit/f9d348be31ba4b0e1eacf34fb83a6f372eaaf004))
+
 
 
 ### CI
