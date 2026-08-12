@@ -53,6 +53,10 @@ All notable changes to this repository are documented in this file.
 
 - Record fresh ui depth preview verification ([69a3544](https://github.com/ignazio-ingenito/codex-skills/commit/69a3544d428fb8432331adaa1afc3660821bbcad))
 
+- Refresh ui depth preview validation ([b9aa24d](https://github.com/ignazio-ingenito/codex-skills/commit/b9aa24d86527228157914d8f80d6d6c47d64af8a))
+
+- Keep ui depth validation evergreen ([1470128](https://github.com/ignazio-ingenito/codex-skills/commit/1470128898481d1da4f689d51c69ebc4d8378919))
+
 
 
 ### Features
@@ -99,6 +103,8 @@ All notable changes to this repository are documented in this file.
 
 - Add ui depth preview skill ([643567b](https://github.com/ignazio-ingenito/codex-skills/commit/643567b1007fce13dfe4fcb481c7316adade7661))
 
+- Distinguish expressive depth previews ([cc1a10c](https://github.com/ignazio-ingenito/codex-skills/commit/cc1a10c2667c798cafbbd202ebb6c832345a4748))
+
 
 
 ### Maintenance
@@ -116,6 +122,10 @@ feat(changelog): adopt centralized automation ([8613f58](https://github.com/igna
 - **ci:** Update changelog reusable workflow pin ([5985f12](https://github.com/ignazio-ingenito/codex-skills/commit/5985f122c943b26d9d616941e39009d0fb01d053))
 
 - **ci:** Follow changelog workflow main ([15ccd6a](https://github.com/ignazio-ingenito/codex-skills/commit/15ccd6a30aaf1219b9ddefc8faa37ef57d776066))
+
+- Merge pull request #29 from ignazio-ingenito/feat/ui-depth-preview
+
+feat: add ui depth preview skill ([3e50735](https://github.com/ignazio-ingenito/codex-skills/commit/3e50735003e3bd7573fdc82205a90dfc680b2e5c))
 
 
 
