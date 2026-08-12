@@ -119,6 +119,12 @@ chore(ci): follow changelog reusable workflow main ([aae0cf3](https://github.com
 
 
 
+### Refactoring
+
+- Tighten ui depth preview guidance ([1e5761c](https://github.com/ignazio-ingenito/codex-skills/commit/1e5761c7b0d14aff52244c67e64c22ccb0f098d3))
+
+
+
 ### Tests
 
 - Add ui depth preview acceptance checks ([913b58e](https://github.com/ignazio-ingenito/codex-skills/commit/913b58e02d65fccea943019b51f911490204cb4e))
