@@ -55,6 +55,8 @@ All notable changes to this repository are documented in this file.
 
 - Refresh ui depth preview validation ([b9aa24d](https://github.com/ignazio-ingenito/codex-skills/commit/b9aa24d86527228157914d8f80d6d6c47d64af8a))
 
+- Keep ui depth validation evergreen ([1470128](https://github.com/ignazio-ingenito/codex-skills/commit/1470128898481d1da4f689d51c69ebc4d8378919))
+
 
 
 ### Features
