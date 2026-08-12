@@ -68,6 +68,14 @@ Mantieni per tutte le varianti:
 - stessa struttura e densità;
 - stessa palette/typography salvo micro-variazioni necessarie alla surface hierarchy.
 
+## Capacità Codex rilevanti
+
+Codex accetta screenshot e diagrammi come input multimodale. Nel Codex app, quando è disponibile la skill di image generation basata su GPT Image, può creare o modificare immagini per UI mockup. `ui-depth-preview` deve usare queste capacità quando presenti, senza assumerle in ogni runtime.
+
+Fonti OpenAI:
+- Codex CLI / multimodal inputs: https://help.openai.com/en/articles/11096431
+- Codex app / image generation skill: https://openai.com/index/introducing-the-codex-app/
+
 ## Varianti e confidence
 
 Default: **Balanced** + **Expressive**.
