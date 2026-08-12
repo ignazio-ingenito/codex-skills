@@ -39,6 +39,8 @@ All notable changes to this repository are documented in this file.
 
 - Ground preview generation in Codex capabilities ([78b9d03](https://github.com/ignazio-ingenito/codex-skills/commit/78b9d03d99b9cc34d4c275c0bd5ac2fc953cc919))
 
+- Document ui depth preview validation ([5580996](https://github.com/ignazio-ingenito/codex-skills/commit/55809965a0c87e24f7f4a8fe5e84759a00fd0d9e))
+
 
 
 ### Features
