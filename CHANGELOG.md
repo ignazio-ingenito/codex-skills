@@ -43,6 +43,8 @@ All notable changes to this repository are documented in this file.
 
 - Document ui depth preview validation ([5580996](https://github.com/ignazio-ingenito/codex-skills/commit/55809965a0c87e24f7f4a8fe5e84759a00fd0d9e))
 
+- Restore install example ([cf2d527](https://github.com/ignazio-ingenito/codex-skills/commit/cf2d52710a88dfdc2437a7ae994193360c4d2297))
+
 
 
 ### Features
