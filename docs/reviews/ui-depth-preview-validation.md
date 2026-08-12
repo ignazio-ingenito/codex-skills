@@ -1,6 +1,6 @@
 # Validazione `ui-depth-preview`
 
-**Stato:** Active — attesa evidenza CI fresca  
+**Stato:** Active — verificata su PR #29  
 **Issue:** #25  
 **PR:** #29  
 **Rischio:** Light
@@ -31,20 +31,31 @@ Evidenza completa: `docs/reviews/ui-depth-preview-behavioral-eval.md`.
 
 ## Guardrail deterministico
 
-`scripts/test-ui-depth-preview.sh` non viene più presentato come RED comportamentale. Verifica soltanto che il contratto documentale continui a contenere i guardrail richiesti: routing di fedeltà, due varianti di default, terza variante condizionale, confidence e divieto di implementazione/prototipazione solo per la preview.
+`scripts/test-ui-depth-preview.sh` non è un RED comportamentale. Verifica che il contratto documentale continui a contenere routing di fedeltà, due varianti di default, terza variante condizionale, confidence e divieto di implementazione/prototipazione solo per la preview.
 
-## Evidenza eseguibile
+Durante la prima esecuzione CI il log ha mostrato un falso positivo: le backtick del controllo README erano racchiuse in doppi apici e la shell tentava di eseguire `ui-depth-preview`. Il test continuava poi con una stringa vuota. La causa è stata corretta usando una stringa letterale tra apici singoli e la CI è stata rieseguita senza il warning.
 
-`.github/workflows/validate-skills.yml` esegue sulle PR interessate:
+## Evidenza eseguibile fresca
+
+Workflow `Validate skills`, run **#8**, job `validate`: **success**.
+
+Output osservato sull'HEAD verificato:
 
 ```text
 bash -n scripts/*.sh
+PASS
+
 bash scripts/validate-skills.sh
-bash scripts/test-*.sh
+Validated 104 skill(s)
+
+scripts/test-ui-depth-preview.sh
+ui-depth-preview checks passed
+
 CODEX_HOME=<temp> bash scripts/install-local.sh ui-depth-preview
+Linked global/ui-depth-preview -> <temp>/skills/ui-depth-preview
 ```
 
-L'ultimo step verifica anche che il symlink installato punti alla directory `global/ui-depth-preview` del checkout. La Wave non deve essere dichiarata completata finché il check sull'HEAD corrente non termina con successo.
+I singoli step GitHub Actions risultano tutti `success`: checkout, shell syntax, validator, test deterministici e installazione. Il log della run corretta non contiene più `ui-depth-preview: command not found`.
 
 ## Scenari verificati
 
