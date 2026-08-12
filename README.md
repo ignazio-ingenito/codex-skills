@@ -196,7 +196,7 @@ Skill globali:
 
 ```bash
 scripts/install-local.sh
-scripts/install-local.sh ui-depth-preview
+scripts/install-local.sh playwright grill-with-docs
 scripts/install-local.sh --replace
 ```
 
