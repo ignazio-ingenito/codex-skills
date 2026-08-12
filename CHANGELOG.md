@@ -75,6 +75,8 @@ All notable changes to this repository are documented in this file.
 
 - **changelog:** Adopt centralized automation ([7553c28](https://github.com/ignazio-ingenito/codex-skills/commit/7553c28df2358ab33437e6e81a2ff7c73d262be7))
 
+- Add ui depth preview skill ([643567b](https://github.com/ignazio-ingenito/codex-skills/commit/643567b1007fce13dfe4fcb481c7316adade7661))
+
 
 
 ### Maintenance
