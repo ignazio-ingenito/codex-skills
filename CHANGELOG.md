@@ -15,9 +15,7 @@ All notable changes to this repository are documented in this file.
 
 - Quote ui depth preview readme assertion ([f9d348b](https://github.com/ignazio-ingenito/codex-skills/commit/f9d348be31ba4b0e1eacf34fb83a6f372eaaf004))
 
-- **deps:** Remove package updater overlap ([c62ff0c](https://github.com/ignazio-ingenito/codex-skills/commit/c62ff0cad7fb5d9a4d6670c8ccbdbc6681d5b39c))
-
-- **deps:** Configure Dependabot ownership ([06b5866](https://github.com/ignazio-ingenito/codex-skills/commit/06b5866ddd49fc6e134af18ec5b88e3ec0ab354b))
+- **deps:** Make updater ownership exclusive ([#33](https://github.com/ignazio-ingenito/codex-skills/issues/33)) ([c036def](https://github.com/ignazio-ingenito/codex-skills/commit/c036defab7121b49d4a027af544f4f425ba3e721))
 
 
 
@@ -134,6 +132,8 @@ feat: add ui depth preview skill ([3e50735](https://github.com/ignazio-ingenito/
 - Merge pull request #32 from ignazio-ingenito/agent/ui-depth-preview-expressive-material
 
 feat: distinguish ui-depth-preview Expressive treatment ([8b348cd](https://github.com/ignazio-ingenito/codex-skills/commit/8b348cdf2fc2c41bfd510c11accc0780f8892212))
+
+- **deps:** Align Dependabot cooldown ([1cfcdc3](https://github.com/ignazio-ingenito/codex-skills/commit/1cfcdc361d5ca75c5f4bbff60b4abc3104f0c903))
 
 
 
