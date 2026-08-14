@@ -16,8 +16,8 @@ Assess each area by risk and reversibility:
 - Secrets: SOPS coverage, Reflector flow, plaintext files, rotation notes.
 - Backup/restore: RGW, rclone, offsite copy, restore drills, temporary clusters.
 - Observability: dashboards, logs, metrics, alert gaps, runbook freshness.
-- IaC: OpenTofu state, tfvars, provider versions, Cloudflare/Proxmox drift.
-- Documentation: `doc/`, `CONTEXT.md`, ADR absence, stale TODOs.
+- IaC: OpenTofu state, tfvars, provider versions and ownership across Cloudflare and Harbor; Proxmox/Ansible drift where relevant.
+- Documentation: `doc/`, `CONTEXT.md`, `codex-context.md`, ADR consistency, stale TODOs and documents that duplicate superseded runtime state.
 
 ## Evidence Collection
 
@@ -30,13 +30,7 @@ git ls-files 'infra/opentofu/**/terraform.tfvars' 'infra/opentofu/**/terraform.t
 find gitops -name kustomization.yaml -printf '%h\n' | sort
 ```
 
-Use GitNexus when available and refresh stale indexes before broad conclusions:
-
-```bash
-npx gitnexus status
-npx gitnexus analyze
-npx gitnexus detect-changes
-```
+Optional repository-intelligence tools may be used when available and useful, but they are not a substitute for current Git, manifests, tests, runbooks or runtime evidence.
 
 ## Output Format
 
@@ -54,6 +48,6 @@ Prefer work that:
 
 - removes credential or backup risk;
 - improves rollback and verification;
-- reduces GitOps drift;
+- reduces GitOps or IaC ownership drift;
 - makes future app onboarding repeatable;
 - updates docs only when they reduce future operational ambiguity.
