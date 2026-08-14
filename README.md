@@ -130,7 +130,7 @@ scripts/
 | `homelab-kubernetes-operations` | locale | K3s, risorse, CRD, operatori, rollout, servizi e log. |
 | `homelab-network-readiness` | `affaan-m/everything-claude-code` | Verifica rete, DNS, firewall e accesso remoto. |
 | `homelab-observability-operations` | locale | Grafana, Loki, Prometheus, Alloy, dashboard e alerting. |
-| `homelab-opentofu-terraform` | locale | Terraform/OpenTofu per Cloudflare e state. |
+| `homelab-opentofu-terraform` | locale | OpenTofu per Cloudflare, Harbor e state. |
 | `homelab-proxmox-operations` | locale | Proxmox, PBS, Ceph, VM/LXC, nodi e storage. |
 | `homelab-review-and-debt` | locale | Review del repo per rischio, drift, sicurezza e debito tecnico. |
 | `homelab-secret-management` | locale | SOPS, Age, token, credenziali e leak check. |
