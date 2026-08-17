@@ -29,6 +29,25 @@ scripts/
 
 `grill-with-docs` esiste sia tra le skill globali sia in CAP Aeris: le due versioni non sono identiche e restano separate finché non viene decisa una generalizzazione esplicita.
 
+## Percorsi consigliati
+
+La mappa riguarda esclusivamente le skill globali. Le skill di progetto avranno percorsi dedicati, perché dipendono dal dominio e dalle convenzioni del singolo repository.
+
+<p align="center">
+  <a href="docs/assets/global-skill-routing.svg">
+    <img src="docs/assets/global-skill-routing.svg" alt="Percorsi consigliati per scegliere e concatenare le skill globali Codex nei principali scenari di sviluppo" width="100%">
+  </a>
+</p>
+
+Apri l’immagine per leggerla a piena risoluzione o ingrandirla su schermi piccoli.
+
+- Bordo continuo: passaggio normalmente richiesto.
+- Bordo tratteggiato: passaggio condizionale, da usare solo quando vale la nota.
+- `D`: coda comune di delivery e verifica.
+- `prototype`: esperimento throwaway; se il risultato deve evolvere in prodotto, si torna prima a design e pianificazione.
+
+Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md`](global/ask-skills/SKILL.md); l’infografica è un orientamento rapido, non una seconda fonte normativa.
+
 ## Inventario
 
 ### Globali
@@ -38,6 +57,7 @@ scripts/
 | `ask-skills` | `mattpocock/skills` | Individua la skill o il flusso adatto. |
 | `brainstorming` | `obra/superpowers` | Chiarisce intento, requisiti e design prima di modificare comportamento. |
 | `caveman` | `mattpocock/skills` | Riduce al minimo parole e token. |
+| `code-debt-review-loop` | locale | Individua e ordina debito tecnico, hotspot e refactor sicuri prima dell’implementazione. |
 | `code-review-and-quality` | `addyosmani/agent-skills` | Revisiona correttezza, leggibilità, architettura, sicurezza e performance. |
 | `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
 | `codebase-design` | `mattpocock/skills` | Progetta moduli profondi, interfacce piccole e seam puliti. |
@@ -56,6 +76,7 @@ scripts/
 | `reality-check` | locale | Verifica fonti e decisioni già determinate prima di porre domande o introdurre complessità. |
 | `receiving-code-review` | `obra/superpowers` | Valuta feedback di review prima di applicarlo. |
 | `research` | `mattpocock/skills` | Ricerca con fonti primarie e salva risultati citati. |
+| `scrittura-comica` | locale | Scrive o adatta testi creativi con tono umoristico, ironico o satirico leggero. |
 | `requesting-code-review` | `obra/superpowers` | Prepara contesto e range per una review. |
 | `resolving-merge-conflicts` | `mattpocock/skills` | Risolve conflitti ricostruendo l’intento delle versioni. |
 | `senior-implementation-discipline` | locale | Impone disciplina da maintainer su cambi condivisi e rischiosi. |
@@ -84,6 +105,7 @@ scripts/
 | `diagnose` | locale CAP | Diagnostica con riproduzione, ipotesi, strumentazione e regressione. |
 | `documentation-and-adrs` | `addyosmani/agent-skills` | Registra decisioni e ADR utili a sviluppatori e agenti. |
 | `grill-with-docs` | locale CAP | Stressa piani contro documenti, UI, wiki e decisioni CAP. |
+| `grill-with-screenshots` | locale CAP | Valuta UX, UI, responsività e accessibilità a partire da screenshot reali. |
 | `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e refactor profondi. |
 | `performance-optimization` | `addyosmani/agent-skills` | Ottimizza bottleneck misurati. |
 | `planning-and-task-breakdown` | `addyosmani/agent-skills` | Divide requisiti in task ordinati e verificabili. |
