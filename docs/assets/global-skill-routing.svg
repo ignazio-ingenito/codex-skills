@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="3420" viewBox="0 0 1200 3420" role="img" aria-labelledby="title desc">
+  <title id="title">Percorsi consigliati per le skill globali Codex</title>
+  <desc id="desc">Otto scenari principali, sei scenari operativi e una coda comune di delivery. Il bordo tratteggiato indica un passaggio condizionale.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#111a2e"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee" stop-opacity=".18"/><stop offset="1" stop-color="#8b5cf6" stop-opacity=".12"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+    <style>
+      .title{font:700 46px Inter,ui-sans-serif,system-ui,sans-serif;fill:#f8fafc}.subtitle{font:400 23px Inter,ui-sans-serif,system-ui,sans-serif;fill:#a8b7ca}
+      .section{font:700 31px Inter,ui-sans-serif,system-ui,sans-serif;fill:#e2e8f0}.section-note{font:400 20px Inter,ui-sans-serif,system-ui,sans-serif;fill:#93a4ba}
+      .scenario{font:700 25px Inter,ui-sans-serif,system-ui,sans-serif;fill:#f8fafc}.note{font:400 18px Inter,ui-sans-serif,system-ui,sans-serif;fill:#9fb0c5}
+      .pill{font:650 18px Inter,ui-sans-serif,system-ui,sans-serif;fill:#eaf6ff;text-anchor:middle;dominant-baseline:middle}.micro{font:650 15px Inter,ui-sans-serif,system-ui,sans-serif;fill:#eaf6ff;text-anchor:middle;dominant-baseline:middle}
+      .arrow{font:700 24px Inter,ui-sans-serif,system-ui,sans-serif;fill:#64748b;text-anchor:middle;dominant-baseline:middle}.label{font:650 18px Inter,ui-sans-serif,system-ui,sans-serif;fill:#cbd5e1}
+      .card{fill:#111d31;stroke:#24334a;stroke-width:2;rx:22}.alt{fill:#0d1829;stroke:#26364e;stroke-width:2;rx:22}
+      .skill{fill:#12395a;stroke:#38bdf8;stroke-width:2;rx:14}.cond{fill:#2b2417;stroke:#fbbf24;stroke-width:2.5;stroke-dasharray:10 7;rx:14}
+      .analysis{fill:#2b1f46;stroke:#a78bfa;stroke-width:2;rx:14}.quality{fill:#15382f;stroke:#34d399;stroke-width:2;rx:14}
+      .outcome{fill:#252f3f;stroke:#64748b;stroke-width:2;rx:14}.danger{fill:#47252a;stroke:#fb7185;stroke-width:2;rx:14}
+    </style>
+  </defs>
+  <rect width="1200" height="3420" fill="url(#bg)"/><circle cx="1080" cy="80" r="280" fill="#22d3ee" opacity=".035"/><circle cx="80" cy="3300" r="340" fill="#8b5cf6" opacity=".035"/>
+
+  <g transform="translate(50 40)"><rect width="1100" height="150" rx="30" fill="url(#glow)" stroke="#2a3b54" stroke-width="2"/>
+    <text class="title" x="34" y="65">Quale skill uso, e quando?</text><text class="subtitle" x="36" y="108">Percorsi globali, condizioni esplicite, una sola chiusura con evidenze.</text>
+  </g>
+  <g transform="translate(50 220)" filter="url(#shadow)"><rect class="card" width="1100" height="190"/>
+    <text class="section" x="30" y="45">Prima di scegliere un percorso</text><text class="section-note" x="30" y="78">Verifica le fonti prima di fare domande già risolte.</text>
+    <rect class="skill" x="30" y="108" width="220" height="56"/><text class="pill" x="140" y="136">ask-skills</text><text class="arrow" x="275" y="136">→</text>
+    <rect class="cond" x="300" y="108" width="250" height="56"/><text class="pill" x="425" y="136">reality-check</text>
+    <text class="label" x="580" y="128">se esistono repository, RFC, ADR o specifiche</text><text class="note" x="580" y="155">bordo tratteggiato = passaggio condizionale</text>
+  </g>
+
+  <text class="section" x="50" y="460">Costruire o trasformare</text><text class="section-note" x="470" y="460">“D” rimanda alla coda comune in fondo.</text>
+
+  <g transform="translate(50 490)"><rect class="alt" width="1100" height="190"/>
+    <text class="scenario" x="30" y="40">1 · Progetto da un’idea</text><text class="note" x="30" y="70">Chiarisci l’intento, prova solo ciò che serve, poi progetta.</text>
+    <rect class="cond" x="30" y="100" width="180" height="52"/><text class="pill" x="120" y="126">interview-me</text><text class="arrow" x="230" y="126">→</text>
+    <rect class="cond" x="250" y="100" width="170" height="52"/><text class="pill" x="335" y="126">idea-refine</text><text class="arrow" x="440" y="126">→</text>
+    <rect class="cond" x="460" y="100" width="170" height="52"/><text class="pill" x="545" y="126">prototype</text><text class="arrow" x="650" y="126">→</text>
+    <rect class="skill" x="670" y="100" width="210" height="52"/><text class="pill" x="775" y="126">brainstorming</text><text class="arrow" x="900" y="126">→</text>
+    <rect class="quality" x="920" y="100" width="70" height="52"/><text class="pill" x="955" y="126">D</text>
+    <text class="note" x="30" y="178">condizionali: intento incerto · idea grezza · domanda eseguibile</text>
+  </g>
+
+  <g transform="translate(50 700)"><rect class="card" width="1100" height="190"/>
+    <text class="scenario" x="30" y="40">2 · Progetto da specifiche</text><text class="note" x="30" y="70">Non riaprire decisioni già prese; stressa solo quelle ancora aperte.</text>
+    <rect class="skill" x="30" y="100" width="210" height="52"/><text class="pill" x="135" y="126">reality-check</text><text class="arrow" x="260" y="126">→</text>
+    <rect class="cond" x="280" y="100" width="220" height="52"/><text class="pill" x="390" y="126">grill-with-docs</text><text class="arrow" x="520" y="126">→</text>
+    <rect class="skill" x="540" y="100" width="220" height="52"/><text class="pill" x="650" y="126">brainstorming</text><text class="arrow" x="780" y="126">→</text>
+    <rect class="quality" x="800" y="100" width="70" height="52"/><text class="pill" x="835" y="126">D</text>
+  </g>
+
+  <g transform="translate(50 910)"><rect class="alt" width="1100" height="220"/>
+    <text class="scenario" x="30" y="40">3 · Prototipo o PoC</text><text class="note" x="30" y="70">Throwaway: rispondi alla domanda, registra ciò che impari, elimina.</text>
+    <rect class="cond" x="30" y="100" width="210" height="52"/><text class="pill" x="135" y="126">reality-check</text><text class="arrow" x="260" y="126">→</text>
+    <rect class="skill" x="280" y="100" width="190" height="52"/><text class="pill" x="375" y="126">prototype</text><text class="arrow" x="490" y="126">→</text>
+    <rect class="outcome" x="510" y="100" width="250" height="52"/><text class="pill" x="635" y="126">registra l’esito</text><text class="arrow" x="780" y="126">→</text>
+    <rect class="danger" x="800" y="100" width="140" height="52"/><text class="pill" x="870" y="126">elimina</text>
+    <text class="label" x="510" y="190">Se diventa prodotto:</text><rect class="quality" x="800" y="165" width="190" height="44"/><text class="pill" x="895" y="187">brainstorming → D</text>
+  </g>
+
+  <g transform="translate(50 1150)"><rect class="card" width="1100" height="190"/>
+    <text class="scenario" x="30" y="40">4 · Assessment</text><text class="note" x="30" y="70">Mappa e misura; nessun refactor automatico.</text>
+    <rect class="skill" x="30" y="100" width="190" height="52"/><text class="pill" x="125" y="126">reality-check</text><text class="arrow" x="240" y="126">→</text>
+    <rect class="analysis" x="260" y="100" width="150" height="52"/><text class="pill" x="335" y="126">zoom-out</text><text class="arrow" x="430" y="126">→</text>
+    <rect class="analysis" x="450" y="100" width="250" height="52"/><text class="pill" x="575" y="126">code-debt-review-loop</text><text class="arrow" x="720" y="126">→</text>
+    <rect class="cond" x="740" y="100" width="280" height="52"/><text class="pill" x="880" y="126">review codice · architettura</text><text class="note" x="740" y="178">scegli il candidato prima di intervenire</text>
+  </g>
+
+  <g transform="translate(50 1360)"><rect class="alt" width="1100" height="190"/>
+    <text class="scenario" x="30" y="40">5 · Semplificare il codice</text><text class="note" x="30" y="70">Preserva comportamento e contratti.</text>
+    <rect class="skill" x="30" y="100" width="190" height="52"/><text class="pill" x="125" y="126">reality-check</text><text class="arrow" x="240" y="126">→</text>
+    <rect class="cond" x="260" y="100" width="150" height="52"/><text class="pill" x="335" y="126">zoom-out</text><text class="arrow" x="430" y="126">→</text>
+    <rect class="skill" x="450" y="100" width="250" height="52"/><text class="pill" x="575" y="126">code-simplification</text><text class="arrow" x="720" y="126">→</text>
+    <rect class="quality" x="740" y="100" width="240" height="52"/><text class="pill" x="860" y="126">review → verifica</text>
+  </g>
+
+  <g transform="translate(50 1570)"><rect class="card" width="1100" height="250"/>
+    <text class="scenario" x="30" y="40">6 · Migliorare l’architettura</text><text class="note" x="30" y="70">Scegli un candidato e ridisegna i confini.</text>
+    <rect class="skill" x="30" y="95" width="180" height="52"/><text class="pill" x="120" y="121">reality-check</text><text class="arrow" x="230" y="121">→</text>
+    <rect class="analysis" x="250" y="95" width="150" height="52"/><text class="pill" x="325" y="121">zoom-out</text><text class="arrow" x="420" y="121">→</text>
+    <rect class="analysis" x="440" y="95" width="300" height="52"/><text class="micro" x="590" y="121">improve-codebase-architecture</text>
+    <text class="arrow" x="30" y="190">↳</text><rect class="cond" x="60" y="165" width="280" height="52"/><text class="micro" x="200" y="191">codebase-design · domain-modeling</text><text class="arrow" x="360" y="191">→</text>
+    <rect class="cond" x="380" y="165" width="200" height="52"/><text class="pill" x="480" y="191">grill-with-docs</text><text class="arrow" x="600" y="191">→</text>
+    <rect class="skill" x="620" y="165" width="200" height="52"/><text class="pill" x="720" y="191">brainstorming</text><text class="arrow" x="840" y="191">→</text>
+    <rect class="quality" x="860" y="165" width="70" height="52"/><text class="pill" x="895" y="191">D</text>
+  </g>
+
+  <g transform="translate(50 1840)"><rect class="alt" width="1100" height="280"/>
+    <text class="scenario" x="30" y="40">7 · Riscrivere codice e architettura</text><text class="note" x="30" y="70">Assessment, poi tranche verticali. Niente big bang.</text>
+    <rect class="skill" x="30" y="95" width="180" height="52"/><text class="pill" x="120" y="121">reality-check</text><text class="arrow" x="230" y="121">→</text>
+    <rect class="analysis" x="250" y="95" width="150" height="52"/><text class="pill" x="325" y="121">zoom-out</text><text class="arrow" x="420" y="121">→</text>
+    <rect class="analysis" x="440" y="95" width="250" height="52"/><text class="pill" x="565" y="121">code-debt-review-loop</text>
+    <text class="arrow" x="30" y="190">↳</text><rect class="analysis" x="60" y="165" width="300" height="52"/><text class="micro" x="210" y="191">improve-codebase-architecture</text><text class="arrow" x="380" y="191">→</text>
+    <rect class="cond" x="400" y="165" width="200" height="52"/><text class="pill" x="500" y="191">grill-with-docs</text><text class="arrow" x="620" y="191">→</text>
+    <rect class="skill" x="640" y="165" width="200" height="52"/><text class="pill" x="740" y="191">brainstorming</text>
+    <text class="arrow" x="30" y="250">↳</text><rect class="outcome" x="60" y="225" width="210" height="44"/><text class="pill" x="165" y="247">tranche verticali</text><text class="arrow" x="290" y="247">→</text>
+    <rect class="quality" x="310" y="225" width="70" height="44"/><text class="pill" x="345" y="247">D</text>
+  </g>
+
+  <g transform="translate(50 2140)"><rect class="card" width="1100" height="280"/>
+    <text class="scenario" x="30" y="40">8 · Migrare linguaggio o framework</text><text class="note" x="30" y="70">Preserva invarianti; prova prima i rischi tecnici.</text>
+    <rect class="skill" x="30" y="95" width="180" height="52"/><text class="pill" x="120" y="121">reality-check</text><text class="arrow" x="230" y="121">→</text>
+    <rect class="analysis" x="250" y="95" width="150" height="52"/><text class="pill" x="325" y="121">zoom-out</text><text class="arrow" x="420" y="121">→</text>
+    <rect class="analysis" x="440" y="95" width="150" height="52"/><text class="pill" x="515" y="121">research</text><text class="arrow" x="610" y="121">→</text>
+    <rect class="analysis" x="630" y="95" width="210" height="52"/><text class="pill" x="735" y="121">domain-modeling</text>
+    <text class="arrow" x="30" y="190">↳</text><rect class="analysis" x="60" y="165" width="210" height="52"/><text class="pill" x="165" y="191">codebase-design</text><text class="arrow" x="290" y="191">→</text>
+    <rect class="cond" x="310" y="165" width="170" height="52"/><text class="pill" x="395" y="191">prototype</text><text class="arrow" x="500" y="191">→</text>
+    <rect class="skill" x="520" y="165" width="200" height="52"/><text class="pill" x="620" y="191">brainstorming</text><text class="arrow" x="740" y="191">→</text>
+    <rect class="quality" x="760" y="165" width="70" height="52"/><text class="pill" x="795" y="191">D</text>
+    <text class="note" x="60" y="255">Gap rilevato: non esiste ancora una skill globale dedicata alla migrazione.</text>
+  </g>
+
+  <text class="section" x="50" y="2480">Scenari operativi frequenti</text>
+
+  <g transform="translate(50 2520)"><rect class="alt" width="530" height="180"/><text class="scenario" x="24" y="38">Bug, test o build failure</text>
+    <rect class="cond" x="24" y="58" width="115" height="44"/><text class="pill" x="81" y="80">triage</text><text class="arrow" x="158" y="80">→</text>
+    <rect class="danger" x="178" y="58" width="230" height="44"/><text class="micro" x="293" y="80">systematic-debugging</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="skill" x="54" y="120" width="80" height="44"/><text class="pill" x="94" y="142">tdd</text><text class="arrow" x="154" y="142">→</text>
+    <rect class="quality" x="174" y="120" width="220" height="44"/><text class="micro" x="284" y="142">code-review-and-quality</text><text class="arrow" x="414" y="142">→</text>
+    <rect class="quality" x="434" y="120" width="60" height="44"/><text class="pill" x="464" y="142">V</text>
+  </g>
+  <g transform="translate(620 2520)"><rect class="card" width="530" height="180"/><text class="scenario" x="24" y="38">Issue o feature request</text>
+    <rect class="analysis" x="24" y="58" width="115" height="44"/><text class="pill" x="81" y="80">triage</text><text class="arrow" x="158" y="80">→</text>
+    <rect class="cond" x="178" y="58" width="160" height="44"/><text class="pill" x="258" y="80">reality-check</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="cond" x="54" y="120" width="140" height="44"/><text class="pill" x="124" y="142">grilling</text><text class="arrow" x="214" y="142">→</text>
+    <rect class="outcome" x="234" y="120" width="200" height="44"/><text class="pill" x="334" y="142">scenario emerso</text>
+  </g>
+
+  <g transform="translate(50 2720)"><rect class="card" width="530" height="180"/><text class="scenario" x="24" y="38">Iniziativa enorme o nebbiosa</text>
+    <rect class="analysis" x="24" y="58" width="125" height="44"/><text class="pill" x="86" y="80">wayfinder</text><text class="arrow" x="168" y="80">→</text>
+    <rect class="cond" x="188" y="58" width="260" height="44"/><text class="micro" x="318" y="80">research · prototype · grilling</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="skill" x="54" y="120" width="110" height="44"/><text class="pill" x="109" y="142">to-spec</text><text class="arrow" x="184" y="142">→</text>
+    <rect class="skill" x="204" y="120" width="190" height="44"/><text class="pill" x="299" y="142">brainstorming</text><text class="arrow" x="414" y="142">→</text>
+    <rect class="quality" x="434" y="120" width="60" height="44"/><text class="pill" x="464" y="142">D</text>
+  </g>
+  <g transform="translate(620 2720)"><rect class="alt" width="530" height="180"/><text class="scenario" x="24" y="38">Feedback di code review</text>
+    <rect class="analysis" x="24" y="58" width="210" height="44"/><text class="micro" x="129" y="80">receiving-code-review</text><text class="arrow" x="254" y="80">→</text>
+    <rect class="outcome" x="274" y="58" width="180" height="44"/><text class="pill" x="364" y="80">verifica tecnica</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="outcome" x="54" y="120" width="145" height="44"/><text class="pill" x="126" y="142">implementa</text><text class="arrow" x="219" y="142">→</text>
+    <rect class="cond" x="239" y="120" width="190" height="44"/><text class="micro" x="334" y="142">requesting-code-review</text><text class="arrow" x="463" y="142">→ V</text>
+  </g>
+
+  <g transform="translate(50 2920)"><rect class="alt" width="530" height="180"/><text class="scenario" x="24" y="38">Merge o rebase in conflitto</text>
+    <rect class="danger" x="24" y="58" width="230" height="44"/><text class="micro" x="139" y="80">resolving-merge-conflicts</text><text class="arrow" x="274" y="80">→</text>
+    <rect class="outcome" x="294" y="58" width="150" height="44"/><text class="micro" x="369" y="80">test repository</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="quality" x="54" y="120" width="250" height="44"/><text class="micro" x="179" y="142">verification-before-completion</text>
+  </g>
+  <g transform="translate(620 2920)"><rect class="card" width="530" height="180"/><text class="scenario" x="24" y="38">Codebase o modulo non familiare</text>
+    <rect class="skill" x="24" y="58" width="160" height="44"/><text class="pill" x="104" y="80">reality-check</text><text class="arrow" x="204" y="80">→</text>
+    <rect class="analysis" x="224" y="58" width="130" height="44"/><text class="pill" x="289" y="80">zoom-out</text>
+    <text class="arrow" x="24" y="142">↳</text><rect class="outcome" x="54" y="120" width="300" height="44"/><text class="micro" x="204" y="142">rientra nello scenario emerso</text>
+  </g>
+
+  <g transform="translate(50 3140)" filter="url(#shadow)"><rect width="1100" height="220" rx="28" fill="#102d29" stroke="#34d399" stroke-width="2"/>
+    <text class="section" x="30" y="45">D · Delivery comune</text><text class="section-note" x="30" y="78">senior-implementation-discipline = guardrail trasversale</text>
+    <rect class="quality" x="30" y="105" width="170" height="52"/><text class="pill" x="115" y="131">writing-plans</text><text class="arrow" x="220" y="131">→</text>
+    <rect class="cond" x="240" y="105" width="150" height="52"/><text class="pill" x="315" y="131">to-tickets</text><text class="arrow" x="410" y="131">→</text>
+    <rect class="cond" x="430" y="105" width="210" height="52"/><text class="micro" x="535" y="131">using-git-worktrees</text><text class="arrow" x="660" y="131">→</text>
+    <rect class="quality" x="680" y="105" width="70" height="52"/><text class="pill" x="715" y="131">tdd</text>
+    <text class="arrow" x="30" y="190">↳</text><rect class="quality" x="60" y="165" width="250" height="44"/><text class="micro" x="185" y="187">code-review-and-quality</text><text class="arrow" x="330" y="187">→</text>
+    <rect class="quality" x="350" y="165" width="270" height="44"/><text class="micro" x="485" y="187">verification-before-completion</text>
+  </g>
+  <text class="note" x="50" y="3400">V = verification-before-completion. Dettagli: global/ask-skills/SKILL.md e singole SKILL.md.</text>
+</svg>

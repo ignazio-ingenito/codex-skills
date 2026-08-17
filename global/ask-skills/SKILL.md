@@ -58,47 +58,58 @@ Non installare automaticamente una skill soltanto perché è consigliata. Propon
 
 ## Il flusso principale: idea → delivery
 
-Il percorso seguito dalla maggior parte del lavoro. Hai un'idea e vuoi realizzarla.
+La maggior parte del lavoro entra da un'idea, una specifica o una modifica a un codebase esistente. Non usare tutte le skill in serie: applica soltanto i passaggi richiesti dalle condizioni seguenti.
 
-1. **Reality check quando esistono fonti autorevoli** — prima di un'intervista o di una decisione source-grounded usa `reality-check` per distinguere fatti, deduzioni e informazioni mancanti. Non porre domande già risolte e non introdurre complessità non richiesta.
-2. **`grill-with-docs`** — affina l'idea tramite intervista. Parti da qui quando **esiste un codebase**: conserva ciò che apprende in `CONTEXT.md` e negli ADR. Se serve soltanto un'intervista mirata usa `grilling`; se il problema sono soprattutto termini e invarianti, usa anche `domain-modeling`.
-3. **Branch — ogni domanda può essere risolta in conversazione?** Se una domanda richiede una risposta eseguibile — stato, business logic o una UI da vedere — devia attraverso un prototipo, usando **`handoff`** in entrambe le direzioni:
-   - `handoff` in uscita, poi apri una sessione nuova riferita al file;
-   - `prototype` per rispondere con codice throwaway;
-   - `handoff` di ritorno con ciò che è stato appreso, referenziandolo dal thread originale.
-4. **Branch — è un lavoro multi-sessione?**
-   - **Sì** → `to-spec`, poi `to-tickets` per dividerlo in tracer-bullet ticket con blocker espliciti. Ogni ticket viene eseguito in un contesto pulito usando le skill di delivery locali.
-   - **No** → procedi nello stesso contesto con il percorso di delivery minimo necessario.
-
-In entrambi i casi, la delivery usa le skill già presenti invece di una skill `implement` separata: `writing-plans` quando proporzionato, `using-git-worktrees` quando serve isolamento, `tdd` per comportamento eseguibile, `senior-implementation-discipline` quando applicabile, `code-review-and-quality` per la review e `verification-before-completion` prima della chiusura. Usa `requesting-code-review` e `receiving-code-review` quando il flusso richiede una review separata.
+1. **Verifica ciò che è già deciso.** Quando esistono repository, RFC, ADR, specifiche o altre fonti autorevoli, usa prima `reality-check`. Elimina domande già risolte e separa fatti, deduzioni e informazioni mancanti.
+2. **Chiarisci l'intento prima del design.**
+   - Usa `interview-me` quando non sono ancora chiari destinatario, problema, risultato atteso o vincoli.
+   - Usa `idea-refine` quando l'intento è abbastanza chiaro ma l'idea è ancora grezza e serve esplorare direzioni alternative.
+   - Usa `office-hours` quando la domanda precedente è se l'idea o la scommessa di prodotto meriti davvero investimento.
+3. **Risolvi soltanto le decisioni aperte.** In un codebase documentato usa `grill-with-docs`; per un'intervista mirata usa `grilling`; quando il problema riguarda soprattutto termini e invarianti usa `domain-modeling`.
+4. **Prototipa prima del design finale, e solo per una domanda eseguibile.** Se una decisione richiede vedere una UI o provare stato, logica o integrazione:
+   - usa `handoff` in uscita quando è utile isolare il contesto;
+   - usa `prototype` per codice esplicitamente throwaway, prima di invocare `brainstorming`;
+   - registra domanda, esito e decisione;
+   - elimina il prototipo e usa il risultato come input di `brainstorming`.
+5. **Progetta prima di implementare.** Quando il lavoro crea o modifica comportamento, usa `brainstorming` dopo che intento ed eventuali esperimenti sono chiari. Confronta alternative, approva il design e invoca subito `writing-plans`: è l'unico passaggio ammesso dopo `brainstorming`. Non usare `brainstorming` come sostituto di `interview-me`.
+6. **Scegli la scala della consegna dopo il piano.**
+   - Lavoro multi-sessione → dopo `writing-plans`, usa `to-tickets`; ogni ticket parte da un contesto pulito e dalla propria fonte autorevole.
+   - Lavoro contenuto → prosegui dal piano alla delivery nello stesso contesto.
+   - Usa `to-spec` quando una conversazione di discovery o un insieme di decisioni deve diventare una fonte pubblicabile prima del design; non inserirla tra `brainstorming` e `writing-plans`.
+7. **Implementa e chiudi con evidenze.** Usa `using-git-worktrees` quando serve isolamento, `tdd` per comportamento eseguibile, `senior-implementation-discipline` come guardrail sui cambi condivisi o rischiosi, `code-review-and-quality` per la review e `verification-before-completion` prima della chiusura. Usa `requesting-code-review` e `receiving-code-review` quando la review è un ciclo separato.
 
 ### Igiene del contesto
 
-Mantieni i passaggi 1–4 nello stesso contesto finché non sono stati prodotti spec e ticket. Ogni ticket implementativo parte poi da un contesto pulito, lavorando dalla propria fonte autorevole.
+Mantieni intent, decisioni e design nello stesso contesto finché non esiste una fonte implementabile. Ogni ticket implementativo parte poi da un contesto pulito.
 
 Se il contesto diventa troppo grande prima di `to-tickets`, usa `handoff` e continua in una sessione nuova invece di proseguire con contesto degradato.
 
-## On-ramp
+## On-ramp operativi
 
-Una situazione iniziale che genera lavoro e poi confluisce nel flusso principale.
+Una situazione iniziale che genera lavoro e poi confluisce nel flusso appropriato.
 
-- **Issue, bug report e richieste in ingresso** → `triage`. Produce issue pronte per la delivery.
+- **Issue, bug report o feature request in ingresso** → `triage`. I ticket già prodotti da `to-tickets` sono pronti e non vanno sottoposti nuovamente a triage.
+- **Bug, test o build failure** → `systematic-debugging`, poi fix guidato da `tdd`, review e `verification-before-completion`. Se il problema reale è l'assenza di un seam testabile, passa a `improve-codebase-architecture`.
+- **Iniziativa enorme o nebbiosa** → `wayfinder`. Risolvi i decision ticket con `research`, `prototype` o `grilling`, consolida le decisioni con `to-spec`, quindi per ogni workstream eseguibile usa `brainstorming` → `writing-plans` → `to-tickets` quando servono più ticket → delivery ticket per ticket.
+- **Feedback di code review** → `receiving-code-review`, verifica tecnica, implementazione proporzionata, `requesting-code-review` quando serve un nuovo controllo separato e `verification-before-completion`.
+- **Merge o rebase in conflitto** → `resolving-merge-conflicts`, controlli del repository e `verification-before-completion`.
+- **Codebase o modulo non familiare** → `reality-check`, quindi `zoom-out`; rientra poi nello scenario effettivo emerso. La sola comprensione non autorizza un refactor.
 
-  Il triage si applica alle richieste arrivate grezze. I ticket generati da `to-tickets` sono già pronti e non vanno sottoposti nuovamente a triage.
+## Salute e trasformazione del codebase
 
-- **Qualcosa è rotto** → usa la skill di debugging più specifica documentata per il progetto; in assenza di una variante usa `systematic-debugging`. Crea un feedback loop riproducibile, aggiungi un regression test e poi verifica. Se il problema reale è l'assenza di un seam testabile, passa a `improve-codebase-architecture`.
+Questi percorsi partono da codice esistente e non equivalgono automaticamente a feature work.
 
-- **Un'iniziativa enorme e nebbiosa** → `wayfinder`. Usa una mappa condivisa di decision ticket e risolve decisioni, non deliverable, finché il percorso diventa visibile. Riservalo ai lavori che non possono essere contenuti in una sessione.
+- **Assessment generale** → `reality-check` → `zoom-out` → `code-debt-review-loop`. Per il dettaglio usa `code-review-and-quality` sul codice oppure `improve-codebase-architecture` su struttura e testabilità. L'implementazione parte solo dopo la scelta esplicita di un intervento.
+- **Semplificazione behavior-preserving** → `reality-check` → `zoom-out` quando necessario → `code-simplification` → `code-review-and-quality` → test mirati → `verification-before-completion`.
+- **Miglioramento architetturale** → `reality-check` → `zoom-out` → `improve-codebase-architecture` → scelta del candidato → `codebase-design` e `domain-modeling` quando servono → `grill-with-docs` → `brainstorming` → `writing-plans` → delivery.
+- **Riscrittura di codice e architettura** → `reality-check` → `zoom-out` → `code-debt-review-loop` → `improve-codebase-architecture` → `grill-with-docs` → `brainstorming` → `writing-plans` a tranche verticali → delivery. Usa `code-simplification` solo in tranche separate che preservano il comportamento.
+- **Cambio di linguaggio o framework** → `reality-check` → `zoom-out` → `research` su versioni e fonti ufficiali → `domain-modeling` per gli invarianti → `codebase-design` per i nuovi confini → `prototype` per i rischi tecnici non risolvibili documentalmente → `brainstorming` → `writing-plans` → `to-tickets` quando il piano è multi-sessione → delivery. Non esiste oggi una skill globale dedicata alla migrazione: non sostituirla implicitamente con una skill specifica di progetto.
 
-  Quando la mappa è risolta, rientra nel flusso principale con `to-spec`, quindi `to-tickets` e delivery ticket per ticket.
+## Guardrail trasversali
 
-## Salute del codebase
-
-Non è feature work: è manutenzione.
-
-- **`improve-codebase-architecture`** — individua opportunità di deepening e testabilità. La scelta di un candidato genera un'idea che può rientrare nel flusso principale tramite `grill-with-docs`. `codebase-design` fornisce il vocabolario per progettare il modulo scelto.
-- **`code-simplification`** — semplifica codice funzionante preservandone il comportamento.
-- **`zoom-out`** — fornisce una mappa ad alto livello quando il codice non è comprensibile localmente.
+- **`ponytail`** — usa la soluzione minima sufficiente quando il rischio è aggiungere astrazioni, dipendenze o componenti non necessari.
+- **`senior-implementation-discipline`** — applicala durante cambi a codice esistente, contratti, dominio, persistenza, sicurezza o architettura; non trattarla come una fase eseguita dopo `tdd`.
+- **`codebase-design`** e **`domain-modeling`** — forniscono vocabolario e invarianti alle skill di processo; non sostituiscono design, piano o verifica.
 
 ## Vocabolario sottostante
 
