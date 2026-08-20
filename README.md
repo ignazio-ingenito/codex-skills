@@ -71,7 +71,6 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `interview-me` | `addyosmani/agent-skills` | Chiarisce il bisogno reale una domanda alla volta. |
 | `office-hours` | `garrytan/gstack` | Valuta idee, focus e ambizione di prodotto con domande stile YC. |
 | `playwright` | `openai/skills` | Automatizza browser reali con Playwright CLI. |
-| `ponytail` | `DietrichGebert/ponytail` | Impone la soluzione minima che funziona, privilegiando YAGNI, riuso, stdlib e funzionalità native. |
 | `prototype` | `mattpocock/skills` | Crea prototipi throwaway per validare design, stato o UI. |
 | `reality-check` | locale | Verifica fonti e decisioni già determinate prima di porre domande o introdurre complessità. |
 | `receiving-code-review` | `obra/superpowers` | Valuta feedback di review prima di applicarlo. |

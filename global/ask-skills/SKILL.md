@@ -107,7 +107,6 @@ Questi percorsi partono da codice esistente e non equivalgono automaticamente a 
 
 ## Guardrail trasversali
 
-- **`ponytail`** — usa la soluzione minima sufficiente quando il rischio è aggiungere astrazioni, dipendenze o componenti non necessari.
 - **`senior-implementation-discipline`** — applicala durante cambi a codice esistente, contratti, dominio, persistenza, sicurezza o architettura; non trattarla come una fase eseguita dopo `tdd`.
 - **`codebase-design`** e **`domain-modeling`** — forniscono vocabolario e invarianti alle skill di processo; non sostituiscono design, piano o verifica.
 
