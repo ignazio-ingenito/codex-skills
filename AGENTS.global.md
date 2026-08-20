@@ -77,7 +77,7 @@ Before declaring completion:
 - reconcile every authoritative artifact affected by the change;
 - retire superseded operational guidance through the project's existing lifecycle.
 
-For projects governed by [RFC-0001](https://github.com/ignazio-ingenito/agent-os/blob/main/rfcs/RFC-0001-principles.md), treat the current RFC as the normative source instead of copying its rules locally. Do not create documentation churn when the change does not materially affect what future maintainers or operators need to know.
+For projects governed by [RFC-0001](https://github.com/skunklabs-uk/agent-os/blob/main/rfcs/RFC-0001-principles.md), treat the current RFC as the normative source instead of copying its rules locally. Do not create documentation churn when the change does not materially affect what future maintainers or operators need to know.
 
 ## Operating Rule
 
