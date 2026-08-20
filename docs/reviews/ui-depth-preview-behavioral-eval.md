@@ -1,5 +1,7 @@
 # Eval comportamentale `ui-depth-preview`
 
+**Stato:** Archived
+**Archiviato:** 2026-08-20 — PR #29 conclusa; la skill e il relativo test restano le fonti operative correnti.
 **Issue:** #25  
 **PR:** #29  
 **Data:** 2026-08-12
@@ -63,7 +65,7 @@ Comportamento verificato applicando la skill:
 
 **Esito:** PASS.
 
-## Regressioni che questo eval deve impedire
+## Regressioni coperte dall'eval
 
 - reintrodurre `Implementation accurate` o una patch applicativa come requisito di preview;
 - rendere obbligatorio `interview-me` o un intake multi-domanda;

@@ -1,6 +1,7 @@
 # Validazione `ui-depth-preview`
 
-**Stato:** Active  
+**Stato:** Archived
+**Archiviato:** 2026-08-20 — PR #29 e #32 concluse; `global/ui-depth-preview/` e README restano le fonti operative correnti.
 **Origine:** Issue #25 / PR #29  
 **Ultimo aggiornamento:** Issue #31 / PR #32  
 **Rischio:** Light
@@ -9,7 +10,7 @@
 
 `ui-depth-preview` genera preview visuali del layering/depth di una UI esistente senza trasformare il lavoro in un redesign o in una implementazione temporanea.
 
-## Contratto attuale
+## Contratto validato
 
 - Due varianti di default: **Balanced** e **Expressive**.
 - **Balanced** usa soprattutto gerarchia delle surface, separazione tonale, bordi e shadow leggere.

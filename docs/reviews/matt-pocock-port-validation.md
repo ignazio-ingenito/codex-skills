@@ -1,6 +1,7 @@
 # Validazione porting Matt Pocock
 
-**Stato:** Active
+**Stato:** Archived
+**Archiviato:** 2026-08-20 — PR #16 conclusa; README e skill del repository restano le fonti operative correnti.
 **PR:** #16
 **Fonti autorevoli:** issue #10, RFC-0001, `mattpocock/skills@9603c1cc8118d08bc1b3bf34cf714f62178dea3b`, README e skill del repository.
 
@@ -23,7 +24,7 @@
 | Le decisioni rilevanti sono tracciabili e contestabili? | SÌ | Commit separati, issue #10-#15, PR #16 e sezioni Provenance. |
 | Ogni informazione operativa ha una sola fonte autorevole? | SÌ | README è il catalogo; le skill sono le fonti operative; questo file contiene solo evidenze di validazione. |
 | Sono state introdotte duplicazioni evitabili? | NO | Nessuna skill canonica duplicata; le varianti di progetto restano separate solo dove già intenzionali. |
-| I documenti interessati hanno uno stato corretto? | SÌ | Questo documento è Active; issue e PR rappresentano lo stato del lavoro. |
+| I documenti interessati hanno uno stato corretto? | SÌ | Al closeout questo documento è stato archiviato; issue e PR conservano lo stato storico del lavoro. |
 | La documentazione attiva rappresenta lo stato corrente del progetto? | SÌ | README aggiornato e condensato; inventario coerente con le directory presenti. |
 | Le verifiche producono evidenze osservabili? | SÌ | Output osservati: `Validated 89 skill(s)`, `All skill frontmatter valid`, nessun errore Bash o diff. |
 
@@ -70,4 +71,4 @@ git status --short
 clean
 ```
 
-Dopo ogni modifica successiva alla PR, queste verifiche devono essere rieseguite prima dell'approvazione finale.
+Le verifiche successive appartengono al normale ciclo di validazione del repository; questo documento conserva soltanto le evidenze della PR #16.

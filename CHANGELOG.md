@@ -113,6 +113,8 @@ All notable changes to this repository are documented in this file.
 
 ### Maintenance
 
+- Remove ponytail skill ([bc18f18](https://github.com/ignazio-ingenito/codex-skills/commit/bc18f18176c3f77b9be22919b936d591aca6a269))
+
 - Separate global and project skills ([fc68d5b](https://github.com/ignazio-ingenito/codex-skills/commit/fc68d5b7fed7443634f00665d3e95d9420f1220c))
 
 - Merge pull request #21 from ignazio-ingenito/agent/agent-os-rfc-0001-merge-personal-codex-skills
@@ -162,6 +164,5 @@ chore(ci): follow changelog reusable workflow main ([aae0cf3](https://github.com
 - Add ui depth preview acceptance checks ([913b58e](https://github.com/ignazio-ingenito/codex-skills/commit/913b58e02d65fccea943019b51f911490204cb4e))
 
 - Document ui depth preview behavioral eval ([3805f1e](https://github.com/ignazio-ingenito/codex-skills/commit/3805f1ebfabf9692568bdbf0fd5ca0c304327004))
-
 
 

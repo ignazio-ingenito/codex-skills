@@ -1,5 +1,7 @@
 # Codex Skills
 
+**Stato:** Active
+
 Repository canonico delle skill Codex locali.
 
 - `global/`: skill riusabili, installate in `$CODEX_HOME/skills`.
@@ -28,6 +30,13 @@ scripts/
 ```
 
 `grill-with-docs` esiste sia tra le skill globali sia in CAP Aeris: le due versioni non sono identiche e restano separate finché non viene decisa una generalizzazione esplicita.
+
+## Fonti autorevoli e lifecycle documentale
+
+- `global/` e `projects/` contengono le fonti operative autorevoli delle skill.
+- [`global/ask-skills/SKILL.md`](global/ask-skills/SKILL.md) è la fonte autorevole per il routing generale; le singole `SKILL.md` governano il comportamento dettagliato.
+- Questo README è il catalogo pubblico dello stato corrente. Le skill rimosse scompaiono dall'inventario e restano tracciate nella cronologia Git e nel `CHANGELOG.md`.
+- `AGENTS.md` e la RFC-0001 attiva governano il repository. Piani, specifiche e review sotto `docs/` dichiarano il proprio stato e, quando `Archived`, valgono solo come evidenza storica.
 
 ## Percorsi consigliati
 
