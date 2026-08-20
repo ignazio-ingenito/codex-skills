@@ -33,6 +33,8 @@ All notable changes to this repository are documented in this file.
 
 ### Documentation
 
+- Propagate complete closeout guidance ([4c2eaef](https://github.com/ignazio-ingenito/codex-skills/commit/4c2eaefaca2aa919469989b99a43d63695de58cd))
+
 - Add shared global agent instructions ([4025be2](https://github.com/ignazio-ingenito/codex-skills/commit/4025be2a5d1cf01c7a5b73ff894c7d2aacbbdb52))
 
 - Document shared global agent instructions ([7c4a55f](https://github.com/ignazio-ingenito/codex-skills/commit/7c4a55f920e24054737deb5092d6d4b60b0a8b3c))
