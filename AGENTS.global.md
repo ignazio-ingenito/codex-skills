@@ -67,6 +67,18 @@ When you cannot verify something, say so. When tests, commands, or checks were n
 
 Never claim completion, safety, compatibility, performance, or correctness without evidence.
 
+### 5. Finish repository closeout
+
+Passing implementation checks does not finish the work while the repository's authoritative state remains stale.
+
+Before declaring completion:
+
+- follow the project's active closeout and document-lifecycle rules;
+- reconcile every authoritative artifact affected by the change;
+- retire superseded operational guidance through the project's existing lifecycle.
+
+For projects governed by [RFC-0001](https://github.com/ignazio-ingenito/agent-os/blob/main/rfcs/RFC-0001-principles.md), treat the current RFC as the normative source instead of copying its rules locally. Do not create documentation churn when the change does not materially affect what future maintainers or operators need to know.
+
 ## Operating Rule
 
 When these instructions conflict with a narrower skill, project convention, or implementation preference, follow the stricter rule unless the user explicitly decides otherwise.
