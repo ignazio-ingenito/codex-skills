@@ -157,7 +157,7 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `homelab-ceph-storage-operations` | locale | Ceph, CSI, RGW, RBD, PVC e bucket S3. |
 | `homelab-cloudflare-operations` | locale | DNS, Access, Zero Trust e tunnel Cloudflare. |
 | `homelab-gateway-routes` | locale | HTTPRoute, Gateway API, Traefik e ingress Cloudflare. |
-| `homelab-gitops-operations` | locale | Modifiche GitOps, sync ArgoCD, Kustomize manifest e verifiche live. |
+| `homelab-gitops-operations` | locale | Modifiche GitOps, sync ArgoCD, Kustomize e verifiche live. |
 | `homelab-implementation-planning` | locale | Piani di migrazione, rollout, rollback e commit strategy. |
 | `homelab-kubernetes-operations` | locale | K3s, risorse, CRD, operatori, rollout, servizi e log. |
 | `homelab-network-readiness` | `affaan-m/everything-claude-code` | Verifica rete, DNS, firewall e accesso remoto. |
