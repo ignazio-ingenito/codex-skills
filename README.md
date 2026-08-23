@@ -63,6 +63,7 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 
 | Skill | Sorgente | Uso |
 | --- | --- | --- |
+| `agent-loop` | locale | Coordina explorer, main agent, worker e reviewer per task autonomi bounded. |
 | `ask-skills` | `mattpocock/skills` | Individua la skill o il flusso adatto. |
 | `brainstorming` | `obra/superpowers` | Chiarisce intento, requisiti e design prima di modificare comportamento. |
 | `caveman` | `mattpocock/skills` | Riduce al minimo parole e token. |
