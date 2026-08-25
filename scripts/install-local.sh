@@ -96,7 +96,7 @@ prepare_upstream_skill() {
     exit 1
   fi
 
-  origin_url="$(git -C "${checkout_dir}" remote get-url origin)"
+  origin_url="$(git -C "${checkout_dir}" config --get remote.origin.url)"
   if [[ "${origin_url}" != "${repo_url}" ]]; then
     echo "ERROR upstream cache for ${skill_name} points to ${origin_url}, expected ${repo_url}" >&2
     exit 1
