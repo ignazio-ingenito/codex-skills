@@ -2,9 +2,10 @@
 
 **Stato:** Active
 
-Repository canonico delle skill Codex locali.
+Repository canonico delle skill Codex locali e delle skill globali consumate direttamente dai repository upstream originali.
 
-- `global/`: skill riusabili, installate in `$CODEX_HOME/skills`.
+- `global/`: skill riusabili mantenute localmente, installate in `$CODEX_HOME/skills`.
+- `config/global-skill-upstreams.tsv`: mapping delle skill globali installate direttamente dagli upstream originali a commit pinned.
 - `projects/<project-name>/`: skill legate a un progetto, installate in `.agents/skills`.
 
 ## Struttura
@@ -17,6 +18,8 @@ global/
     scripts/             # helper deterministici opzionali
     references/          # contesto caricato su richiesta
     assets/              # template o file binari opzionali
+config/
+  global-skill-upstreams.tsv
 projects/
   project-name/
     skill-name/
@@ -33,10 +36,13 @@ scripts/
 
 ## Fonti autorevoli e lifecycle documentale
 
-- `global/` e `projects/` contengono le fonti operative autorevoli delle skill.
+- `global/` e `projects/` contengono le fonti operative autorevoli delle skill mantenute localmente.
+- `config/global-skill-upstreams.tsv` è la fonte autorevole per le skill globali consumate direttamente dagli upstream originali; per queste skill il contenuto autorevole resta nel repository e nel commit indicati dal manifest e non viene vendorizzato qui.
 - [`global/ask-skills/SKILL.md`](global/ask-skills/SKILL.md) è la fonte autorevole per il routing generale; le singole `SKILL.md` governano il comportamento dettagliato.
 - Questo README è il catalogo pubblico dello stato corrente. Le skill rimosse scompaiono dall'inventario e restano tracciate nella cronologia Git e nel `CHANGELOG.md`.
 - `AGENTS.md` e la RFC-0001 attiva governano il repository. Piani, specifiche e review sotto `docs/` dichiarano il proprio stato e, quando `Archived`, valgono solo come evidenza storica.
+
+Le skill elencate in `config/global-skill-upstreams.tsv` non devono avere copie o fork locali in `global/` o `projects/`. Un derivato intenzionale richiede una decisione esplicita e deve avere identità e scopo distinti dall'upstream originale.
 
 ## Percorsi consigliati
 
@@ -66,7 +72,7 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `agent-loop` | locale | Coordina explorer, main agent, worker e reviewer per task autonomi bounded. |
 | `ask-skills` | `mattpocock/skills` | Individua la skill o il flusso adatto. |
 | `brainstorming` | `obra/superpowers` | Chiarisce intento, requisiti e design prima di modificare comportamento. |
-| `caveman` | `mattpocock/skills` | Riduce al minimo parole e token. |
+| `caveman` | `JuliusBrussee/caveman` (upstream diretto) | Riduce al minimo parole e token. |
 | `code-debt-review-loop` | locale | Individua e ordina debito tecnico, hotspot e refactor sicuri prima dell’implementazione. |
 | `code-review-and-quality` | `addyosmani/agent-skills` | Revisiona correttezza, leggibilità, architettura, sicurezza e performance. |
 | `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
@@ -97,6 +103,7 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `to-tickets` | `mattpocock/skills` | Divide piani e specifiche in ticket con dipendenze esplicite. |
 | `triage` | `mattpocock/skills` | Classifica issue, bug e feature request. |
 | `ui-depth-preview` | locale | Genera preview controllate del layering/depth di una UI esistente. |
+| `unslop` | `theclaymethod/unslop` (upstream diretto) | Diagnostica e riscrive prose eliminando pattern tipici della scrittura AI senza perdere vincoli e contenuto. |
 | `using-git-worktrees` | `obra/superpowers` | Isola feature work e piani complessi con git worktree. |
 | `verification-before-completion` | `obra/superpowers` | Richiede evidenze prima di dichiarare un lavoro completato. |
 | `wayfinder` | `mattpocock/skills` | Pianifica lavori oltre una sessione tramite ticket di investigazione. |
@@ -229,8 +236,11 @@ Skill globali:
 ```bash
 scripts/install-local.sh
 scripts/install-local.sh playwright grill-with-docs
+scripts/install-local.sh caveman unslop
 scripts/install-local.sh --replace
 ```
+
+Per le skill dichiarate in `config/global-skill-upstreams.tsv`, `install-local.sh` usa `git` per creare un checkout del repository originale in `$CODEX_HOME/upstream-skills/<skill-name>`, verifica il commit pinned e collega direttamente la directory che contiene `SKILL.md`. Il contenuto upstream non viene copiato in questo repository. Se una skill già installata passa da una copia locale a un upstream diretto, usare una volta `--replace` per sostituire il vecchio link.
 
 Skill di progetto:
 
@@ -243,7 +253,8 @@ Gli script usano symlink e non sovrascrivono directory reali. Con `--replace`, s
 
 Percorsi runtime:
 
-- globali: `$CODEX_HOME/skills/<skill-name>`
+- globali locali: `$CODEX_HOME/skills/<skill-name>` -> `global/<skill-name>`
+- globali upstream: `$CODEX_HOME/skills/<skill-name>` -> `$CODEX_HOME/upstream-skills/<skill-name>/<skill-path>`
 - progetto: `<project-root>/.agents/skills/<skill-name>`
 
 ## Sincronizzazione e verifica

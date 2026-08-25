@@ -10,7 +10,8 @@ This repository stores personal and project-specific Codex skills.
 - Se la fonte non è accessibile, il lavoro DEVE fermarsi.
 - Le regole locali possono restringere la RFC, ma non indebolirla; conflitti o deroghe richiedono l'autorizzazione esplicita dell'utente o di una fonte attiva approvata di autorità superiore.
 - Il contenuto della RFC non DEVE essere duplicato in questo repository.
-- `global/` e `projects/` sono le sorgenti autorevoli delle skill; i progetti consumatori devono usare symlink installati dagli script, senza copie locali tracciate.
+- `global/` e `projects/` sono le sorgenti autorevoli delle skill mantenute localmente; `config/global-skill-upstreams.tsv` è la sorgente autorevole per le skill globali consumate direttamente dai repository upstream originali.
+- Una skill dichiarata in `config/global-skill-upstreams.tsv` NON DEVE essere copiata o vendorizzata in `global/` o `projects/`: l'installer deve usare il repository upstream e il commit approvati dal manifest.
 
 ## Shared Global Instructions
 
@@ -36,4 +37,4 @@ This repository stores personal and project-specific Codex skills.
 
 Optional repository-intelligence tools may be used when they are actually available and materially reduce uncertainty. They are not a universal prerequisite for documentation-only edits or for work where repository files, tests and Git history already provide sufficient evidence.
 
-Do not reference untracked `.claude/skills/...` paths or require a specific external index as if it were part of this repository's canonical skill lifecycle. The authoritative skill sources remain `global/` and `projects/`.
+Do not reference untracked `.claude/skills/...` paths or require a specific external index as if it were part of this repository's canonical skill lifecycle. The authoritative local skill sources remain `global/` and `projects/`; direct upstream global skills are governed only by `config/global-skill-upstreams.tsv` and their pinned original repositories.

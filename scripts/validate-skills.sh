@@ -4,6 +4,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 global_skills_dir="${repo_root}/global"
 project_skills_dir="${repo_root}/projects"
+upstreams_file="${repo_root}/config/global-skill-upstreams.tsv"
 
 if [[ ! -d "${global_skills_dir}" ]]; then
   echo "Missing skills directory: ${global_skills_dir}" >&2
@@ -12,6 +13,7 @@ fi
 
 status=0
 count=0
+upstream_count=0
 
 validate_skill_dir() {
   local skill_dir="$1"
@@ -126,6 +128,50 @@ PY
   fi
 }
 
+validate_upstreams() {
+  local skill_name repo_url ref skill_path extra
+  declare -A seen=()
+
+  [[ -f "${upstreams_file}" ]] || return 0
+
+  while IFS=$'\t' read -r skill_name repo_url ref skill_path extra || [[ -n "${skill_name:-}" ]]; do
+    [[ -z "${skill_name:-}" || "${skill_name}" == \#* ]] && continue
+    upstream_count=$((upstream_count + 1))
+
+    if [[ -n "${extra:-}" || -z "${repo_url:-}" || -z "${ref:-}" || -z "${skill_path:-}" ]]; then
+      echo "ERROR upstream/${skill_name}: expected name, repository, full commit SHA and skill path" >&2
+      status=1
+      continue
+    fi
+    if [[ ! "${skill_name}" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+      echo "ERROR upstream/${skill_name}: invalid skill name" >&2
+      status=1
+    fi
+    if [[ ! "${repo_url}" =~ ^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\.git$ ]]; then
+      echo "ERROR upstream/${skill_name}: repository must be an original GitHub HTTPS clone URL" >&2
+      status=1
+    fi
+    if [[ ! "${ref}" =~ ^[0-9a-fA-F]{40}$ ]]; then
+      echo "ERROR upstream/${skill_name}: ref must be a full commit SHA" >&2
+      status=1
+    fi
+    if [[ "${skill_path}" == /* || "${skill_path}" =~ (^|/)\.\.(/|$) ]]; then
+      echo "ERROR upstream/${skill_name}: invalid skill path ${skill_path}" >&2
+      status=1
+    fi
+    if [[ -n "${seen[${skill_name}]+x}" ]]; then
+      echo "ERROR upstream/${skill_name}: duplicate definition" >&2
+      status=1
+    fi
+    if [[ -d "${global_skills_dir}/${skill_name}" ]]; then
+      echo "ERROR upstream/${skill_name}: duplicate local copy exists in global/${skill_name}" >&2
+      status=1
+    fi
+
+    seen["${skill_name}"]=1
+  done < "${upstreams_file}"
+}
+
 while IFS= read -r -d '' skill_dir; do
   validate_skill_dir "${skill_dir}" "global/$(basename "${skill_dir}")"
 done < <(find "${global_skills_dir}" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
@@ -137,10 +183,12 @@ if [[ -d "${project_skills_dir}" ]]; then
   done < <(find "${project_skills_dir}" -mindepth 2 -maxdepth 2 -type d -print0 | sort -z)
 fi
 
-if [[ "${count}" -eq 0 ]]; then
+validate_upstreams
+
+if [[ "${count}" -eq 0 && "${upstream_count}" -eq 0 ]]; then
   echo "No skills found"
 else
-  echo "Validated ${count} skill(s)"
+  echo "Validated ${count} local skill(s) and ${upstream_count} pinned upstream skill definition(s)"
 fi
 
 exit "${status}"
