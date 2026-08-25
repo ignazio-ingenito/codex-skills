@@ -78,6 +78,7 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
 | `codebase-design` | `mattpocock/skills` | Progetta moduli profondi, interfacce piccole e seam puliti. |
 | `domain-modeling` | `mattpocock/skills` | Definisce termini, relazioni, invarianti e decisioni di dominio. |
+| `frontend-design` | `anthropics/skills` (upstream diretto) | Guida il design visuale distintivo e intenzionale delle interfacce frontend. |
 | `grill-with-docs` | locale | Stressa piani contro dominio, documentazione e decisioni. |
 | `grilling` | `mattpocock/skills` | Intervista in profondità finché le ambiguità sono risolte. |
 | `handoff` | `mattpocock/skills` | Compatta una sessione per consentire a un altro agente di continuarla. |
