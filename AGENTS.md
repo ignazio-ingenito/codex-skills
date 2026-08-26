@@ -21,6 +21,18 @@ This repository stores personal and project-specific Codex skills.
 - Use `bash scripts/install-global-agents.sh <project-root>` to install the link.
 - Use `--replace` only when intentionally backing up and replacing an existing project `AGENTS.md`.
 
+## Arresto e prosecuzione
+
+Fermarsi solo quando il lavoro richiede una decisione non documentata, supera lo scope approvato, viola una fonte `Active`, comporta conseguenze rilevanti non valutate oppure richiede una verifica obbligatoria che resta ineseguibile dopo ragionevoli tentativi.
+
+Prima di fermarsi, indicare la condizione applicabile, il fatto osservato e la decisione o informazione necessaria.
+
+Una condizione di stop si applica al solo perimetro che la richiede. Il blocco di un task, una fase o un'operazione non blocca automaticamente l'intera missione: il lavoro già autorizzato e determinato che non dipende da quella condizione deve proseguire.
+
+Quando la fonte attiva o il task corrente identifica già il lavoro successivo necessario nella stessa missione, proseguire senza chiedere una conferma meccanica, salvo che si applichi una condizione di stop reale.
+
+Non fermarsi per passaggi già approvati, errori locali correggibili, verifiche risolvibili entro lo scope, stato documentale correggibile in modo univoco o fallback già autorizzati.
+
 ## Commit Rules
 
 - Use Conventional Commits for every commit message.
