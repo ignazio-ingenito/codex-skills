@@ -246,8 +246,8 @@ Per le skill dichiarate in `config/global-skill-upstreams.tsv`, `install-local.s
 Skill di progetto:
 
 ```bash
-scripts/install-project.sh cap-aeris /home/iingenito/projects/personal/cap-aeris
-scripts/install-project.sh --replace cap-aeris /home/iingenito/projects/personal/cap-aeris
+scripts/install-project.sh aeris /path/to/aeris
+scripts/install-project.sh --replace aeris /path/to/aeris
 ```
 
 Gli script usano symlink e non sovrascrivono directory reali. Con `--replace`, spostano prima le voci esistenti in backup con timestamp. Riavvia Codex dopo installazioni o modifiche.

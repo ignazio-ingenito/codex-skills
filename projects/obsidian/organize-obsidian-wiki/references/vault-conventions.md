@@ -1,6 +1,6 @@
 # Vault Conventions
 
-These conventions apply to the support workspace `/home/iingenito/projects/personal/obsidian`.
+These conventions apply to the current clone of the support workspace `skunklabs-uk/obsidian`.
 
 The real Obsidian vault is `/mnt/c/Users/iingenito/OneDrive - TXT e-solutions S.p.A/Documents/Obsidian Vault`. Treat it as a read-only source unless the user explicitly approves a specific write.
 
@@ -8,7 +8,7 @@ The real Obsidian vault is `/mnt/c/Users/iingenito/OneDrive - TXT e-solutions S.
 
 - Write notes and responses in Italian unless the source note or user request uses another language.
 - Use "vault" for the real Obsidian directory.
-- Use "workspace" for `/home/iingenito/projects/personal/obsidian`.
+- Use "workspace" for the current clone of `skunklabs-uk/obsidian`.
 - Use "wiki personale" for curated notes intended as durable conversational memory.
 - Use "nota grezza" for unprocessed capture.
 - Use "nota curata" for reviewed wiki material.

@@ -1,6 +1,6 @@
 ---
 name: powerpoint-deck-production
-description: Produce or modify grounded, editable PowerPoint decks in the /home/iingenito/projects/txt/powerpoint repository. Use when Codex is asked to create, update, restructure, or export a commercial, PMO, proposal, business case, or executive presentation from repository materials, especially when outputs should be .pptx files saved in the project root.
+description: Use when creating, updating, restructuring, or exporting a commercial, PMO, proposal, business-case, or executive PowerPoint deck from materials in skunklabs-uk/powerpoint-ai.
 ---
 
 # PowerPoint Deck Production

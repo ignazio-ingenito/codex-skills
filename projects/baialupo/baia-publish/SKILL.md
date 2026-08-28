@@ -1,13 +1,13 @@
 ---
 name: baia-publish
-description: Publish Baialupo blog content with the established editorial workflow. Use when the user asks to publish a news item, event, safety notice, NOTAM-related update, flyer/locandina, shortlist candidate, or scouting result for baialupo.com; when adding a post to news/sicurezza/guide/baialupo; or when adding an event card to src/pages/events/events.md.
+description: Use when publishing a news item, event, safety notice, NOTAM-related update, flyer or locandina, shortlist candidate, or scouting result for baialupo.com; when adding a post to news, sicurezza, guide, or baialupo; or when adding an event card to src/pages/events/events.md.
 ---
 
 # Baia Publish
 
 ## Core Context
 
-Work in `/home/iingenito/projects/personal/baialupo.com` unless the user says otherwise.
+Work in the current clone of `skunklabs-uk/baialupo.com` unless the user says otherwise.
 
 Always read `AGENTS.md` before publishing or editing a Baialupo article. Read `CONTEXT.md` when terminology, tone, or category choice is unclear. `AGENTS.md` is authoritative for article format, editorial voice, frontmatter, image handling, emoji, source checking, and validation.
 

@@ -5,8 +5,9 @@ description: Use when changing, syncing, or debugging this homelab GitOps reposi
 
 # Homelab GitOps Operations
 
-Use this skill for operational work in `/home/iingenito/projects/personal/homelab`
-that changes GitOps manifests or coordinates ArgoCD syncs.
+Use this skill for operational work in the current clone of
+`skunklabs-uk/homelab` that changes GitOps manifests or coordinates ArgoCD
+syncs.
 
 ## Operating Model
 

@@ -1,6 +1,6 @@
 ---
 name: organize-obsidian-wiki
-description: Organize an Obsidian vault into a linked personal wiki for use as conversational memory with Codex. Use when the user asks to read, clean up, classify, connect, summarize, deduplicate, or turn Obsidian notes into durable wiki/project/reference notes; when a discussion should consult the vault; or when Codex needs to preserve personal context without inventing memory. For this user, treat the OneDrive Obsidian vault as read-only and create derived files only in the support workspace after explicit confirmation.
+description: Use when the user asks to read, clean up, classify, connect, summarize, deduplicate, or turn Obsidian notes into durable wiki, project, or reference notes; when a discussion should consult the vault; or when Codex needs to preserve personal context without inventing memory.
 ---
 
 # Organize Obsidian Wiki
@@ -9,9 +9,9 @@ description: Organize an Obsidian vault into a linked personal wiki for use as c
 
 Use this skill to treat an Obsidian vault as a personal wiki source: inspect existing notes, preserve raw context, create curated derived notes, and keep links, status, and terminology coherent.
 
-For `/mnt/c/Users/iingenito/OneDrive - TXT e-solutions S.p.A/Documents/Obsidian Vault`, use the vault only for reading unless the user explicitly approves a write. Put generated files in `/home/iingenito/projects/personal/obsidian`.
+For `/mnt/c/Users/iingenito/OneDrive - TXT e-solutions S.p.A/Documents/Obsidian Vault`, use the vault only for reading unless the user explicitly approves a write. Put generated files in the current clone of `skunklabs-uk/obsidian`.
 
-When working from `/home/iingenito/projects/personal/obsidian`, read `AGENTS.md` first if present. Read `CONTEXT.md` when terminology, note categories, or domain language matter.
+When working from `skunklabs-uk/obsidian`, read `AGENTS.md` first if present. Read `CONTEXT.md` when terminology, note categories, or domain language matter.
 
 For the default conventions, read [references/vault-conventions.md](references/vault-conventions.md) when creating or reorganizing derived notes.
 
@@ -19,7 +19,7 @@ For the default conventions, read [references/vault-conventions.md](references/v
 
 1. Locate the source vault and workspace.
    - Default source vault: `/mnt/c/Users/iingenito/OneDrive - TXT e-solutions S.p.A/Documents/Obsidian Vault`.
-   - Default workspace for generated files: `/home/iingenito/projects/personal/obsidian`.
+   - Default workspace for generated files: the current clone of `skunklabs-uk/obsidian`.
    - If unclear, ask before assuming a different write location.
 
 2. Build local context before changing notes.

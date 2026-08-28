@@ -5,7 +5,8 @@ description: Use when changing, debugging, or reviewing homelab observability wi
 
 # Homelab Observability Operations
 
-Use this skill for monitoring and logging work in `/home/iingenito/projects/personal/homelab`.
+Use this skill for monitoring and logging work in the current clone of
+`skunklabs-uk/homelab`.
 
 ## Canonical Files
 

@@ -1,6 +1,6 @@
 ---
 name: pptx-quality-review
-description: Review PowerPoint decks in the /home/iingenito/projects/txt/powerpoint repository for storyline completeness, source grounding, assumptions, executive clarity, visual consistency, and deliverable hygiene. Use when Codex is asked to inspect, validate, critique, or quality-check a .pptx, exported PDF, slide images, or generated presentation before delivery.
+description: Use when inspecting, validating, critiquing, or quality-checking a .pptx, exported PDF, slide images, or generated presentation in skunklabs-uk/powerpoint-ai before delivery.
 ---
 
 # PPTX Quality Review
