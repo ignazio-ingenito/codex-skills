@@ -11,6 +11,8 @@ Work in the current clone of `skunklabs-uk/baialupo.com` unless the user says ot
 
 Always read `AGENTS.md` before publishing or editing a Baialupo article. Read `CONTEXT.md` when terminology, tone, or category choice is unclear. `AGENTS.md` is authoritative for article format, editorial voice, frontmatter, image handling, emoji, source checking, and validation.
 
+The current Baialupo deployment is root-based. Author public assets as `/img/...` and article links as `/<category>/<slug>`. Never add `/web/...`: that prefix belongs to the migrated legacy site and must not appear in new frontmatter, Markdown, inline HTML, or event cards.
+
 Write in Italian for pilots, VDS/AG users, airfield managers, students, and aviation-light enthusiasts. Keep the tone practical, direct, and operationally cautious.
 
 Tone and language must feel like a Baialupo blog article, not a school summary or an event data sheet. Open with a useful, human angle; make the reader understand why the item is worth their attention; then fold dates, places, contacts, and caveats into the piece naturally. Use headings and bullets for scanability, but avoid turning the article into a list of explained facts unless the content is explicitly a guide, bulletin, or checklist.
@@ -40,7 +42,7 @@ For events and raduni, treat flyers, posters, social posts, and organizer blurbs
    - for raduni and events, search first for the official locandina/flyer from the organizer, aeroclub, aviosuperficie, event page, or social announcement;
    - if no suitable image exists, search for a usable official image or generate an original cover.
 8. Insert the cover in the article body immediately after the intro/practical info block:
-   `[![Alt text](/web/img/stories/name.jpg)](/web/img/stories/name.jpg)`
+   `[![Alt text](/img/stories/name.jpg)](/img/stories/name.jpg)`
 9. Use emoji in section headings/practical blocks when helpful: `📍`, `📅`, `✈️`, `🛩️`, `📌`, `🛠`, `🧑‍✈️`, `🎟️`, `🔗`.
 10. Cite sources at the end. Do not copy long external text; summarize and link.
 11. Run the editorial naturalness pass below before validation.
@@ -110,8 +112,8 @@ When adding an event:
 1. Update `src/pages/events/events.md`.
 2. Add one YAML item:
    ```yaml
-   - link: "/web/news/<public-slug>"
-     image: "/web/img/stories/<image>.jpg"
+   - link: "/news/<public-slug>"
+     image: "/img/stories/<image>.jpg"
      title: "YYYY-MM-DD"
    ```
 3. Use the first day of a multi-day event for `title`.
@@ -125,7 +127,7 @@ When adding an event:
 - Article filenames start with the source/event date: `YYYY-MM-DD-...md`.
 - Public slugs omit the date prefix automatically.
 - Image filenames should be descriptive and sequential when the repo pattern suggests it, e.g. `2026-266-avioraduno-centenario-aeroclub-milano.jpg`.
-- Use public paths with `/web/img/...` in frontmatter and Markdown.
+- Use root-based public paths with `/img/...` in frontmatter and Markdown. Never author `/web/...`.
 - Avoid remote images in final articles when a local copy can be added.
 
 ## Validation
@@ -142,10 +144,11 @@ For new articles/events/images:
 pnpm build
 ```
 
-After build, confirm the generated route contains the expected slug and image, for example:
+After build, confirm the generated route contains the expected slug and image and contains no legacy `/web/` URL, for example:
 
 ```bash
 rg -n "<slug>|<image-file>" dist/news/<slug>/index.html dist/events/index.html
+! rg -n '(?:href|src)="/web/' dist/news/<slug>/index.html dist/events/index.html
 ```
 
 Report what was created, the public route, and validation results. Mention if a fact could not be verified or if the article relies only on a locandina supplied by the user.
