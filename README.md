@@ -70,15 +70,21 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | Skill | Sorgente | Uso |
 | --- | --- | --- |
 | `agent-loop` | locale | Coordina explorer, main agent, worker e reviewer per task autonomi bounded. |
+| `analyze-data-quality` | `openai/role-specific-plugins` (upstream diretto) | Valuta se dati, query, dashboard e definizioni metriche sono abbastanza affidabili da usare. |
 | `ask-skills` | `mattpocock/skills` | Individua la skill o il flusso adatto. |
 | `brainstorming` | `obra/superpowers` | Chiarisce intento, requisiti e design prima di modificare comportamento. |
+| `build-dashboard` | `openai/role-specific-plugins` (upstream diretto) | Costruisce dashboard e scorecard source-backed con metriche, filtri, gerarchia visuale e QA. |
+| `build-report` | `openai/role-specific-plugins` (upstream diretto) | Produce report analitici durevoli con narrativa answer-first, evidenze, visual, caveat e fonti. |
 | `caveman` | `JuliusBrussee/caveman` (upstream diretto) | Riduce al minimo parole e token. |
 | `code-debt-review-loop` | locale | Individua e ordina debito tecnico, hotspot e refactor sicuri prima dell’implementazione. |
 | `code-review-and-quality` | `addyosmani/agent-skills` | Revisiona correttezza, leggibilità, architettura, sicurezza e performance. |
 | `code-simplification` | `addyosmani/agent-skills` | Semplifica codice funzionante senza cambiarne il comportamento. |
 | `codebase-design` | `mattpocock/skills` | Progetta moduli profondi, interfacce piccole e seam puliti. |
+| `create-data-context` | `openai/role-specific-plugins` (upstream diretto) | Crea e mantiene semantic layer con definizioni metriche, fonti autorevoli e caveat riusabili. |
+| `design-kpis` | `openai/role-specific-plugins` (upstream diretto) | Definisce KPI, driver, guardrail, target e piani di misurazione. |
 | `domain-modeling` | `mattpocock/skills` | Definisce termini, relazioni, invarianti e decisioni di dominio. |
 | `frontend-design` | `anthropics/skills` (upstream diretto) | Guida il design visuale distintivo e intenzionale delle interfacce frontend. |
+| `gather-business-context` | `openai/role-specific-plugins` (upstream diretto) | Raccoglie il contesto di business necessario prima dell’analisi. |
 | `gemini-presentation-handoff` | locale | Trasferisce a Gemini struttura, contenuti, fonti e asset di una presentazione lasciandogli libertà sul design visuale. |
 | `grill-with-docs` | locale | Stressa piani contro dominio, documentazione e decisioni. |
 | `grilling` | `mattpocock/skills` | Intervista in profondità finché le ambiguità sono risolte. |
@@ -87,11 +93,19 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `idea-refine` | `addyosmani/agent-skills` | Trasforma idee grezze in concetti chiari e azionabili. |
 | `improve-codebase-architecture` | `mattpocock/skills` | Individua attriti architetturali e opportunità di refactor. |
 | `interview-me` | `addyosmani/agent-skills` | Chiarisce il bisogno reale una domanda alla volta. |
+| `jupyter-notebooks` | `openai/role-specific-plugins` (upstream diretto) | Crea notebook SQL o Python riproducibili, leggibili ed estendibili. |
+| `kpi-reporting` | `openai/role-specific-plugins` (upstream diretto) | Trasforma metriche e driver in aggiornamenti KPI pronti per leadership e review operative. |
+| `market-sizing` | `openai/role-specific-plugins` (upstream diretto) | Stima mercato o opportunità con assunzioni, sensibilità, incertezza e priorità di validazione. |
+| `metric-diagnostics` | `openai/role-specific-plugins` (upstream diretto) | Diagnostica movimenti delle metriche distinguendo driver verificati, contributori probabili e incognite. |
 | `office-hours` | `garrytan/gstack` | Valuta idee, focus e ambizione di prodotto con domande stile YC. |
 | `playwright` | `openai/skills` | Automatizza browser reali con Playwright CLI. |
+| `product-business-analysis` | `openai/role-specific-plugins` (upstream diretto) | Analizza domande di prodotto o business e produce raccomandazioni basate su evidenze. |
 | `prototype` | `mattpocock/skills` | Crea prototipi throwaway per validare design, stato o UI. |
 | `reality-check` | locale | Verifica fonti e decisioni già determinate prima di porre domande o introdurre complessità. |
 | `receiving-code-review` | `obra/superpowers` | Valuta feedback di review prima di applicarlo. |
+| `report-to-google-doc` | `openai/role-specific-plugins` (upstream diretto) | Converte report analitici HTML esistenti in Google Docs o DOCX. |
+| `report-to-google-slides` | `openai/role-specific-plugins` (upstream diretto) | Converte report analitici HTML esistenti in presentazioni Google Slides native. |
+| `report-to-pdf` | `openai/role-specific-plugins` (upstream diretto) | Converte report e dashboard analitici esistenti in PDF. |
 | `research` | `mattpocock/skills` | Ricerca con fonti primarie e salva risultati citati. |
 | `scrittura-comica` | locale | Scrive o adatta testi creativi con tono umoristico, ironico o satirico leggero. |
 | `requesting-code-review` | `obra/superpowers` | Prepara contesto e range per una review. |
@@ -107,11 +121,15 @@ Il router canonico e i criteri di scelta restano in [`global/ask-skills/SKILL.md
 | `ui-depth-preview` | locale | Genera preview controllate del layering/depth di una UI esistente. |
 | `unslop` | `theclaymethod/unslop` (upstream diretto) | Diagnostica e riscrive prose eliminando pattern tipici della scrittura AI senza perdere vincoli e contenuto. |
 | `using-git-worktrees` | `obra/superpowers` | Isola feature work e piani complessi con git worktree. |
+| `validate-data` | `openai/role-specific-plugins` (upstream diretto) | Esegue QA su analisi, calcoli, fonti, caveat e solidità delle conclusioni. |
 | `verification-before-completion` | `obra/superpowers` | Richiede evidenze prima di dichiarare un lavoro completato. |
+| `visualize-data` | `openai/role-specific-plugins` (upstream diretto) | Seleziona e rifinisce visualizzazioni con etichette, gerarchia e controlli di accessibilità. |
 | `wayfinder` | `mattpocock/skills` | Pianifica lavori oltre una sessione tramite ticket di investigazione. |
 | `writing-plans` | `obra/superpowers` | Scrive piani multi-step prima dell’implementazione. |
 | `writing-skills` | `obra/superpowers` | Crea, modifica e verifica skill. |
 | `zoom-out` | `mattpocock/skills` | Ricostruisce la mappa ad alto livello di codice e chiamanti. |
+
+Le 16 skill operative del pacchetto OpenAI Data Analytics sono consumate direttamente da `openai/role-specific-plugins` e pinned allo stesso commit. Il router interno `plugins/data-analytics/skills/index` non viene installato come skill globale: espone il nome generico `index` ed è progettato per l’invocazione del plugin; il routing generale resta affidato a `ask-skills`.
 
 ### CAP Aeris
 
@@ -238,6 +256,7 @@ Skill globali:
 ```bash
 scripts/install-local.sh
 scripts/install-local.sh playwright grill-with-docs
+scripts/install-local.sh build-dashboard visualize-data
 scripts/install-local.sh caveman unslop
 scripts/install-local.sh --replace
 ```
