@@ -95,6 +95,22 @@ Una situazione iniziale che genera lavoro e poi confluisce nel flusso appropriat
 - **Merge o rebase in conflitto** → `resolving-merge-conflicts`, controlli del repository e `verification-before-completion`.
 - **Codebase o modulo non familiare** → `reality-check`, quindi `zoom-out`; rientra poi nello scenario effettivo emerso. La sola comprensione non autorizza un refactor.
 
+## Data Analytics
+
+Quando la richiesta richiede dati strutturati, misure quantitative, metriche, KPI o evidenze numeriche per una decisione di prodotto o business, preferisci le skill Data Analytics più specifiche invece di un generico workflow documentale. Non usare queste skill per semplice scrittura, formattazione o trasformazioni meccaniche prive di analisi quantitativa.
+
+- **Domanda di prodotto/business con decisione o raccomandazione** → `product-business-analysis`.
+- **Movimento, anomalia, gap o discrepanza di una metrica** → `metric-diagnostics`; aggiungi `gather-business-context` quando servono definizioni, eventi, owner o decisioni pregresse.
+- **Affidabilità di dati, query, dashboard o definizioni metriche** → `analyze-data-quality`; usa `validate-data` quando invece devi revisionare un'analisi già prodotta prima di condividerla o usarla per decidere.
+- **Definizione o revisione di KPI, target, driver e guardrail** → `design-kpis`; per scorecard, WBR/MBR/QBR o aggiornamenti executive su KPI esistenti → `kpi-reporting`.
+- **Dashboard o scorecard** → `build-dashboard`; usa `visualize-data` quando il bisogno è specificamente progettare, correggere o revisionare grafici e figure quantitative.
+- **Report analitico durevole** → `build-report`. Se il report esiste già in HTML e serve una conversione esplicita, usa `report-to-google-doc`, `report-to-google-slides` o `report-to-pdf` secondo il formato richiesto.
+- **Notebook SQL/Python riproducibile** → `jupyter-notebooks`.
+- **TAM/SAM/SOM o dimensionamento di mercato/opportunità** → `market-sizing`.
+- **Contesto analitico persistente o semantic layer** → `create-data-context` soltanto quando l'utente chiede esplicitamente di salvare, creare, aggiornare, ispezionare o riparare quel contesto.
+
+Le skill possono comporsi quando il task lo richiede: per esempio qualità dati → diagnosi metrica → raccomandazione → report. Scegli però sempre il percorso minimo sufficiente e non caricare l'intera suite per una richiesta circoscritta.
+
 ## Salute e trasformazione del codebase
 
 Questi percorsi partono da codice esistente e non equivalgono automaticamente a feature work.
@@ -139,4 +155,4 @@ Fuori dal flusso principale.
 
 ## Provenienza
 
-Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills`, controllo non invasivo di coerenza dell'inventario, routing source-grounded tramite `reality-check` e guida all'installazione delle skill disponibili ma non attive.
+Adattata da `mattpocock/skills`, path `skills/engineering/ask-matt/SKILL.md`, commit `9603c1cc8118d08bc1b3bf34cf714f62178dea3b`. Modifiche intenzionali: nome `ask-skills`, riferimenti alle skill effettivamente presenti in `codex-skills`, controllo non invasivo di coerenza dell'inventario, routing source-grounded tramite `reality-check`, routing Data Analytics verso le skill OpenAI documentate e guida all'installazione delle skill disponibili ma non attive.
